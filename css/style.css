@@ -37,3 +37,9 @@ h1{
     width: 80vw;
     margin: 0 auto;
 }
+
+.emoji{
+    position: relative;
+    top: 15px;
+    width: 50px;
+}
