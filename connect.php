@@ -6,9 +6,6 @@
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<?php
-include "inscription.php";
-?>
 <div class="container">
     <form method="POST" action="login.php">
             <label class="control-label">Login</label>
@@ -18,5 +15,6 @@ include "inscription.php";
                         <input type="password" name="password" value="">
                             <input type="submit" value="submit" name="submit">
     </form>
+    <li><a href="?p=inscription">inscription</a></li>
 </body>
 </html>
