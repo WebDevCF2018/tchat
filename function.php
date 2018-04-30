@@ -49,7 +49,7 @@ function EnvoiConfirmMail() // les variables php du requete
         'Reply-To: ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     return mail($to, $subject, $message, $from);
-
+}
 
 /*
  * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
