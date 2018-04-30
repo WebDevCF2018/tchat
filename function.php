@@ -42,14 +42,14 @@ function EnvoiConfirmMail() // les variables php du requete
      </html>
      ";
 
-    $from  = 'MIME-Version: 1.0' . "\r\n";
+    $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
     $from .= 'From: ' . "\r\n" . // l'adresse du site
         'Reply-To: ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     return mail($to, $subject, $message, $from);
-
+}
 
 /*
  * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
