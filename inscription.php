@@ -8,7 +8,7 @@
     $email= filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
     $envReq = newuser($mysqli,$login,$pwd);
     }else{
-    return "problème survenue lors de l'envoye !";
+    return "problème survenue lors de l'envoye !" ;
     }
 
     ?>
