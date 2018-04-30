@@ -6,10 +6,11 @@
     $login= htmlspecialchars(strip_tags(trim($_POST['thelogin'])),ENT_QUOTES);
     $pwd= strip_tags(trim($_POST['thepwd']));
     $email= filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
+    $envReq = newuser($mysqli,$login,$pwd);
     }else{
     return "problème survenue lors de l'envoye !";
     }
-    $envReq = newuser($mysqli,$login,$pwd);
+
     ?>
     <meta charset="UTF-8">
     <title>Title</title>
