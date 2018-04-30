@@ -72,3 +72,32 @@ function newuser($db,$lelogin,$lepwd){
     return false;
 
 }
+
+
+function traiteChaine($text){
+        $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile">', $text);
+        $text = str_replace(':-)', '<img class=emoji src="img/smile.png" alt="smile">', $text);
+        $text = str_replace(':smile:', '<img class=emoji src="img/smile.png" alt="smile">', $text);
+        $text = str_replace(":'(", '<img class=emoji src="img/sad.gif" alt="sad">', $text);
+        $text = str_replace(':-(', '<img class=emoji src="img/sad.gif" alt="sad">', $text);
+        $text = str_replace(':sad:', '<img class=emoji src="img/sad.gif" alt="sad">', $text);
+        $text = str_replace('T_T', '<img class=emoji src="img/sad.gif" alt="sad">', $text);
+        $text = str_replace(':nyan:', '<img class=emoji src="img/nyan.gif" alt="nyan">', $text);
+        $text = str_replace(':like:', '<img class=emoji src="img/like.gif" alt="like">', $text);
+        $text = str_replace('>:(', '<img class=emoji src="img/angry.gif" alt="angry">', $text);
+        $text = str_replace(':angry:', '<img class=emoji src="img/angry.gif" alt="angry">', $text);
+        $text = str_replace(':wow:', '<img class=emoji src="img/wow.gif" alt="wow">', $text);
+        $text = str_replace(':o', '<img class=emoji src="img/wow.gif" alt="wow">', $text);
+        $text = str_replace(':laugh:', '<img class=emoji src="img/laugh.gif" alt="laugh">', $text);
+        $text = str_replace(':D', '<img class=emoji src="img/laugh.gif" alt="laugh">', $text);
+        $text = str_replace(':knuckle:', '<img class=emoji src="img/knuckle.png" alt="knuckle">', $text);
+        $text = str_replace(':troll:', '<img class=emoji src="img/troll.png" alt="troll">', $text);
+        $text = str_replace(':troll:', '<img class=emoji src="img/troll.png" alt="troll">', $text);
+        $text = str_replace(':heart:', '<img class=emoji src="img/heart.gif" alt="heart">', $text);
+        $text = str_replace('<3', '<img class=emoji src="img/heart.gif" alt="heart">', $text);
+        $text = str_replace(':confused:', '<img class=emoji src="img/confused.png" alt="confused">', $text);
+        $text = str_replace('>_<', '<img class=emoji src="img/confused.png" alt="confused">', $text);
+        $text = str_replace(':happy:', '<img class=emoji src="img/happy.png" alt="happy">', $text);
+        $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised">', $text);
+        return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star">', $text);
+}
