@@ -15,5 +15,6 @@
                         <input type="password" name="password" value="">
                             <input type="submit" value="submit" name="submit">
     </form>
+    <li><a href="?p=inscription">inscription</a></li>
 </body>
 </html>
