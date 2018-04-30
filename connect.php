@@ -6,6 +6,9 @@
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<?php
+include "inscription.php";
+?>
 <div class="container">
     <form method="POST" action="login.php">
             <label class="control-label">Login</label>
