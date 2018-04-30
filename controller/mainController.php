@@ -18,6 +18,6 @@
 				require "404.php";
 		}
 	}else{
-		require "tchat.php";
+		require "connect.php";
 	}
 ?>
