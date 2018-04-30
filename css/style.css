@@ -14,7 +14,19 @@ h1 {
 form div + div {
     margin-top: 1em;
 }
-
+#content{
+    height: 80vh;
+    border:solid 1px black;
+    overflow: auto;
+    width: 80vw;
+    margin: 5vh auto 5vh auto;
+}
+#envoi{
+    height: 5vh;
+    text-align: right;
+    width: 80vw;
+    margin: 0 auto;
+}
 label {
 
     display: inline-block;
@@ -22,19 +34,9 @@ label {
     text-align: right;
 }
 
+.emoji{
+    position: relative;
+    top: 15px;
+    width: 50px;
 
-#button {
-    margin-left: 5.7em;
-    width: 200px;
-    background-color: lightblue;
-    border: unset 2px ;
-    padding: 2px;
-}
-
-a  {
-    margin-left: 12.4em;
-    text-decoration: none;
-    font-family: "Times New Roman", Times, serif;
-    color: dimgrey;
-    font-size: 12px;
 }

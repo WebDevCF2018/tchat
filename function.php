@@ -42,7 +42,7 @@ function EnvoiConfirmMail() // les variables php du requete
      </html>
      ";
 
-    $from  = 'MIME-Version: 1.0' . "\r\n";
+    $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
     $from .= 'From: ' . "\r\n" . // l'adresse du site
@@ -57,14 +57,15 @@ function EnvoiConfirmMail() // les variables php du requete
  * Create
  *
  */
-function newuser($db,$lelogin,$lepwd){
+function newuser($db,$lelogin,$lepwd,$themail){
     // vérification de sécurité de $title et $text
     if(empty($lelogin)||empty($lepwd)){
         return false;
     }
+    $thekey = createKey();
     // req sql
-    $sql = "INSERT INTO chat18cf2m (thelogin,thepwd) VALUES ('$lelogin','$lepwd');";
-    $ajout = mysqli_query($db,$sql);
+    $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
+    $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
         return true;
