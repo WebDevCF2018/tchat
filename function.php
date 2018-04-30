@@ -21,6 +21,7 @@ function createKey()
 }
 //var_dump(createKey());
 
+
 function EnvoiConfirmMail() // les variables php du requete
 {
 
@@ -48,4 +49,26 @@ function EnvoiConfirmMail() // les variables php du requete
         'Reply-To: ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     return mail($to, $subject, $message, $from);
+
+
+/*
+ * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
+ *
+ * Create
+ *
+ */
+function newuser($db,$lelogin,$lepwd){
+    // vérification de sécurité de $title et $text
+    if(empty($lelogin)||empty($lepwd)){
+        return false;
+    }
+    // req sql
+    $sql = "INSERT INTO chat18cf2m (thelogin,thepwd) VALUES ('$lelogin','$lepwd');";
+    $ajout = mysqli_query($db,$sql);
+    // si on a inséré l'article
+    if(mysqli_affected_rows($db)){
+        return true;
+    }
+    return false;
+
 }
