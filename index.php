@@ -1,7 +1,7 @@
 <?php
 	/* Connexion à la base de donnée */
 	require_once "config.php";
-	require_once "mysqliConnect.php.php";
+	require_once "mysqliConnect.php";
 ?>
 <!DOCTYPE html>
 <html>
