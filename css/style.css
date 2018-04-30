@@ -40,3 +40,19 @@ label {
     width: 50px;
 
 }
+
+#button {
+    margin-left: 5.7em;
+    width: 200px;
+    background-color: lightblue;
+    border: unset 2px ;
+    padding: 2px;
+}
+
+a  {
+    margin-left: 12.4em;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    color: dimgrey;
+    font-size: 12px;
+}
