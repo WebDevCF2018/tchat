@@ -8,6 +8,3 @@
 
 	/* Chargement de controller principal */
 	require "controller/mainController.php";
-	
-
-	?>
