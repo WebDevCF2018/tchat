@@ -17,26 +17,16 @@
 </head>
 <body>
 <form action="" method="post">
+	<div class="retour"><a href="index.php">Retour</a></div>
     <h1>Inscription</h1>
-    <div>
-        <label for="login">Login :</label>
-        <input type="text" id="login" name="thelogin">
-    </div>
-    <div>
-        <label for="pwd">Password :</label>
-        <input type="password" id="pwd" name="thepwd">
 
-    </div>
-    <div>
-        <label for="mail">E-mail :</label>
-        <input type="email" id="mail" name="themail">
-    </div>
-    <div>
-        <input id="button" type="submit" name="thesend">
-
-
-    </div>
+    <label for="login">Login :</label>
+    <input type="text" id="login" name="thelogin" autocomplete="off">
+    <label for="pwd">Password :</label>
+    <input type="password" id="pwd" name="thepwd" autocomplete="off">
+    <label for="mail">E-mail :</label>
+    <input type="email" id="mail" name="themail" autocomplete="off">
+    <input id="button" type="submit" name="thesend">
 </form>
-
 </body>
 </html>
