@@ -13,7 +13,7 @@
     </div>
     <div>
         <label for="pwd">Password :</label>
-        <input type="password" id="thepwd" name="">
+        <input type="password" id="pwd" name="thepwd">
 
     </div>
     <div>
