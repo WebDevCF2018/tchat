@@ -1,58 +1,102 @@
-
 form {
-    /* Uniquement centrer le formulaire sur la page */
     margin: 0 auto;
     width: 360px;
-    /* Encadré pour voir les limites du formulaire */
     padding: 1em;
-    border: 2px solid #CCC;
-    border-radius: 1em;
+    background-color: #FFF;
+    box-shadow: 2px 3px 5px #cecece;
+    display: grid;
 }
-h1 {
+
+form h1 {
     text-align: center;
+    color: #7fa94e;
+    margin-top: 0;
 }
+
 form div + div {
     margin-top: 1em;
 }
-#content{
+
+#content {
     height: 80vh;
-    border:solid 1px black;
+    border: solid 1px black;
     overflow: auto;
     width: 80vw;
     margin: 5vh auto 5vh auto;
 }
-#envoi{
+
+#envoi {
     height: 5vh;
     text-align: right;
     width: 80vw;
     margin: 0 auto;
 }
-label {
 
-    display: inline-block;
-    width: 90px;
-    text-align: right;
+label {
+    color: #808080;
+    font-size: small;
+    margin: 5px 0;
 }
 
-.emoji{
+.emoji {
     position: relative;
     top: 15px;
     width: 50px;
-
 }
 
 #button {
-    margin-left: 5.7em;
-    width: 200px;
-    background-color: lightblue;
-    border: unset 2px ;
-    padding: 2px;
+    background-color: #8BC34A;
+    margin: 10px 0;
+    align-items: flex-start;
+    text-align: center;
+    cursor: pointer;
+    color: #FFF;
+    padding: 10px 0px;
+    border-style: none;
+    font-weight: bolder;
+    letter-spacing: 1px;
 }
 
-a  {
-    margin-left: 12.4em;
+.inscription a, .retour a {
     text-decoration: none;
     font-family: "Times New Roman", Times, serif;
-    color: dimgrey;
-    font-size: 12px;
+    color: #808080;
+    font-size: smaller;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: #f3f3f3;
+    font-family: arial;
+}
+
+input {
+    padding: 10px 0px;
+    text-align: center;
+    color: #628e2f;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background 0.15s;
+    border: 1px solid #cce4b0;
+}
+
+input#login {
+}
+
+input:focus {
+    outline: #8bc34a auto 0px;
+    background-color: #cce4b0;
+}
+
+.inscription a:hover, .retour a:hover {
+    text-decoration: underline;
+}
+
+.inscription {
+    text-align: right;
+}
+
+
+#button:hover {
+    background-color: #78ad3b;
 }
