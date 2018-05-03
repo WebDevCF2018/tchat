@@ -7,18 +7,14 @@
 <body>
 <form action="" method="post">
     <h1>Connexion</h1>
-    <div>
         <label for="login">Login :</label>
         <input type="text" id="login" name="thelogin">
-    </div>
-    <div>
-        <label for="pwd">Password :</label>
-        <input type="password" id="pwd" name="thepwd">
-
-    </div>
-    <div>
+        <label for="thepwd">Password :</label>
+        <input type="password" id="thepwd" name="">
         <input id="button" type="submit" name="thesend">
-    </div>
-        <a href="?p=inscription">inscription</a>
+
+        <div class="inscription">
+            <a href="?p=inscription">Inscription</a>
+        </div>
 </body>
 </html>
