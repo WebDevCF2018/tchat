@@ -1,5 +1,5 @@
 <?php
-	/* Connexin à la base de donnée */
+	/* Connexion à la base de donnée */
 	require_once "config.php";
 	require_once "mysqliConnect.php";
 
