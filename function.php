@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: artem.tsymbalov
- * Date: 27/04/2018
- * Time: 15:55
- */
+
 function createKey()
 {
 
-    
+
     // longueur chaîne de sortie
     $length = 64;
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
