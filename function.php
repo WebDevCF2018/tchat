@@ -7,13 +7,20 @@
  */
 function createKey()
 {
+
+    // longueur chaîne de sortie
     $length = 64;
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+    // création d'un tableau indexé à partir de la chaîne $key (0=>"A"
     $keyArray = str_split($key);
+    // nombre d'entrées dans ce tableau
     $numArray = count($keyArray);
+    // préparation de la variable de sortie au format string
     $string = '';
+    // tourne autant de X que $length
     for ($i = 0; $i < $length; $i++)
     {
+        // on concatène à la variable de sortie le tableau $keyArray[] avec une clef au hasard rand() entre 0 et la longueur du tableau -1 ($numArray-1)
         $string .= $keyArray[rand(0, $numArray-1)];
     }
    return $string;
@@ -22,12 +29,12 @@ function createKey()
 //var_dump(createKey());
 
 
-function EnvoiConfirmMail() // les variables php du requete
+    function EnvoiConfirmMail($db,$lelogin,$lepwd,$themail) // les variables php du requete
 {
 
-    $to = "";  //mail d'utilisateur, qui a fait le registration
+    $to = "$themail";  //mail d'utilisateur, qui a fait le registration
 
-    $subject = 'Validez votre inscription sur '; // l'adresse
+    $subject = 'Validez votre inscription sur le Tchat Webdev CF2m 2018'; // l'adresse
 
     $message = "
      <html>
@@ -35,8 +42,8 @@ function EnvoiConfirmMail() // les variables php du requete
        <title>Validez votre inscription sur le Tchat Webdev CF2m 2018!</title>
       </head>
       <body>
-       <p>Merci ('variable avec le name de db') pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='' target='_blank'>ce lien</a> pour valider votre compte.</p>
+       <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
+       <p>Cliquez sur <a href='localhost' target='_blank'>ce lien</a> pour valider votre compte.</p>
        <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
       </body>
      </html>
@@ -46,9 +53,9 @@ function EnvoiConfirmMail() // les variables php du requete
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
     $from .= 'From: ' . "\r\n" . // l'adresse du site
-        'Reply-To: ' . "\r\n" .
+        'Reply-To: yourbestenemy@gmail.com  ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
-    return mail($to, $subject, $message, $from);
+    return @mail($to, $subject, $message, $from);
 }
 
 /*
@@ -63,12 +70,13 @@ function newuser($db,$lelogin,$lepwd,$themail){
         return false;
     }
     $thekey = createKey();
+
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
     $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
-        return true;
+        EnvoiConfirmMail($db, $lelogin,$lepwd,$themail);
     }
     return false;
 
