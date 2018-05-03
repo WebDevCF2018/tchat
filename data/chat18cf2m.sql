@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 27 avr. 2018 à 14:06
+-- Généré le :  jeu. 03 mai 2018 à 09:38
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -50,11 +50,11 @@ CREATE TABLE IF NOT EXISTS `theuser` (
   `themail` varchar(255) NOT NULL,
   `thelogin` varchar(50) NOT NULL,
   `thepwd` varchar(64) NOT NULL,
-  `thekey` varchar(64) DEFAULT NULL,
-  `thevalidate` tinyint(3) UNSIGNED NOT NULL,
+  `thekey` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `thevalidate` tinyint(3) UNSIGNED DEFAULT '0',
   PRIMARY KEY (`idutil`),
   UNIQUE KEY `thelogin_UNIQUE` (`thelogin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
