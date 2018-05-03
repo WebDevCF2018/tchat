@@ -8,6 +8,9 @@
 function createKey()
 {
 
+
+
+
     // longueur chaîne de sortie
     $length = 64;
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
