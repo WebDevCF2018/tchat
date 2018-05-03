@@ -7,13 +7,20 @@
  */
 function createKey()
 {
+
+    // longueur chaîne de sortie
     $length = 64;
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+    // création d'un tableau indexé à partir de la chaîne $key (0=>"A"
     $keyArray = str_split($key);
+    // nombre d'entrées dans ce tableau
     $numArray = count($keyArray);
+    // préparation de la variable de sortie au format string
     $string = '';
+    // tourne autant de X que $length
     for ($i = 0; $i < $length; $i++)
     {
+        // on concatène à la variable de sortie le tableau $keyArray[] avec une clef au hasard rand() entre 0 et la longueur du tableau -1 ($numArray-1)
         $string .= $keyArray[rand(0, $numArray-1)];
     }
    return $string;
