@@ -79,6 +79,9 @@ function newuser($db,$lelogin,$lepwd,$themail){
 }
 
 
+/*Fonctions de Niko*/
+
+/*Fonction de remplacement de strings par smileys*/
 function traiteChaine($text){
         $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
         $text = str_replace(':-)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
@@ -105,3 +108,41 @@ function traiteChaine($text){
         $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised" title=":surprised:">', $text);
         return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star" title=":star:">', $text);
 }
+
+/*Fonction d'activation du compte du nouvel utilisateur*/
+
+    function confirmUser( $connexion, $idutil, $thekey){
+        global $mysqli;
+            /*Si l'url est complet*/
+            if($_GET['connexion'] != ""  && $_GET['idutil'] != "" && $_GET['thekey'] != ""){
+            
+            /*Récupère la clé d'activation*/    
+            $req = $mysqli->query('SELECT thekey FROM theuser WHERE idutil= '.$idutil.'');
+            $data = $req->fetch();
+            
+
+            /*Si la clé n'est pas identique à celle reçue via l'url*/
+            if($thekey != $data['thekey']){
+                /*Bad Key*/
+                return "rejected";
+            /*Sinon*/
+            }else{
+                /*Si compte déja validé*/
+                if($connexion != 0){
+                    /*Already activated*/
+                    return "already";
+                    /*Sinon*/
+                }else{  
+                    /*Activation permited*/
+                    $req = $mysqli->query('UPDATE theuser SET thevalidate = 1 WHERE idutil = '.$idutil.'');
+                    return "ok";
+                }
+            }
+            /*Si l'url est incomplet*/
+        }else{
+            /*Redirige vers la page d'accueil*/
+            return "index.php";
+        }
+    }
+    
+/*---------------Fin des fonctions de Niko----------------*/
