@@ -82,18 +82,12 @@ function newuser($db,$lelogin,$lepwd,$themail){
 function connectUser($db,$lelogin,$pass){
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
-    if(empty($lelogin)||empty($pwd)) return false;
 
-    $sql = "SELECT idutil, thelogin
-	FROM theuser 
-	WHERE thelogin='$lelogin' 
-	AND thepwd='$pwd' 
-	AND thevalidate=1;";
-
+    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin='$lelogin' AND thepwd='$pwd'";
+    
     $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
 
-    // condition ternaire envoyant (return) ( si true) {?} un tableau associatif, sinon {:} false... : false
-    return (mysqli_num_rows($recupLogin))?mysqli_fetch_assoc($recupLogin):false;
+    return mysqli_fetch_assoc($recupLogin);
 }
 
 
