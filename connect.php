@@ -14,14 +14,18 @@
 
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
+<<<<<<< HEAD
             $connect = connectUser($mysqli, $_POST['$login'], $_POST['$pwd']);
+=======
+            $connect = connectUser($mysqli, $login, $pwd);
+>>>>>>> 119dee89944a8f41edef158d07bdbb5a88caf48a
 
             if ($connect) {
                 $_SESSION = $connect;
                 $_SESSION['key'] = session_id();
-                header("Location ./");
+               // header("Location ./");
             } else {
-                $erreurCo = "incorrect";
+                $erreur = "incorrect";
             }
 
             var_dump($_SESSION);
