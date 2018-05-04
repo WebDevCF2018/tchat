@@ -25,7 +25,7 @@ function createKey()
 //var_dump(createKey());
 
 
-    function EnvoiConfirmMail($db,$lelogin,$lepwd,$themail) // les variables php du requete
+    function EnvoiConfirmMail($lelogin,$themail,$lastid,$thekey) // les variables php du requete
 {
 
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
@@ -39,7 +39,7 @@ function createKey()
       </head>
       <body>
        <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='localhost' target='_blank'>ce lien</a> pour valider votre compte.</p>
+       <p>Cliquez sur <a href='http://localhost/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
        <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
       </body>
      </html>
@@ -69,10 +69,10 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));
+    $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));$lastid = mysqli_insert_id($db);
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
-        EnvoiConfirmMail($db, $lelogin,$lepwd,$themail);
+        EnvoiConfirmMail($db, $lelogin,$lepwd,$themail,$lastid,$thekey);
     }
     return false;
 
@@ -80,7 +80,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
 // identification pour administration- connectUser()
 function connectUser($db,$lelogin,$pass){
-    $lelogin = htmlspecialchars(strip_tags(trim($login)),ENT_QUOTES);
+    $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
     if(empty($lelogin)||empty($pwd)) return false;
 
@@ -135,6 +135,7 @@ function traiteChaine($text){
             /*
              * Protection des variables car elles peuvent être manipulées par les utilisateurs
              */
+
             $idutil = (int) $idutil;
             $thekey = htmlspecialchars(strip_tags($thekey),ENT_QUOTES);
             
