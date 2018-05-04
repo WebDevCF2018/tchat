@@ -2,7 +2,7 @@
 Tchat responsive en ajax Webdev CF2m 2018
 
 ## config.php (local)
-<?php
+
 /**
  * Constantes de connexion à notre DB
  */
