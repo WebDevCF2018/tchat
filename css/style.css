@@ -100,3 +100,28 @@ input:focus {
 #button:hover {
     background-color: #78ad3b;
 }
+.erreur {
+    margin: 5px auto;
+    width: 360px;
+    padding: 8px 1em;
+    text-align: center;
+    background-color: #F44336;
+    color: #FFF;
+    border: 1px solid #d62a1d;
+    font-weight: bold;
+}
+.input-deco {
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) 50%;
+    opacity: 0.5;
+}
+.input-user {
+    background-image: url(../img/user.png);
+}
+.input-pwd {
+    background-image: url(../img/pwd.png);
+}
+.input-mail {
+    background-image: url(../img/mail.png);
+}
