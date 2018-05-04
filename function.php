@@ -78,6 +78,24 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
 }
 
+// identification pour administration- connectUser()
+function connectUser($db,$lelogin,$pass){
+    $lelogin = htmlspecialchars(strip_tags(trim($login)),ENT_QUOTES);
+    $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
+    if(empty($lelogin)||empty($pwd)) return false;
+
+    $sql = "SELECT thelogin, thepwd
+	FROM theuser 
+	WHERE thelogin='$lelogin' 
+	AND thepwd='$pwd' 
+	AND thevalidate=1;";
+
+    $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
+
+    // condition ternaire envoyant (return) ( si true) {?} un tableau associatif, sinon {:} false... : false
+    return (mysqli_num_rows($recupLogin))?mysqli_fetch_assoc($recupLogin):false;
+}
+
 
 /*Fonctions de Niko*/
 
