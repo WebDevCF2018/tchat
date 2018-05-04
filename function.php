@@ -111,38 +111,41 @@ function traiteChaine($text){
 
 /*Fonction d'activation du compte du nouvel utilisateur*/
 
-    function confirmUser( $connexion, $idutil, $thekey){
-        global $mysqli;
-            /*Si l'url est complet*/
-            if($_GET['connexion'] != ""  && $_GET['idutil'] != "" && $_GET['thekey'] != ""){
+    function confirmUser($connexion, $idutil, $thekey){
+        // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
+
+            /*
+             * Protection des variables car elles peuvent être manipulées par les utilisateurs
+             */
+            $idutil = (int) $idutil;
+            $thekey = htmlspecialchars(strip_tags($thekey),ENT_QUOTES);
             
             /*Récupère la clé d'activation*/    
-            $req = $mysqli->query('SELECT thekey FROM theuser WHERE idutil= '.$idutil.'');
-            $data = $req->fetch();
+            $req = mysqli_query($connexion,"SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil") or die(mysqli_error($connexion));
+            // si on ne récupère pas d'utilisateur on quitte la fonction
+            if(!mysqli_num_rows($req)) return false;
+
+
+            $data = mysqli_fetch_assoc($req);
             
 
-            /*Si la clé n'est pas identique à celle reçue via l'url*/
-            if($thekey != $data['thekey']){
+            /*Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur*/
+            if($thekey != $data['thekey'] || $data['thevalidate']==2){
                 /*Bad Key*/
                 return "rejected";
             /*Sinon*/
             }else{
                 /*Si compte déja validé*/
-                if($connexion != 0){
+                if($data['thevalidate'] == 1){
                     /*Already activated*/
                     return "already";
                     /*Sinon*/
                 }else{  
                     /*Activation permited*/
-                    $req = $mysqli->query('UPDATE theuser SET thevalidate = 1 WHERE idutil = '.$idutil.'');
+                    $req = mysqli_query($connexion,"UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil") or die(mysqli_error($connexion));
                     return "ok";
                 }
             }
-            /*Si l'url est incomplet*/
-        }else{
-            /*Redirige vers la page d'accueil*/
-            return "index.php";
-        }
     }
     
 /*---------------Fin des fonctions de Niko----------------*/
