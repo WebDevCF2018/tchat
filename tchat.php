@@ -1,9 +1,20 @@
+<?php
+    session_start();
+	if (isset($_SESSION["key"])) {
+		echo "Il y a une session ! ";
+        var_dump($_SESSION);
+	}
+    else{
+        header("location: index.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Tchat</title>
-    <script type="javascript" src="ajax.js"></script>
+    <script type="javascript" src="js/ajax.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="chargeContent('06-recup.php','content')">
