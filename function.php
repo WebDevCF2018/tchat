@@ -80,11 +80,11 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
 // identification pour administration- connectUser()
 function connectUser($db,$lelogin,$pass){
-    $lelogin = htmlspecialchars(strip_tags(trim($login)),ENT_QUOTES);
+    $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
     if(empty($lelogin)||empty($pwd)) return false;
 
-    $sql = "SELECT thelogin, thepwd
+    $sql = "SELECT idutil, thelogin, thepwd
 	FROM theuser 
 	WHERE thelogin='$lelogin' 
 	AND thepwd='$pwd' 
