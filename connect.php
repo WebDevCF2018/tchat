@@ -1,4 +1,7 @@
 <?php
+	if (isset($_SESSION["key"])) {
+		header("location: tchat.php");
+	}
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"])) {
     		$erreur = "Veuillez remplir tous les champs !";
@@ -16,15 +19,19 @@
 	        $pwd = strip_tags(trim($_POST['thepwd']));
             $connect = connectUser($mysqli, $login, $pwd);
 
-            if ($connect) {
-                $_SESSION = $connect;
-                $_SESSION['key'] = session_id();
-               // header("Location ./");
-            } else {
-                $erreur = "incorrect";
+            if($connect == false){
+            	$erreur = "utilisateur ou mot de passe incorrect !";
             }
+            else if($connect["thevalidate"] == 0){
+            	$erreur = "Veuillez validé votre compte dans votre boîte mail !";
+            }
+            else {
+            	$_SESSION = $connect;
+            	$_SESSION["key"] = session_id();
+            	header("location: tchat.php");
+            	//var_dump($_SESSION);
 
-            var_dump($_SESSION);
+            }
         }
 
     }
