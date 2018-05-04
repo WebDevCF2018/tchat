@@ -7,7 +7,8 @@ form {
     display: grid;
 }
 
-form h1 {
+form h1,.tchat h1 {
+    text-align: center;
     text-align: center;
     color: #7fa94e;
     margin-top: 0;
@@ -19,17 +20,19 @@ form div + div {
 
 #content {
     height: 80vh;
-    border: solid 1px black;
+    box-shadow: 2px 3px 5px #cecece;
     overflow: auto;
     width: 80vw;
     margin: 5vh auto 5vh auto;
+    background-color: #FFF;
+    position: relative;
 }
 
 #envoi {
-    height: 5vh;
-    text-align: right;
-    width: 80vw;
-    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
 }
 
 label {
@@ -44,7 +47,7 @@ label {
     width: 50px;
 }
 
-#button {
+#button,#mySUBMIT {
     background-color: #8BC34A;
     margin: 10px 0;
     align-items: flex-start;
@@ -96,10 +99,10 @@ input:focus {
     text-align: right;
 }
 
-
 #button:hover {
     background-color: #78ad3b;
 }
+
 .erreur {
     margin: 5px auto;
     width: 360px;
@@ -110,18 +113,35 @@ input:focus {
     border: 1px solid #d62a1d;
     font-weight: bold;
 }
+
 .input-deco {
     background-size: 22px;
     background-repeat: no-repeat;
     background-position: calc(100% - 10px) 50%;
     opacity: 0.5;
 }
+
 .input-user {
     background-image: url(../img/user.png);
 }
+
 .input-pwd {
     background-image: url(../img/pwd.png);
 }
+
 .input-mail {
     background-image: url(../img/mail.png);
+}
+
+.tchat-submit {
+    width: 11%;
+    margin: 0!important;
+}
+
+.tchat-input-60 {
+    width: 60%;
+}
+
+.tchat-input-30 {
+    width: 30%;
 }
