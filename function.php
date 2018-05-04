@@ -72,7 +72,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
     $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));$lastid = mysqli_insert_id($db);
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
-        EnvoiConfirmMail($db, $lelogin,$lepwd,$themail,$lastid,$thekey);
+        EnvoiConfirmMail( $lelogin,$themail,$lastid,$thekey);
     }
     return false;
 
@@ -84,7 +84,7 @@ function connectUser($db,$lelogin,$pass){
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
     if(empty($lelogin)||empty($pwd)) return false;
 
-    $sql = "SELECT idutil, thelogin, thepwd
+    $sql = "SELECT idutil, thelogin
 	FROM theuser 
 	WHERE thelogin='$lelogin' 
 	AND thepwd='$pwd' 
