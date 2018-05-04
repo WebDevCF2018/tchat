@@ -78,7 +78,28 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
 }
 
+// identification pour administration- connectUser()
+function connectUser($db,$lelogin,$pass){
+    $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
+    $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
+    if(empty($lelogin)||empty($pwd)) return false;
 
+    $sql = "SELECT idutil, thelogin, thepwd
+	FROM theuser 
+	WHERE thelogin='$lelogin' 
+	AND thepwd='$pwd' 
+	AND thevalidate=1;";
+
+    $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
+
+    // condition ternaire envoyant (return) ( si true) {?} un tableau associatif, sinon {:} false... : false
+    return (mysqli_num_rows($recupLogin))?mysqli_fetch_assoc($recupLogin):false;
+}
+
+
+/*Fonctions de Niko*/
+
+/*Fonction de remplacement de strings par smileys*/
 function traiteChaine($text){
         $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
         $text = str_replace(':-)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
@@ -105,3 +126,44 @@ function traiteChaine($text){
         $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised" title=":surprised:">', $text);
         return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star" title=":star:">', $text);
 }
+
+/*Fonction d'activation du compte du nouvel utilisateur*/
+
+    function confirmUser($connexion, $idutil, $thekey){
+        // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
+
+            /*
+             * Protection des variables car elles peuvent être manipulées par les utilisateurs
+             */
+            $idutil = (int) $idutil;
+            $thekey = htmlspecialchars(strip_tags($thekey),ENT_QUOTES);
+            
+            /*Récupère la clé d'activation*/    
+            $req = mysqli_query($connexion,"SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil") or die(mysqli_error($connexion));
+            // si on ne récupère pas d'utilisateur on quitte la fonction
+            if(!mysqli_num_rows($req)) return false;
+
+
+            $data = mysqli_fetch_assoc($req);
+            
+
+            /*Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur*/
+            if($thekey != $data['thekey'] || $data['thevalidate']==2){
+                /*Bad Key*/
+                return "rejected";
+            /*Sinon*/
+            }else{
+                /*Si compte déja validé*/
+                if($data['thevalidate'] == 1){
+                    /*Already activated*/
+                    return "already";
+                    /*Sinon*/
+                }else{  
+                    /*Activation permited*/
+                    $req = mysqli_query($connexion,"UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil") or die(mysqli_error($connexion));
+                    return "ok";
+                }
+            }
+    }
+    
+/*---------------Fin des fonctions de Niko----------------*/

@@ -1,3 +1,5 @@
 # IDE
 nbproject/
 .idea/
+# config
+config.php

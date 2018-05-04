@@ -20,4 +20,3 @@
 	}else{
 		require "connect.php";
 	}
-?>
