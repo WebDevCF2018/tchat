@@ -60,7 +60,7 @@ function createKey()
  * Create
  *
  */
-function newuser($db,$lelogin,$lepwd,$themail){
+function newuser($db,,$themail){
     // vérification de sécurité de $title et $text
     if(empty($lelogin)||empty($lepwd)){
         return false;
@@ -72,7 +72,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
     $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));$lastid = mysqli_insert_id($db);
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
-        EnvoiConfirmMail($db, $lelogin,$lepwd,$themail,$lastid,$thekey);
+        EnvoiConfirmMail($lelogin,$themail,$lastid,$thekey);
     }
     return false;
 
