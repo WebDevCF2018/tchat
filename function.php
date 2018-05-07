@@ -69,7 +69,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
 
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));$lastid = mysqli_insert_id($db);
+    $ajout = mysqli_query($db,$sql)or die(header("Location: index.php?p=inscription&error=1"));$lastid = mysqli_insert_id($db);
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
         EnvoiConfirmMail( $lelogin,$themail,$lastid,$thekey);
