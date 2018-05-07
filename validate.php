@@ -55,7 +55,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='inscription.php'>s'inscrirer</a>
+					<a href='inscription.php'>s'inscrire</a>
 			</div>
 		</div>
 	</div>";
@@ -70,7 +70,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='inscription.php'>s'inscrirer</a>
+					<a href='inscription.php'>s'inscrire</a>
 			</div>
 		</div>
 	</div>";
