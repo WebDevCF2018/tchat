@@ -145,3 +145,6 @@ input:focus {
 .tchat-input-30 {
     width: 30%;
 }
+.g-recaptcha {
+    margin: 10px 26px;
+}
