@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
     <?php
-
+    if($_GET['error'] == 1){
+        $erreur = "Nom d'utilisateur déjà utilisé !";
+    }
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
     		$erreur = "Veuillez remplir tous les champs !";
@@ -16,9 +18,7 @@
     	}
     	else if(empty($_POST['themail'])){
     		$erreur = "Veuillez insérer une adresse mail !";
-    	}else if($_GET['error'] == 1){
-            $erreur = "Nom d'utilisateur déjà utilisé !";
-	}
+    	}
 		
 	else {
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
