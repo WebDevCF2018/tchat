@@ -17,7 +17,6 @@
 
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
-            $connect = connectUser($mysqli, $_POST['$login'], $_POST['$pwd']);
 
             $connect = connectUser($mysqli, $login, $pwd);
 
