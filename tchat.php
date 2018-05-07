@@ -25,7 +25,7 @@
 <h1>Mini chat</h1>
 <div id="content">
     <div id="envoi">
-        <input type="text" class="tchat-input-30" size="20" id="myNAME" placeholder="Votre surnom" required>
+        <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?=$_SESSION["thelogin"];?>" required>
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
         <input type="button" class="tchat-submit" onclick="uploadContent('06-insert.php','myNAME','myTXT')" id="mySUBMIT" value="Envoyer">
     </div>
