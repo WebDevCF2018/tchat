@@ -146,6 +146,10 @@ input:focus {
     width: 30%;
 }
 
+.g-recaptcha {
+    margin: 10px 26px;
+}
+
 
 @font-face {
 
