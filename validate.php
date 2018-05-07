@@ -24,7 +24,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='connect.php'>se connecter</a>
+					<a href='?p=connect'>se connecter</a>
 			</div>
 		</div>
 	</div>";
@@ -40,7 +40,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='connect.php'>se connecter</a>
+					<a href='?p=connect'>se connecter</a>
 			</div>
 		</div>
 	</div>";
@@ -55,7 +55,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='inscription.php'>s'inscrire</a>
+					<a href='?p=inscription'>s'inscrire</a>
 			</div>
 		</div>
 	</div>";
@@ -70,7 +70,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
-					<a href='inscription.php'>s'inscrire</a>
+					<a href='?p=inscription'>s'inscrire</a>
 			</div>
 		</div>
 	</div>";
