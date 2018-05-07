@@ -22,6 +22,11 @@
 	        $pwd = strip_tags(trim($_POST['thepwd']));
 	        $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
 	        $envReq = newuser($mysqli, $login, $pwd, $email);
+	            if($envReq){
+                    $erreur = "Vous êtes bien inscrit. Vous allez recevoir un mail de confirmation avant de pouvoir vous connecter";
+                }else {
+                    $erreur = "Echec de l'inscription, veuillez recommencer";
+                }
 	    }
     }
 

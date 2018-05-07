@@ -73,9 +73,9 @@ function newuser($db,$lelogin,$lepwd,$themail){
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
         EnvoiConfirmMail( $lelogin,$themail,$lastid,$thekey);
+        return true;
     }
     return false;
-
 }
 
 // identification pour administration- connectUser()
