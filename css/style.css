@@ -115,7 +115,7 @@ input:focus {
 }
 
 .input-deco {
-    background-size: 22px;
+    background-size: 18px;
     background-repeat: no-repeat;
     background-position: calc(100% - 10px) 50%;
     opacity: 0.5;
@@ -145,6 +145,174 @@ input:focus {
 .tchat-input-30 {
     width: 30%;
 }
+
 .g-recaptcha {
     margin: 10px 26px;
+}
+
+
+@font-face {
+
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------ */
+a {
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    text-decoration: none;
+    padding-left: 50%;
+    color: #8bc34a;
+    box-shadow: -2px -4px 4px 0px;
+}
+
+
+/* ------------------------------------ */
+h1,h2,h3,h4,h5,h6 {margin: 0px;}
+
+p {margin: 0px;}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/* ------------------------------------ */
+input {
+    display: block;
+    outline: none;
+    border: none !important;
+}
+
+textarea {
+    display: block;
+    outline: none;
+}
+
+
+
+/* ------------------------------------ */
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-table100 {
+    width: 100%;
+    min-height: 100vh;
+    background: whitesmoke;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+}
+
+.wrap-table100 {
+    width: 960px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    display: table;
+    margin: 0;
+}
+.row {
+    display: table-row;
+    background: #fff;
+    box-shadow: 1px -4px 20px 0px;
+}
+.row.header {
+    color: #ffffff;
+    background: #6c7ae0;
+}
+
+.row.header {
+    padding: 0;
+    height: 0px;
+}
+
+.row.header .cell {
+    display: none;
+}
+
+
+.cell {
+    display: table-cell;
+}
+
+
+.row .cell {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.2;
+    font-weight: unset !important;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.row.header .cell {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset !important;
+
+    padding-top: 19px;
+    padding-bottom: 19px;
+}
+
+.row .cell:nth-child(1) {
+    width: 360px;
+    padding-left: 40px;
+}
+
+.row .cell:nth-child(2) {
+    width: 160px;
+}
+
+.row .cell:nth-child(3) {
+    width: 250px;
+}
+
+.row .cell:nth-child(4) {
+    width: 190px;
+}
+
+
+.table, .row {
+    width: 100% !important;
 }

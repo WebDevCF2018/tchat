@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
     <?php
-
+    if($_GET['error'] == 1){
+        $erreur = "Nom d'utilisateur déjà utilisé !";
+    }
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
     		$erreur = "Veuillez remplir tous les champs !";
@@ -17,11 +19,17 @@
     	else if(empty($_POST['themail'])){
     		$erreur = "Veuillez insérer une adresse mail !";
     	}
-    	else {
+		
+	else {
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
 	        $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
 	        $envReq = newuser($mysqli, $login, $pwd, $email);
+	            if($envReq){
+                    $erreur = "Vous êtes bien inscrit. Vous allez recevoir un mail de confirmation avant de pouvoir vous connecter";
+                }else {
+                    $erreur = "Echec de l'inscription, veuillez recommencer";
+                }
 	    }
     }
     ?>

@@ -5,7 +5,6 @@
         <title>Validation</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
-
 <body>
 
 <?php
@@ -15,13 +14,69 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
     $identifiant=$_GET['id'];
     $recup = confirmUser($mysqli, $identifiant, $clef);
     if($recup=="ok") {
-        echo "Votre compte à été validé !";
+        echo "<div class=\"limiter\">
+		<div class=\"container-table100\">
+			<div class=\"wrap-table100\">
+					<div class=\"table\">
+						<div class=\"row\">
+							<div  class=\"cell\" data-title=\"Full Name\">
+								Votre compte a bien été validé !
+							</div>
+						</div>
+					</div>
+					<a href='?p=connect'>se connecter</a>
+			</div>
+		</div>
+	</div>";
+
     }elseif ($recup=="already"){
-        echo "Votre compte est déjà validé !";
+        echo "<div class=\"limiter\">
+		<div class=\"container-table100\">
+			<div class=\"wrap-table100\">
+					<div class=\"table\">
+						<div class=\"row\">
+							<div class=\"cell\" data-title=\"Full Name\">
+								Votre compte est déjà validé !
+							</div>
+						</div>
+					</div>
+					<a href='?p=connect'>se connecter</a>
+			</div>
+		</div>
+	</div>";
     }elseif ($recup=="rejected"){
-        echo "Votre compte n'est pas valide !";
+        echo "<div class=\"limiter\">
+		<div class=\"container-table100\">
+			<div class=\"wrap-table100\">
+					<div class=\"table\">
+						<div class=\"row\">
+							<div class=\"cell\" data-title=\"Full Name\">
+								Votre compte n'est pas valide !
+							</div>
+						</div>
+					</div>
+
+					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>s'inscrirer</a>
+			</div>
+		</div>
+	</div>";
     }else{
-        echo "Votre compte n'est pas valide !";
+        echo "<div class=\"limiter\">
+		<div class=\"container-table100\">
+			<div class=\"wrap-table100\">
+					<div class=\"table\">
+						<div class=\"row\">
+							<div class=\"cell\" data-title=\"Full Name\">
+								Votre compte n'est pas valide !
+							</div>
+						</div>
+					</div>
+					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>s'inscrirer</a>
+			</div>
+		</div>
+	</div>";
     }
 }
 
@@ -29,5 +84,3 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 
 </body>
 </html>
-
-
