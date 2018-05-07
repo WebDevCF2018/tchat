@@ -316,3 +316,8 @@ button {
     width: 100% !important;
 }
 
+.table a {
+    text-decoration: none;
+    padding-left: 50%;
+    color: whitesmoke;
+}
