@@ -1,5 +1,10 @@
 <?php
-
+function sha256($lepwd)
+{
+    $lepwd = hash('sha256',$lepwd);
+    return $lepwd;
+}
+//var_dump(sha256($lepwd));
 function createKey()
 {
 
@@ -65,8 +70,8 @@ function newuser($db,$lelogin,$lepwd,$themail){
     if(empty($lelogin)||empty($lepwd)){
         return false;
     }
+    $lepwd = sha256($lepwd);
     $thekey = createKey();
-
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
     $ajout = mysqli_query($db,$sql);
@@ -87,7 +92,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
 function connectUser($db,$lelogin,$pass){
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
-
+    $pwd = sha256($pwd);
     $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin='$lelogin' AND thepwd='$pwd'";
     
     $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
