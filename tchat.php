@@ -8,6 +8,7 @@
         header("location: index.php");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="tchat" onload="chargeContent('06-recup.php','content')">
+<body class="tchat" onload="chargeContent('phpAjax/recup.php','content')">
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
 	<a href="deco.php"><li><b>Déconnexion</b></li></a>
@@ -27,7 +28,7 @@
     <div id="envoi">
         <input type="text" class="tchat-input-30" size="20" id="myNAME" placeholder="Votre surnom" required>
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
-        <input type="button" class="tchat-submit" onclick="uploadContent('06-insert.php','myNAME','myTXT')" id="mySUBMIT" value="Envoyer">
+        <input type="button" class="tchat-submit" onclick="uploadContent('insert.php','<?=$_SESSION["thelogin"];?>','myTXT')" id="mySUBMIT" value="Envoyer">
     </div>
 </div>
 

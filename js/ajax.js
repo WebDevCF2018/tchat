@@ -1,4 +1,3 @@
-// crée l'objet XHR
 function getXHR(){
     var reqHTTP;
     if(window.XMLHttpRequest){
@@ -13,7 +12,7 @@ function getXHR(){
 }
 // envoi de myNAME et myTXT
 function uploadContent(TheURL,TheName,TheContent){
-    // création objet de communication XHR
+    // création de l'objet de communication XHR
     var XHR = getXHR();
     // on prend la valeur de TheName
     var name = document.getElementById(TheName).value;
@@ -21,35 +20,36 @@ function uploadContent(TheURL,TheName,TheContent){
     var content = document.getElementById(TheContent).value;
     // ouverture du fichier serveur en mode POST asynchrone
     XHR.open("POST",TheURL,true);
-    // écouteur (appelle la fonction anonyme à chaque changement d'état de l'objet XHR)
+    // écouteur (appel la fonction anonyme à chaque changement d'état de l'objet XHR)
     XHR.onreadystatechange=function(){
-        // si on a récupéré le résultat et qu'il n'y a pas d'erreur (200)
+        // si on a récupéré le résultat
         if(XHR.readyState==4 && XHR.status==200){
-            switch (XHR.responseText){
+            // on vérifie la réponse venant de phpAjax/insert.php
+            switch(XHR.responseText) {
                 case "0":
                     alert("Problème d'existance d'une variable de type POST");
                     break;
                 case "1":
-                    alert("Problème : un de vos champs est vide ou non valide");
+                    alert("Problème: un de vos champs est vide ou non valide");
                     // on vide TheName
-                    document.getElementById (TheName).value="";
+                    document.getElementById(TheName).value="";
                     // on vide TheContent
-                    document.getElementById (TheContent).value="";
+                    document.getElementById(TheContent).value="";
                     break;
                 case "2":
-                    alert("Problème lors de l'insertion dans la base de données, veuillez réessayer");
+                    alert("Problème lors de l'insertion dans la base de donnée, vous pouvez réessayer");
                     break;
                 default:
                     // chargement des contenus venant de la db dans le div content
-                    chargeContent('06-recup.php','content');
+                    chargeContent('../phpAjax/recup.php','content');
                     // on vide TheContent
-                    document.getElementById (TheContent).value="";
+                    document.getElementById(content).value="";
             }
         }
     }
     // entête obligatoire pour de l'ajax en post
     XHR.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    // envoi de nos variables POST
+    // envoi de nos variable POST
     XHR.send("n="+name+"&c="+content);
 }
 // récupération des données
@@ -73,18 +73,21 @@ function chargeContent(URL,idDiv){
 function afficheContent(objXHR,idDuDiv){
     if(objXHR.readyState==4&& objXHR.status==200){
         document.getElementById(idDuDiv).innerHTML= objXHR.responseText;
+        var getHeight = document.getElementById(idDuDiv).scrollHeight;
+        document.getElementById(idDuDiv).scrollTop=getHeight;
+        //console.log(getHeight);
     }
 }
 // vérification si un nouveau commentaire a été posté par un autre utilisateur
 function verifContenu(){
     var XHR = getXHR();
-    XHR.open("GET",'06-verif.php',true);
+    XHR.open("GET",'../phpAjax/verif.php',true);
     XHR.onreadystatechange=function(){
         if(XHR.readyState==4&& XHR.status==200){
             // si il y a un nouveau commentaire
             if(XHR.responseText=="change"){
                 // chargement des contenus venant de la db dans le div content
-                chargeContent('06-recup.php','content');
+                chargeContent('../phpAjax/recup.php','content');
             }
         }
     }
