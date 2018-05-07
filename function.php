@@ -39,7 +39,7 @@ function createKey()
       </head>
       <body>
        <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='http://localhost/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
+       <p>Cliquez sur <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
        <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
       </body>
      </html>
@@ -48,8 +48,8 @@ function createKey()
     $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-    $from .= 'From: http://localhost:63342/tchat/index.php?' . "\r\n" . // l'adresse du site
-        'Reply-To: yourbestenemy@gmail.com  ' . "\r\n" .
+    $from .= 'From: tchat@webdev-cf2m.be ' . "\r\n" . // l'adresse du site
+        'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     return @mail($to, $subject, $message, $from);
 }
