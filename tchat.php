@@ -7,11 +7,6 @@
     else{
         header("location: index.php");
     }
-    if (isset($_GET["deconnexion"])) {
-    	session_destroy();
-    	echo '<meta http-equiv="refresh" content="0">';
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,7 +20,7 @@
 <body class="tchat" onload="chargeContent('06-recup.php','content')">
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
-	<a href="?deconnexion"><li><b>Déconnexion</b></li></a>
+	<a href="deco.php"><li><b>Déconnexion</b></li></a>
 </nav>
 <h1>Mini chat</h1>
 <div id="content">
