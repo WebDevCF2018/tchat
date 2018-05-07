@@ -16,8 +16,11 @@
     	}
     	else if(empty($_POST['themail'])){
     		$erreur = "Veuillez insérer une adresse mail !";
-    	}
-    	else {
+    	}else if($_GET['error'] == 1){
+            $erreur = "Nom d'utilisateur déjà utilisé !";
+	}
+		
+	else {
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
 	        $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
