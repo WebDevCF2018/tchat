@@ -148,7 +148,7 @@ input:focus {
 
 
 @font-face {
-    font-family: Poppins-Regular;
+
     src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
@@ -164,10 +164,6 @@ input:focus {
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: sans-serif;
-}
 
 /* ------------------------------------ */
 a {
@@ -176,6 +172,10 @@ a {
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
+    text-decoration: none;
+    padding-left: 50%;
+    color: #8bc34a;
+    box-shadow: -2px -4px 4px 0px;
 }
 
 
@@ -221,7 +221,7 @@ button {
 .container-table100 {
     width: 100%;
     min-height: 100vh;
-    background: #c4d3f6;
+    background: whitesmoke;
 
     display: -webkit-box;
     display: -webkit-flex;
@@ -248,6 +248,7 @@ button {
 .row {
     display: table-row;
     background: #fff;
+    box-shadow: 1px -4px 20px 0px;
 }
 .row.header {
     color: #ffffff;
@@ -270,7 +271,6 @@ button {
 
 
 .row .cell {
-    font-family: Poppins-Regular;
     font-size: 15px;
     color: #666666;
     line-height: 1.2;
@@ -282,7 +282,6 @@ button {
 }
 
 .row.header .cell {
-    font-family: Poppins-Regular;
     font-size: 18px;
     color: #fff;
     line-height: 1.2;
@@ -312,10 +311,4 @@ button {
 
 .table, .row {
     width: 100% !important;
-}
-
-.table a {
-    text-decoration: none;
-    padding-left: 50%;
-    color: whitesmoke;
 }
