@@ -30,13 +30,13 @@
     <div id="envoi">
         <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?=$_SESSION["thelogin"];?>" required>
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
-        <input type="button" class="tchat-submit" onclick="uploadContent('insert.php','<?=$_SESSION["idutil"];?>','myTXT')" id="mySUBMIT" value="Envoyer">
+        <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php','<?=$_SESSION["idutil"];?>','myTXT')" id="mySUBMIT" value="Envoyer">
     </div>
 </div>
 
 <script>
     // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
-    setInterval(function(){verifContenu()},3000);
+    setInterval(function(){verifContenu('phpAjax/verif.php','phpAjax/recup.php','headercontent')},3000);
 </script>
 </body>
 </html>
