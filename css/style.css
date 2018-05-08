@@ -38,17 +38,13 @@ form div + div {
 
 #content {
     height: 80vh;
-    box-shadow: 2px 3px 5px #cecece;
     overflow: auto;
     background-color: #FFF;
     position: relative;
 }
 
 #envoi {
-    position: absolute;
-    bottom: 0;
     display: flex;
-    width: 100%;
 }
 
 label {
@@ -339,6 +335,11 @@ button {
         width: 60vw;
         margin: auto;
     }
+
+    #envoi {
+        width: 60vw;
+        margin: auto;
+    }
 }
 
 nav {
@@ -357,4 +358,30 @@ nav a {
 
 nav li:hover {
     background-color: #7fa94e;
+}
+
+.message {
+    background-color: #8bc34a;
+    margin: 10px 10px;
+    display: table;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #75a939;
+    padding: 5px 8px 5px 0px;
+}
+
+.message i {
+    font-weight: bolder;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-style: initial;
+    text-shadow: 1px 1px 1px #bbbbbb;
+    color: #ffffff;
+    background-color: #a4de5f;
+    padding: 5px 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+nav li b {
+    text-transform: capitalize;
 }

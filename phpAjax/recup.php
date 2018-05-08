@@ -2,6 +2,7 @@
 // on évite la mise en cache
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
+require "../verifSession.php";
 require_once "../mysqliConnect.php";
 
 $sql = "SELECT m.*,u.thelogin FROM themessage m 
@@ -16,6 +17,6 @@ if(!mysqli_num_rows($recup)){
     $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
     $tous = array_reverse($tous);
     foreach($tous AS $item){
-        echo "{$item['thedatetime']} | {$item['thelogin']} | {$item['thecontent']}<hr>";
+        echo "<div class='message' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
     }
 }
