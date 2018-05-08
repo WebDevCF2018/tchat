@@ -8,23 +8,25 @@
         header("location: index.php");
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Tchat</title>
-    <script type="javascript" src="js/ajax.js"></script>
+    <script src="js/ajax.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="tchat" onload="chargeContent('phpAjax/recup.php','content')">
+<body class="tchat" onload="chargeContent('phpAjax/recup.php','headercontent')">
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
 	<a href="deco.php"><li><b>Déconnexion</b></li></a>
 </nav>
 <h1>Mini chat</h1>
 <div id="content">
+    <div id="headercontent">
+
+    </div>
     <div id="envoi">
         <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?=$_SESSION["thelogin"];?>" required>
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
