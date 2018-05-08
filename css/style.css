@@ -54,7 +54,8 @@ label {
 
 .emoji {
     position: relative;
-    top: 15px;
+    border-radius: 100%;
+    top: 8px;
     width: 50px;
 }
 
