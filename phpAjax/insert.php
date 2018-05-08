@@ -6,7 +6,7 @@ header("Cache-Control: no-cache, must-revalidate");
 require_once "../mysqliConnect.php";
 
 // pas de variables POST attendues
-if(!isset($_POST['n'],$_POST['c'])){
+if(!isset($_POST['myNAME'],$_POST['myTXT'])){
     // envoi de l'erreur
     echo "0";
     // arrêt du script
@@ -14,8 +14,8 @@ if(!isset($_POST['n'],$_POST['c'])){
 }
 
 // récupérations et traitement de nos variables POST
-$post_name=htmlspecialchars(strip_tags(trim($_POST['n'])),ENT_QUOTES);
-$post_text=htmlspecialchars(strip_tags(trim($_POST['c'])),ENT_QUOTES);
+$post_name= (int) $_SESSION["idutil"];
+$post_text=htmlspecialchars(strip_tags(trim($_POST['myTXT'])),ENT_QUOTES);
 
 if(empty($post_name)||empty($post_text)){
     // envoi de l'erreur
