@@ -2,9 +2,11 @@
 <html lang="fr">
 <head>
     <?php
-    if($_GET['error'] == 1){
-        $erreur = "Nom d'utilisateur déjà utilisé !";
-    }
+    if (isset($_GET['error'])) {
+	    if($_GET['error'] == 1){
+	        $erreur = "Nom d'utilisateur déjà utilisé !";
+	    }
+	}
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
     		$erreur = "Veuillez remplir tous les champs !";
@@ -31,6 +33,7 @@
                     $erreur = "Echec de l'inscription, veuillez recommencer";
                 }
 	    }
+
     }
     ?>
     <meta charset="UTF-8">
@@ -66,15 +69,15 @@
     <label for="mail">E-mail :</label>
     <input type="email" id="mail" name="themail" class="input-deco input-mail" autocomplete="off" value="<?=@$_POST["themail"];?>">
     <input id="button" type="submit">
-    <form action="?" method="POST">
+    
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+</form>
+</body>
+</html>
+<form action="?" method="POST">
         <div class="g-recaptcha" data-sitekey="6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO"></div>
         <br/>
         <input type="submit" value="Submit">
     </form>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-            async defer>
-    </script>
-    //https://developers.google.com/recaptcha/docs/display
-</form>
-</body>
-</html>

@@ -22,8 +22,6 @@ form div + div {
     height: 80vh;
     box-shadow: 2px 3px 5px #cecece;
     overflow: auto;
-    width: 80vw;
-    margin: 5vh auto 5vh auto;
     background-color: #FFF;
     position: relative;
 }
@@ -134,8 +132,13 @@ input:focus {
 }
 
 .tchat-submit {
-    width: 11%;
     margin: 0!important;
+    background-image: url("../img/send.png");
+    padding: 0!important;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: #fff0!important;
 }
 
 .tchat-input-60 {
@@ -150,9 +153,7 @@ input:focus {
     margin: 10px 26px;
 }
 
-
 @font-face {
-
     src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
@@ -161,13 +162,11 @@ input:focus {
     src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
 
-
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-
 
 /* ------------------------------------ */
 a {
@@ -177,21 +176,22 @@ a {
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     text-decoration: none;
-    padding-left: 50%;
     color: #8bc34a;
 }
 
-
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+}
 
-p {margin: 0px;}
+p {
+    margin: 0px;
+}
 
 ul, li {
     margin: 0px;
     list-style-type: none;
 }
-
 
 /* ------------------------------------ */
 input {
@@ -205,16 +205,12 @@ textarea {
     outline: none;
 }
 
-
-
 /* ------------------------------------ */
 button {
     outline: none !important;
     border: none;
     background: transparent;
 }
-
-
 
 .limiter {
     width: 100%;
@@ -225,7 +221,6 @@ button {
     width: 100%;
     min-height: 100vh;
     background: whitesmoke;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -248,11 +243,13 @@ button {
     display: table;
     margin: 0;
 }
+
 .row {
     display: table-row;
     background: #fff;
     box-shadow: 1px -4px 20px 0px;
 }
+
 .row.header {
     color: #ffffff;
     background: #6c7ae0;
@@ -267,18 +264,15 @@ button {
     display: none;
 }
 
-
 .cell {
     display: table-cell;
 }
-
 
 .row .cell {
     font-size: 15px;
     color: #666666;
     line-height: 1.2;
     font-weight: unset !important;
-
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #f2f2f2;
@@ -289,7 +283,6 @@ button {
     color: #fff;
     line-height: 1.2;
     font-weight: unset !important;
-
     padding-top: 19px;
     padding-bottom: 19px;
 }
@@ -311,7 +304,38 @@ button {
     width: 190px;
 }
 
-
 .table, .row {
     width: 100% !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .tchat-submit {
+        width: 11%;
+        margin: 0!important;
+        color: #628e2f!important;
+        background: none;
+    }
+
+    #content {
+        width: 60vw;
+        margin: auto;
+    }
+}
+
+nav {
+    background-color: #8bc34a;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    padding: 15px;
+}
+
+nav a {
+    color: #fff;
+}
+
+nav li:hover {
+    background-color: #7fa94e;
 }
