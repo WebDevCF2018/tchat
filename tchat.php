@@ -1,13 +1,6 @@
 <?php
     require "verifSession.php";
-    session_start();
-	if (isset($_SESSION["key"])) {
-		//echo "Il y a une session ! ";
-       //var_dump($_SESSION);
-	}
-    else{
-        header("location: index.php");
-    }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

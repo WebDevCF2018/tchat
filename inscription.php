@@ -2,15 +2,13 @@
 <html lang="fr">
 <head>
     <?php
-<<<<<<< HEAD
-    require "verifSession.php";
-=======
+
     if (isset($_GET['error'])) {
 	    if($_GET['error'] == 1){
 	        $erreur = "Nom d'utilisateur déjà utilisé !";
 	    }
 	}
->>>>>>> bea42d87284315a78974239d78e995650612819b
+
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
     		$erreur = "Veuillez remplir tous les champs !";
