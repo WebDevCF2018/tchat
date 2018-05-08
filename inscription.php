@@ -33,11 +33,23 @@
 	    }
 
     }
-
     ?>
     <meta charset="UTF-8">
     <title>Inscription</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            grecaptcha.render('html_element', {
+                'sitekey' : '6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO'
+            });
+        };
+    </script>
 </head>
 <body>
 <?php if (isset($erreur)) {?>
@@ -54,6 +66,15 @@
     <label for="mail">E-mail :</label>
     <input type="email" id="mail" name="themail" class="input-deco input-mail" autocomplete="off" value="<?=@$_POST["themail"];?>">
     <input id="button" type="submit">
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO"></div>
+        <br/>
+        <input type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+    //https://developers.google.com/recaptcha/docs/display
 </form>
 </body>
 </html>

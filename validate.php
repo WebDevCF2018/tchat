@@ -19,7 +19,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 			<div class=\"wrap-table100\">
 					<div class=\"table\">
 						<div class=\"row\">
-							<div class=\"cell\" data-title=\"Full Name\">
+							<div  class=\"cell\" data-title=\"Full Name\">
 								Votre compte a bien été validé !
 							</div>
 						</div>
@@ -55,6 +55,8 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
+
+					<a href='?p=inscription'>s'inscrire</a>
 					<a href='?p=inscription'>s'inscrirer</a>
 			</div>
 		</div>
@@ -70,6 +72,7 @@ if(isset($_GET['id'])&& isset($_GET['key'])){
 							</div>
 						</div>
 					</div>
+					<a href='?p=inscription'>s'inscrire</a>
 					<a href='?p=inscription'>s'inscrirer</a>
 			</div>
 		</div>
