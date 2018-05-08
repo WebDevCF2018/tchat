@@ -16,6 +16,7 @@
     <title>Tchat</title>
     <script type="javascript" src="js/ajax.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="tchat" onload="chargeContent('phpAjax/recup.php','content')">
