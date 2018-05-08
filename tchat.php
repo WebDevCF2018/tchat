@@ -39,6 +39,20 @@
 <script>
     // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
     setInterval(function(){verifContenu('phpAjax/verif.php','phpAjax/recup.php','headercontent')},3000);
+    // Get the input field
+    var input = document.getElementById("myTXT");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("mySUBMIT").click();
+        }
+    });
+
 </script>
 </body>
 </html>
