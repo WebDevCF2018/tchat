@@ -26,6 +26,7 @@ echo '<meta http-equiv="refresh" content="3">';
     <title>Tchat: Déconnexion</title>
     <script type="javascript" src="js/ajax.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
 </head>
 
 <body class="tchat" onload="chargeContent('06-recup.php','content')">

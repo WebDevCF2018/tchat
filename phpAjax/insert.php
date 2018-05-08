@@ -26,7 +26,7 @@ if(empty($post_id)||empty($post_text)){
 
 // insertion db
 $sql = "INSERT INTO themessage (thecontent,	theuser_idutil) VALUES ('$post_text','$post_id') ";
-$insert = @mysqli_query($mysqli,$sql);
+$insert = mysqli_query($mysqli,$sql);
 
 // si pas d'insertion (0 si non inséré, -1 en cas d'erreur sql)
 if(mysqli_affected_rows($mysqli)<=0){
