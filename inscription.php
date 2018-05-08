@@ -31,6 +31,7 @@
                     $erreur = "Echec de l'inscription, veuillez recommencer";
                 }
 	    }
+
     }
 
     ?>
