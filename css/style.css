@@ -11,8 +11,8 @@
 }
 
 form {
-    position: absolute;
-    width: 360px;
+    margin: 0 auto;
+    width: 20%;
     padding: 1em;
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
