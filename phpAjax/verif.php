@@ -1,4 +1,5 @@
 <?php
+require "../verifSession.php";
 // ouverture de session pour stocker le nombre d'entrées dans la base de données
 session_start();
 // on évite la mise en cache

@@ -2,6 +2,7 @@
 // on évite la mise en cache
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
+require "../verifSession.php";
 require_once "../mysqliConnect.php";
 
 $sql = "SELECT m.*,u.thelogin FROM themessage m 

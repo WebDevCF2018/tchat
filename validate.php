@@ -9,7 +9,7 @@
 <body>
 
 <?php
-
+require "verifSession.php";
 if(isset($_GET['id'])&& isset($_GET['key'])){
     $clef=$_GET['key'];
     $identifiant=$_GET['id'];

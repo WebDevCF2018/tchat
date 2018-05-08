@@ -2,7 +2,7 @@
 // on évite la mise en cache
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
-
+require "../verifSession.php";
 require_once "../mysqliConnect.php";
 
 // pas de variables POST attendues
