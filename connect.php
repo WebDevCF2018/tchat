@@ -1,5 +1,5 @@
 <?php
-    require "verifSession.php";
+
 	if (isset($_SESSION["key"])) {
 		header("location: tchat.php");
 	}
