@@ -39,7 +39,7 @@ function uploadContent(TheURL,idutil,TheContent){
                     break;
                 default:
                     // chargement des contenus venant de la db dans le div content
-                    chargeContent('../phpAjax/recup.php','headercontent');
+                    chargeContent('phpAjax/recup.php','headercontent');
                     // on vide TheContent
                     document.getElementById(TheContent).value="";
             }
@@ -70,7 +70,7 @@ function chargeContent(URL,idDiv){
 // affichage des commentaires
 function afficheContent(objXHR,idDuDiv){
     if(objXHR.readyState==4&& objXHR.status==200){
-        document.getElementById(idDuDiv).innerHTML= objXHR.responseText;
+        document.getElementById(idDuDiv).innerHTML = objXHR.responseText;
         var getHeight = document.getElementById(idDuDiv).scrollHeight;
         document.getElementById(idDuDiv).scrollTop=getHeight;
         //console.log(getHeight);
