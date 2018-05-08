@@ -16,7 +16,6 @@
             $responseData = json_decode($response);
 
             if($responseData->success){
-               echo "<script>alert('sucesss !')</script>";
               if(isset($_GET['error'])){
             if($_GET['error'] == 1){
              $erreur = "Nom d'utilisateur déjà utilisé !";
