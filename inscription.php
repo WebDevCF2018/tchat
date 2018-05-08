@@ -53,12 +53,59 @@
 ?>
     <meta charset="UTF-8">
     <title>Inscription</title>
+
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            grecaptcha.render('html_element', {
+                'sitekey' : '6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO'
+            });
+        };
+    </script>
+
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
 	
+
 </head>
 <body>
+<!-- particles.js container -->
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="particles.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+        stats.begin();
+        stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
 <?php if (isset($erreur)) {?>
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
@@ -76,6 +123,17 @@
     <div class="g-recaptcha" data-sitekey="6LfI91cUAAAAAOxgTFYAqh-cO4aihwC_Nm5u3-_D"></div>
     <br>
     <input id="button" type="submit">
+
+    <form id="capcha" action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO"></div>
+        <br/>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+
 </form>
 </body>
 </html>
