@@ -33,6 +33,7 @@
                     $erreur = "Echec de l'inscription, veuillez recommencer";
                 }
 	    }
+
     }
     ?>
     <meta charset="UTF-8">

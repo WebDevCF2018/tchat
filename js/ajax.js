@@ -15,7 +15,7 @@ function uploadContent(TheURL,idutil,TheContent){
     // création de l'objet de communication XHR
     var XHR = getXHR();
     // on prend la valeur de TheName
-    var name = document.getElementById(idutil).value;
+    var id = idutil;
     // on prend la valeur de TheContent
     var content = document.getElementById(TheContent).value;
     // ouverture du fichier serveur en mode POST asynchrone
@@ -31,8 +31,6 @@ function uploadContent(TheURL,idutil,TheContent){
                     break;
                 case "1":
                     alert("Problème: un de vos champs est vide ou non valide");
-                    // on vide TheName
-                    document.getElementById(TheName).value="";
                     // on vide TheContent
                     document.getElementById(TheContent).value="";
                     break;
@@ -41,16 +39,16 @@ function uploadContent(TheURL,idutil,TheContent){
                     break;
                 default:
                     // chargement des contenus venant de la db dans le div content
-                    chargeContent('../phpAjax/recup.php','content');
+                    chargeContent('../phpAjax/recup.php','headercontent');
                     // on vide TheContent
-                    document.getElementById(content).value="";
+                    document.getElementById(TheContent).value="";
             }
         }
     }
     // entête obligatoire pour de l'ajax en post
     XHR.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     // envoi de nos variable POST
-    XHR.send("n="+name+"&c="+content);
+    XHR.send("n="+id+"&c="+content);
 }
 // récupération des données
 function chargeContent(URL,idDiv){
@@ -79,15 +77,15 @@ function afficheContent(objXHR,idDuDiv){
     }
 }
 // vérification si un nouveau commentaire a été posté par un autre utilisateur
-function verifContenu(){
+function verifContenu(verif,recup,idcontent){
     var XHR = getXHR();
-    XHR.open("GET",'../phpAjax/verif.php',true);
+    XHR.open("GET",verif,true);
     XHR.onreadystatechange=function(){
         if(XHR.readyState==4&& XHR.status==200){
             // si il y a un nouveau commentaire
             if(XHR.responseText=="change"){
                 // chargement des contenus venant de la db dans le div content
-                chargeContent('../phpAjax/recup.php','content');
+                chargeContent(recup,idcontent);
             }
         }
     }
