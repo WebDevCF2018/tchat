@@ -35,6 +35,7 @@
     ?>
     <meta charset="UTF-8">
     <title>Inscription</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript">

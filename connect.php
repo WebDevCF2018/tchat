@@ -44,6 +44,7 @@
     <meta charset="UTF-8">
     <title>connect</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
 </head>
 <body>
 <?php if (isset($erreur)) {?>
