@@ -14,7 +14,7 @@ if(!isset($_POST['myNAME'],$_POST['myTXT'])){
 }
 
 // récupérations et traitement de nos variables POST
-$post_name=htmlspecialchars(strip_tags(trim($_POST['myNAME'])),ENT_QUOTES);
+$post_name= (int) $_SESSION["idutil"];
 $post_text=htmlspecialchars(strip_tags(trim($_POST['myTXT'])),ENT_QUOTES);
 
 if(empty($post_name)||empty($post_text)){

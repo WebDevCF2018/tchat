@@ -11,11 +11,11 @@ function getXHR(){
     return reqHTTP;
 }
 // envoi de myNAME et myTXT
-function uploadContent(TheURL,TheName,TheContent){
+function uploadContent(TheURL,idutil,TheContent){
     // création de l'objet de communication XHR
     var XHR = getXHR();
     // on prend la valeur de TheName
-    var name = document.getElementById(TheName).value;
+    var name = document.getElementById(idutil).value;
     // on prend la valeur de TheContent
     var content = document.getElementById(TheContent).value;
     // ouverture du fichier serveur en mode POST asynchrone
