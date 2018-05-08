@@ -20,17 +20,13 @@ form div + div {
 
 #content {
     height: 80vh;
-    box-shadow: 2px 3px 5px #cecece;
     overflow: auto;
     background-color: #FFF;
     position: relative;
 }
 
 #envoi {
-    position: absolute;
-    bottom: 0;
     display: flex;
-    width: 100%;
 }
 
 label {
@@ -317,6 +313,11 @@ button {
     }
 
     #content {
+        width: 60vw;
+        margin: auto;
+    }
+
+    #envoi {
         width: 60vw;
         margin: auto;
     }
