@@ -43,16 +43,16 @@
 <head>
     <meta charset="UTF-8">
     <title>connect</title>
-<<<<<<< HEAD
+
     <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
     <meta name="author" content="Vincent Garreau" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
-=======
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
->>>>>>> 0f2b135af2add326f871319735c3b895f34dc279
+
 </head>
 <body>
 

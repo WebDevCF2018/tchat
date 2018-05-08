@@ -27,7 +27,6 @@ form {
 
 form h1,.tchat h1 {
     text-align: center;
-    text-align: center;
     color: #7fa94e;
     margin-top: 0;
 }
@@ -66,7 +65,7 @@ label {
     text-align: center;
     cursor: pointer;
     color: #FFF;
-    padding: 10px 0px;
+    padding: 10px auto;
     border-style: none;
     font-weight: bolder;
     letter-spacing: 1px;
@@ -81,7 +80,7 @@ label {
 }
 
 input {
-    padding: 10px 0px;
+    padding: 10px auto;
     text-align: center;
     color: #628e2f;
     font-weight: bold;
