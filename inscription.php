@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php
-
+    require "verifSession.php";
     if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
     	if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
     		$erreur = "Veuillez remplir tous les champs !";
