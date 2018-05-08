@@ -16,7 +16,12 @@ if(!mysqli_num_rows($recup)){
 }else{
     $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
     $tous = array_reverse($tous);
+
     foreach($tous AS $item){
-        echo "<div class='message' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
+    	if ($item["thelogin"] == $_SESSION["thelogin"]) {
+    		echo "<div class='message left' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
+    	} else{
+        	echo "<div class='message right' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
+        }
     }
 }
