@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tchat</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <script src="js/ajax.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
