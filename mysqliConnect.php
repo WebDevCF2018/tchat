@@ -1,5 +1,5 @@
 <?php
-
+require_once "config.php";
 $mysqli = @mysqli_connect(DB_HOST,DB_LOGIN,DB_PWD,DB_NAME,DB_PORT);
 
 if(mysqli_connect_error($mysqli)){

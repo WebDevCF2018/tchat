@@ -15,9 +15,10 @@
     		$erreur = "Veuillez insérer un mot de passe !";
     	}
     	else {
-    	    
+
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
+
             $connect = connectUser($mysqli, $login, $pwd);
 
             if($connect == false){
@@ -43,6 +44,7 @@
     <meta charset="UTF-8">
     <title>connect</title>
     <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <?php if (isset($erreur)) {?>

@@ -14,10 +14,10 @@ if(!isset($_POST['n'],$_POST['c'])){
 }
 
 // récupérations et traitement de nos variables POST
-$post_name=htmlspecialchars(strip_tags(trim($_POST['n'])),ENT_QUOTES);
+$post_id= (int) $_POST['n'];
 $post_text=htmlspecialchars(strip_tags(trim($_POST['c'])),ENT_QUOTES);
 
-if(empty($post_name)||empty($post_text)){
+if(empty($post_id)||empty($post_text)){
     // envoi de l'erreur
     echo "1";
     // arrêt du script
@@ -25,7 +25,7 @@ if(empty($post_name)||empty($post_text)){
 }
 
 // insertion db
-$sql = "INSERT INTO contenu (nom,texte) VALUES ('$post_name','$post_text') ";
+$sql = "INSERT INTO themessage (thecontent,	theuser_idutil) VALUES ('$post_text','$post_id') ";
 $insert = @mysqli_query($mysqli,$sql);
 
 // si pas d'insertion (0 si non inséré, -1 en cas d'erreur sql)

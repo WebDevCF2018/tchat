@@ -1,5 +1,10 @@
 <?php
-
+function sha256($lepwd)
+{
+    $lepwd = hash('sha256',$lepwd);
+    return $lepwd;
+}
+//var_dump(sha256($lepwd));
 function createKey()
 {
 
@@ -39,7 +44,7 @@ function createKey()
       </head>
       <body>
        <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='http://localhost/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
+       <p>Cliquez sur <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
        <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
       </body>
      </html>
@@ -48,8 +53,8 @@ function createKey()
     $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-    $from .= 'From: ' . "\r\n" . // l'adresse du site
-        'Reply-To: yourbestenemy@gmail.com  ' . "\r\n" .
+    $from .= 'From: tchat@webdev-cf2m.be ' . "\r\n" . // l'adresse du site
+        'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     return @mail($to, $subject, $message, $from);
 }
@@ -65,24 +70,29 @@ function newuser($db,$lelogin,$lepwd,$themail){
     if(empty($lelogin)||empty($lepwd)){
         return false;
     }
+    $lepwd = sha256($lepwd);
     $thekey = createKey();
-
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db,$sql)or die(mysqli_error($db));$lastid = mysqli_insert_id($db);
+    $ajout = mysqli_query($db,$sql);
+    if(mysqli_error($db)) {
+        header("Location: ./?p=inscription&error=1");
+        return false;
+    }
+    $lastid = mysqli_insert_id($db);
     // si on a inséré l'article
     if(mysqli_affected_rows($db)){
         EnvoiConfirmMail( $lelogin,$themail,$lastid,$thekey);
+        return true;
     }
     return false;
-
 }
 
 // identification pour administration- connectUser()
 function connectUser($db,$lelogin,$pass){
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
-
+    $pwd = sha256($pwd);
     $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin='$lelogin' AND thepwd='$pwd'";
     
     $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
