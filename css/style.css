@@ -344,11 +344,11 @@ nav li:hover {
 .message {
     background-color: #8bc34a;
     margin: 10px 10px;
-    display: table;
     color: #FFF;
     border-radius: 5px;
     border: 1px solid #75a939;
     padding: 5px 8px 5px 0px;
+    width: 60%;
 }
 
 .message i {
@@ -365,4 +365,16 @@ nav li:hover {
 
 nav li b {
     text-transform: capitalize;
+}
+
+#headercontent {
+    display: grid;
+}
+
+.message.left {
+    justify-self: normal;
+}
+
+.message.right {
+    justify-self: end;
 }
