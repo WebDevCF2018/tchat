@@ -466,11 +466,10 @@ nav li b {
 canvas.particles-js-canvas-el {
 }
 
-<<<<<<< HEAD
 #date{
     margin-left: 57%;
 }
-=======
+
 
 @media (max-width: 480px){
     #emoji-bar{
@@ -485,4 +484,3 @@ canvas.particles-js-canvas-el {
     padding-left: 5vw;
     border-radius: 0;
 }
->>>>>>> b682eb629ba28e6735f1d784482bb5be52f711c8
