@@ -166,7 +166,7 @@ function traiteChaine($text){
                 }else{  
                     /*Activation permited*/
                     $req = mysqli_query($connexion,"UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil") or die(mysqli_error($connexion));
-                    colorMessage($connexion, $idutil, $data['thevalidate']);
+                    colorMessage($connexion, $idutil);
                     return "ok";
                 }
             }
@@ -174,15 +174,13 @@ function traiteChaine($text){
     
 /*---------------Fin des fonctions de Niko----------------*/
 
-function colorMessage($db,$idutil, $validate)
+function colorMessage($db,$idutil)
  {
     $idutil = (int) $idutil;
-    $validate = (int) $validate;
     $colorArray = ['#000000','#FF0000','#00FF00','#0000FF','#FFFF00','#00FFFF','#FF00FF','#C0C0C0','#808080','#800000','#808000','#008000','#800080','#008080','#000080'];
-    if ($validate == 1){
        $thecolor = $colorArray[mt_rand(0, count($colorArray)-1)];
        $sql = "UPDATE theuser SET thecolor = $thecolor WHERE idutil = $idutil";
        mysqli_query($db,$sql) or die(mysqli_error($db));
-    }
+    
  }
 
