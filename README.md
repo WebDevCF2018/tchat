@@ -10,6 +10,12 @@ define("DB_LOGIN","root");
 define("DB_PWD","");
 define("DB_CHARSET","utf8");
 
+## 09/05/2018
+
+Sélectionnez la table 'theuser' et en mode SQL, updatez la avec cette ligne pour permettre le choix d'une couleur:
+
+ALTER TABLE `theuser` ADD `thecolor` VARCHAR(10) NOT NULL AFTER `thekey`;
+
 ## 30/04/218
 ! modification de structure de la table theuser
 
