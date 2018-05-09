@@ -397,9 +397,9 @@ button {
 }
 
 nav {
-    background-color: #8bc34a;
+    background-color: #a4de5f;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 nav li {
