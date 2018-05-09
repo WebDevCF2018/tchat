@@ -14,14 +14,15 @@
 ::-webkit-scrollbar-thumb
 {
     background-color: #a3c55d;
-    
+
     background-image: -webkit-gradient(linear, 0 0, 0 100%,
-                       color-stop(.5, rgba(255, 255, 255, .2)),
-                       color-stop(.5, transparent), to(transparent));
+    color-stop(.5, rgba(255, 255, 255, .2)),
+    color-stop(.5, transparent), to(transparent));
 }
 
 #particles-js {
     background-color: #8bc34a;
+    background-size: cover;
     position: absolute;
     z-index: -1;
     overflow: hidden;
@@ -64,12 +65,18 @@ form div + div {
     overflow: auto;
     background-color: #FFF;
     padding: 5px;
+    border-right: solid 2px #218d24;
+    border-top: solid 2px #218d24;
+    border-left: solid 2px #218d24;
 }
 
 #envoi {
     height: 5vh;
     display: flex;
     text-align: right;
+    border-bottom: groove 1px #218d24;
+    border-right: groove 1px #218d24;
+    border-left: groove 1px #218d24;
 }
 
 label {
@@ -100,11 +107,11 @@ label {
     flex-direction: row;
     justify-content: center;
     overflow: auto;
-	border: 1px solid #DDD;
+    border: 1px solid #DDD;
 }
 
 #button,#mySUBMIT {
-    background-color: #8BC34A;
+    background-color: #85e659;
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -366,7 +373,7 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-    
+
     #emoji-bar{
         margin: auto;
         padding-left: 1vw;
@@ -377,12 +384,14 @@ button {
         flex-direction: row;
         justify-content: center;
         overflow: auto;
+        border-left: solid 1px #156218;
+        border-right: solid 1px #156218;
     }
-    
+
     .tchat-submit {
         width: 11%;
         margin: 0!important;
-        color: #628e2f!important;
+        color: #0f0f0f!important;
         background: none;
     }
 
@@ -471,16 +480,17 @@ canvas.particles-js-canvas-el {
 }
 
 
-@media (max-width: 480px){
-    #emoji-bar{
-    margin: auto;
-    height: 50px;
-    background: #d1febe;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    overflow: auto;
-    width: auto;
-    padding-left: 5vw;
-    border-radius: 0;
+@media (max-width: 480px) {
+    #emoji-bar {
+        margin: auto;
+        height: 50px;
+        background: #d1febe;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow: auto;
+        width: auto;
+        padding-left: 5vw;
+        border-radius: 0;
+    }
 }
