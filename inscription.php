@@ -58,24 +58,9 @@
     <meta name="author" content="Vincent Garreau" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="text/javascript">
-        var onloadCallback = function() {
-            alert("grecaptcha is ready!");
-        };
-    </script>
-    <script type="text/javascript">
-        var onloadCallback = function() {
-            grecaptcha.render('html_element', {
-                'sitekey' : '6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO'
-            });
-        };
-    </script>
-
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
-	
+
 
 </head>
 <body>
@@ -124,15 +109,6 @@
     <br>
     <input id="button" type="submit">
 
-    <form id="capcha" action="?" method="POST">
-        <div class="g-recaptcha" data-sitekey="6Le4slcUAAAAAIffFI7EORrnvITGU87tC47wGoPO"></div>
-        <br/>
-        <input type="submit" value="Submit">
-    </form>
-    
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-            async defer>
-    </script>
 
 </form>
 </body>
