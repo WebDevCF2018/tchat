@@ -1,20 +1,20 @@
 #particles-js {
+    background-color: #8bc34a;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #74d95d;
-    background-size: cover;
-    /* background-repeat: no-repeat; */
+    z-index: -1;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 form {
     margin: 0 auto;
-    width: 20%;
+    width: 360px;
     padding: 1em;
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
     display: grid;
+
     z-index: 5;
     margin-left: auto;
     margin-right: auto;
@@ -22,9 +22,12 @@ form {
     right: 0;
     margin-top: 45px;
     position: absolute;
+
+
 }
 
 form h1,.tchat h1 {
+    text-align: center;
     text-align: center;
     color: #7fa94e;
     margin-top: 0;
@@ -64,7 +67,7 @@ label {
     text-align: center;
     cursor: pointer;
     color: #FFF;
-    padding: 10px auto;
+    padding: 10px 0px;
     border-style: none;
     font-weight: bolder;
     letter-spacing: 1px;
@@ -78,8 +81,13 @@ label {
     letter-spacing: 1px;
 }
 
+body {
+    background-color: #f3f3f3;
+    font-family: arial;
+}
+
 input {
-    padding: 10px auto;
+    padding: 10px 0px;
     text-align: center;
     color: #628e2f;
     font-weight: bold;
@@ -117,12 +125,6 @@ input:focus {
     color: #FFF;
     border: 1px solid #d62a1d;
     font-weight: bold;
-    position: absolute;
-    z-index: 5;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
 }
 
 .input-deco {
@@ -394,4 +396,7 @@ nav li b {
 
 .message.right {
     justify-self: end;
+}
+
+canvas.particles-js-canvas-el {
 }
