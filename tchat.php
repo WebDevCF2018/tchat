@@ -27,7 +27,6 @@
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
         <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php','<?=$_SESSION["idutil"];?>','myTXT')" id="mySUBMIT" value="Envoyer">
     </div>
-<div id="tchatScrollUp" style="height:530px;overflow:auto;" class="blog_msg" document.getElementById('tchatScrollUp')></div>
 <script>
     // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
     setInterval(function(){verifContenu('phpAjax/verif.php','phpAjax/recup.php','headercontent')},3000);
