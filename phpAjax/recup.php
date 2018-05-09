@@ -4,6 +4,7 @@ header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
 require_once "../mysqliConnect.php";
+require_once "../function.php";
 
 $sql = "SELECT m.*,u.thelogin FROM themessage m 
         INNER JOIN theuser u 
@@ -18,6 +19,7 @@ if(!mysqli_num_rows($recup)){
     $tous = array_reverse($tous);
 
     foreach($tous AS $item){
+            $item['thecontent'] = traiteChaine($item['thecontent']);
     	if ($item["thelogin"] == $_SESSION["thelogin"]) {
     		echo "<div class='message left' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
     	} else{
