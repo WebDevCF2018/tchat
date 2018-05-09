@@ -52,7 +52,7 @@ form {
 form h1,.tchat h1 {
     text-align: center;
     text-align: center;
-    color: #7fa94e;
+    color: #FEFEFEFE;
     margin-top: 0;
 }
 
@@ -62,12 +62,15 @@ form div + div {
 
 #content {
     height: 80vh;
-    overflow: auto;
     background-color: #FFF;
+<<<<<<< HEAD
     padding: 5px;
     border-right: solid 2px #218d24;
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
+=======
+    padding: 4px;
+>>>>>>> 402602ce13ec83eabec2ea910bacd76ac7492dec
 }
 
 #envoi {
@@ -111,7 +114,11 @@ label {
 }
 
 #button,#mySUBMIT {
+<<<<<<< HEAD
     background-color: #85e659;
+=======
+    background-color: #a4de5f;
+>>>>>>> 402602ce13ec83eabec2ea910bacd76ac7492dec
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -398,6 +405,7 @@ button {
     #content {
         width: 60vw;
         margin: auto;
+	box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
@@ -407,7 +415,7 @@ button {
 }
 
 nav {
-    background-color: #8bc34a;
+    background-color: #a4de5f;
     display: flex;
     justify-content: flex-end;
 }
@@ -473,10 +481,6 @@ nav li b {
 }
 
 canvas.particles-js-canvas-el {
-}
-
-#date{
-    margin-left: 55%;
 }
 
 
