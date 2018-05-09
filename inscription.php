@@ -16,11 +16,7 @@
             $responseData = json_decode($response);
 
             if($responseData->success){
-              if(isset($_GET['error'])){
-            if($_GET['error'] == 1){
-             $erreur = "Nom d'utilisateur déjà utilisé !";
-            }
-        }
+
         if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
             if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
                 $erreur = "Veuillez remplir tous les champs !";
@@ -50,6 +46,11 @@
             }    
         }
     }
+    if(isset($_GET['error'])){
+        if($_GET['error'] == 1){
+            $erreur = "Nom d'utilisateur déjà utilisé !";
+        }
+    }
 ?>
     <meta charset="UTF-8">
     <title>Inscription</title>
@@ -72,29 +73,11 @@
 <script src="js/app.js"></script>
 
 
-<script>
-    var count_particles, stats, update;
-    stats = new Stats;
-    stats.setMode(0);
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '0px';
-    stats.domElement.style.top = '0px';
-    document.body.appendChild(stats.domElement);
-    count_particles = document.querySelector('.js-count-particles');
-    update = function() {
-        stats.begin();
-        stats.end();
-        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-        }
-        requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-</script>
+
 <?php if (isset($erreur)) {?>
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
-<form action="" method="post">
+<form action="?p=inscription" method="post">
 	<div class="retour"><a href="index.php">Retour</a></div>
     <h1>Inscription</h1>
 
