@@ -63,14 +63,10 @@ form div + div {
 #content {
     height: 80vh;
     background-color: #FFF;
-    <<<<<<< HEAD
     padding: 5px;
     border-right: solid 2px #218d24;
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
-=======
-padding: 4px;
->>>>>>> 402602ce13ec83eabec2ea910bacd76ac7492dec
 }
 
 #envoi {
