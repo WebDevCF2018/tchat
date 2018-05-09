@@ -114,7 +114,7 @@ label {
 }
 
 #button,#mySUBMIT {
-    background: linear-gradient(to right,#8bc34a 27%, #AAD37B 54%, #4C6B29 100%);
+    background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -394,7 +394,7 @@ button {
     .tchat-submit {
         width: 11%;
         margin: 0!important;
-        color: #0f0f0f!important;
+        color: #fafafa!important;
         background: none;
     }
 
