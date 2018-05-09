@@ -369,7 +369,12 @@ nav li:hover {
     border: 1px solid #75a939;
     padding: 5px 8px 5px 0px;
     width: 60%;
-    word-wrap: break-word;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
 }
 
 .message i {
