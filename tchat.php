@@ -28,7 +28,7 @@
 </nav>
 <h1>Mini chat</h1>
 <div id="content">
-    <div id="headercontent"></div>  
+    <div id="headercontent"></div>
 </div>
 <div id="envoi">
         <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?=$_SESSION["thelogin"];?>" required>
@@ -52,7 +52,7 @@
         }
     });
 
-
 </script>
+
 </body>
 </html>
