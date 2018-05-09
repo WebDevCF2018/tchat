@@ -63,13 +63,13 @@ form div + div {
 #content {
     height: 80vh;
     background-color: #FFF;
-<<<<<<< HEAD
+    <<<<<<< HEAD
     padding: 5px;
     border-right: solid 2px #218d24;
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
 =======
-    padding: 4px;
+padding: 4px;
 >>>>>>> 402602ce13ec83eabec2ea910bacd76ac7492dec
 }
 
@@ -114,11 +114,7 @@ label {
 }
 
 #button,#mySUBMIT {
-<<<<<<< HEAD
-    background-color: #85e659;
-=======
-    background-color: #a4de5f;
->>>>>>> 402602ce13ec83eabec2ea910bacd76ac7492dec
+    background: linear-gradient(to right,#8bc34a 27%, #AAD37B 54%, #4C6B29 100%);
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -405,7 +401,7 @@ button {
     #content {
         width: 60vw;
         margin: auto;
-	box-shadow: 1px 1px 32px #c7ff84;
+        box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
