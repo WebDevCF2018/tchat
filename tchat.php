@@ -1,6 +1,6 @@
 <?php
     require "verifSession.php";
-
+    //var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,6 +19,7 @@
 	<a href="deco.php"><li><b>Déconnexion</b></li></a>
 </nav>
 <h1>Mini chat</h1>
+<div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connectés</p></div>
 <div id="content">
     <div id="headercontent"></div>  
 </div>
@@ -28,6 +29,8 @@
         <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php','<?=$_SESSION["idutil"];?>','myTXT')" id="mySUBMIT" value="Envoyer">
     </div>
 <script>
+    // Affichage des personnes connectés
+    setInterval(function(){ chargeContent('phpAjax/online.php','row-connected');},3000);
     // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
     setInterval(function(){verifContenu('phpAjax/verif.php','phpAjax/recup.php','headercontent')},3000);
     // Get the input field

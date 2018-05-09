@@ -93,11 +93,21 @@ function connectUser($db,$lelogin,$pass){
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)),ENT_QUOTES);
     $pwd = sha256($pwd);
-    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin='$lelogin' AND thepwd='$pwd'";
     
+    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin= '$lelogin' AND thepwd= '$pwd' ;";
+
+    $sql1 = "UPDATE theuser SET theonline = '1' WHERE thelogin = '$lelogin' ;";
+   
     $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
+    $recupLogin1 = mysqli_query($db,$sql1) or die(mysqli_error($db));
 
     return mysqli_fetch_assoc($recupLogin);
+}
+
+function disconnect($db,$lelogin){
+    $lelogin = htmlspecialchars(strip_tags(trim($lelogin)),ENT_QUOTES);
+    $sql = "UPDATE theuser SET theonline = '0' WHERE thelogin = '$lelogin'";
+    $recupLogin = mysqli_query($db,$sql) or die(mysqli_error($db));
 }
 
 

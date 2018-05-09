@@ -1,4 +1,8 @@
 <?php
+require_once "config.php";
+require_once "mysqliConnect.php";
+require_once "function.php";
+
 session_start();
 
 if(!isset($_SESSION["key"])){
@@ -6,7 +10,7 @@ if(!isset($_SESSION["key"])){
 }
 
 $nom = $_SESSION["thelogin"];
-
+disconnect($mysqli, $nom);
 $_SESSION = array();
 
 if (ini_get("session.use_cookies")) {
