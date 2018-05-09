@@ -172,3 +172,5 @@ function traiteChaine($text){
     }
     
 /*---------------Fin des fonctions de Niko----------------*/
+
+
