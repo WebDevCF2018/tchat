@@ -9,11 +9,18 @@
     <title>Tchat</title>
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <script src="js/ajax.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="css/style.css">
 </head>
 
 <body class="tchat" onload="chargeContent('phpAjax/recup.php','headercontent')">
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="particles.js"></script>
+<script src="js/app.js"></script>
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
     <p id="heures"></p>
