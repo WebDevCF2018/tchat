@@ -16,7 +16,6 @@
 <body class="tchat" onload="chargeContent('phpAjax/recup.php','headercontent')">
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
-    <p id="heures"></p>
 	<a href="deco.php"><li><b>Déconnexion</b></li></a>
 </nav>
 <h1>Mini chat</h1>
