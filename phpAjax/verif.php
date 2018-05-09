@@ -6,7 +6,6 @@ session_start();
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 require_once "../mysqliConnect.php";
-
 $sql = "SELECT COUNT(*) AS nombre FROM themessage";
 $recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
 $result = mysqli_fetch_assoc($recup);

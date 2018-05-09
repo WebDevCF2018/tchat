@@ -5,7 +5,6 @@ header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
 require_once "../mysqliConnect.php";
 require_once "../function.php";
-
 $sql = "SELECT m.*,u.thelogin FROM themessage m 
         INNER JOIN theuser u 
           ON u.idutil = m.theuser_idutil
@@ -17,7 +16,6 @@ if(!mysqli_num_rows($recup)){
 }else{
     $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
     $tous = array_reverse($tous);
-
     foreach($tous AS $item){
             $item['thecontent'] = traiteChaine($item['thecontent']);
     	if ($item["thelogin"] == $_SESSION["thelogin"]) {
