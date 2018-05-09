@@ -185,3 +185,4 @@ function colorMessage($db,$idutil, $validate)
        mysqli_query($db,$sql) or die(mysqli_error($db));
     }
  }
+

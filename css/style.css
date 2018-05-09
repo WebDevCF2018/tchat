@@ -51,7 +51,7 @@ form {
 form h1,.tchat h1 {
     text-align: center;
     text-align: center;
-    color: #7fa94e;
+    color: #FEFEFEFE;
     margin-top: 0;
 }
 
@@ -61,9 +61,8 @@ form div + div {
 
 #content {
     height: 80vh;
-    overflow: auto;
     background-color: #FFF;
-    padding: 5px;
+    padding: 4px;
 }
 
 #envoi {
@@ -104,7 +103,7 @@ label {
 }
 
 #button,#mySUBMIT {
-    background-color: #8BC34A;
+    background-color: #a4de5f;
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -398,7 +397,7 @@ button {
 }
 
 nav {
-    background-color: #8bc34a;
+    background-color: #a4de5f;
     display: flex;
     justify-content: flex-end;
 }
