@@ -106,10 +106,10 @@ function connectUser($db,$lelogin,$pass){
 /*Fonction de remplacement de strings par smileys*/
 function traiteChaine($text){
         $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
-        $text = str_replace(':-)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
+        $text = str_replace(':-)', '<img class="emoji" src="img/smile.png" alt="smile" title=\':smile:\'>', $text);
         $text = str_replace(':smile:', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
         $text = str_replace(":'(", '<img class=emoji src="img/sad.gif" alt="sad" title=":sad:">', $text);
-        $text = str_replace(':-(', '<img class=emoji src="img/angry.gif" alt="angry" title=":angry:">', $text);
+       $text = str_replace(':-(', '<img class="emoji" src="img/angry.gif" alt="angry" title=\':angry:\'>', $text);
         $text = str_replace(':sad:', '<img class=emoji src="img/sad.gif" alt="sad" title=":sad:">', $text);
         $text = str_replace('T_T', '<img class=emoji src="img/sad.gif" alt="sad" title="sad">', $text);
         $text = str_replace(':nyan:', '<img class=emoji src="img/nyan.gif" alt="nyan" title=":nyan:">', $text);
