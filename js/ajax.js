@@ -91,7 +91,3 @@ function verifContenu(verif,recup,idcontent){
     }
     XHR.send();
 }
-window.setInterval(function() {
-    var elem = document.getElementById('chat18cf2m');
-    elem.scrollTop = elem.scrollHeight;
-}, 1000);
