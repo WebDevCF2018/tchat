@@ -388,6 +388,7 @@ button {
     #content {
         width: 60vw;
         margin: auto;
+	box-shadow: 1px 1px 64px #c7ff84;
     }
 
     #envoi {
