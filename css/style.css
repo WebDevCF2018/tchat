@@ -179,20 +179,18 @@ input:focus {
 }
 
 * {
-    margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    margin: 0;
 }
 
 /* ------------------------------------ */
 a {
     margin: 0px;
-    transition: all 0.4s;
     -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
     text-decoration: none;
-    color: #8bc34a;
+    color: #0029ff;
+    margin-left: 46%;
 }
 
 /* ------------------------------------ */
@@ -236,7 +234,7 @@ button {
 .container-table100 {
     width: 100%;
     min-height: 100vh;
-    background: whitesmoke;
+    /* background: whitesmoke; */
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -292,6 +290,7 @@ button {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #f2f2f2;
+    text-align: center;
 }
 
 .row.header .cell {
