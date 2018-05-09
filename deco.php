@@ -43,7 +43,7 @@ echo '<meta http-equiv="refresh" content="3">';
 <script src="particles.js"></script>
 <script src="js/app.js"></script>
 
-<h1>Déconnexion</h1>
-<center><p>Aurevoir <?=$nom;?> et à bientôt !</p></center>
+<h1 style="color: ghostwhite">Déconnexion</h1>
+<center><p style="border: 5px outset orange; color: ghostwhite">Aurevoir <?=$nom;?> et à bientôt !</p></center>
 </body>
 </html>

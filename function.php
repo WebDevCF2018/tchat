@@ -74,7 +74,7 @@ function newuser($db,$lelogin,$lepwd,$themail){
     $thekey = createKey();
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db,$sql);
+    $ajout = mysqli_query($db,$sql) or die(mysqli_error($db));
     if(mysqli_error($db)) {
         header("Location: ./?p=inscription&error=1");
         return false;
@@ -176,9 +176,21 @@ function traiteChaine($text){
                 }else{  
                     /*Activation permited*/
                     $req = mysqli_query($connexion,"UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil") or die(mysqli_error($connexion));
+                    colorMessage($connexion, $idutil);
                     return "ok";
                 }
             }
     }
     
 /*---------------Fin des fonctions de Niko----------------*/
+
+function colorMessage($db,$idutil)
+ {
+    $idutil = (int) $idutil;
+    $colorArray = ['#000000','#FF0000','#00FF00','#0000FF','#FFFF00','#00FFFF','#FF00FF','#C0C0C0','#808080','#800000','#808000','#008000','#800080','#008080','#000080'];
+       $thecolor = $colorArray[mt_rand(0, count($colorArray)-1)];
+       $sql = "UPDATE theuser SET thecolor = $thecolor WHERE idutil = $idutil";
+       mysqli_query($db,$sql) or die(mysqli_error($db));
+    
+ }
+

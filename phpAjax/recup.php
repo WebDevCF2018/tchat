@@ -18,10 +18,10 @@ if(!mysqli_num_rows($recup)){
     $tous = array_reverse($tous);
     foreach($tous AS $item){
             $item['thecontent'] = traiteChaine($item['thecontent']);
-        if ($item["thelogin"] == $_SESSION["thelogin"]) {
-            echo "<div class='message left' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
-        } else{
-            echo "<div class='message right' title='{$item['thedatetime']}'><i>{$item['thelogin']}</i> {$item['thecontent']}</div>";
+    	if ($item["thelogin"] == $_SESSION["thelogin"]) {
+    		echo "<div class='message left'><i>{$item['thelogin']}</i> {$item['thecontent']}<span id='date'>{$item['thedatetime']}</span></div>";
+    	} else{
+        	echo "<div class='message right'><i>{$item['thelogin']}</i> {$item['thecontent']}<span id='date'>{$item['thedatetime']}</span></div>";
         }
     }
 }
