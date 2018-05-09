@@ -16,11 +16,7 @@
             $responseData = json_decode($response);
 
             if($responseData->success){
-              if(isset($_GET['error'])){
-            if($_GET['error'] == 1){
-             $erreur = "Nom d'utilisateur déjà utilisé !";
-            }
-        }
+
         if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
             if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
                 $erreur = "Veuillez remplir tous les champs !";
@@ -50,6 +46,11 @@
             }    
         }
     }
+    if(isset($_GET['error'])){
+        if($_GET['error'] == 1){
+            $erreur = "Nom d'utilisateur déjà utilisé !";
+        }
+    }
 ?>
     <meta charset="UTF-8">
     <title>Inscription</title>
@@ -76,7 +77,7 @@
 <?php if (isset($erreur)) {?>
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
-<form action="" method="post">
+<form action="?p=inscription" method="post">
 	<div class="retour"><a href="index.php">Retour</a></div>
     <h1>Inscription</h1>
 
