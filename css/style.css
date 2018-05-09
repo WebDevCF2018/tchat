@@ -63,11 +63,13 @@ form div + div {
     height: 80vh;
     overflow: auto;
     background-color: #FFF;
-    position: relative;
+    padding: 5px;
 }
 
 #envoi {
+    height: 5vh;
     display: flex;
+    text-align: right;
 }
 
 label {
@@ -447,6 +449,10 @@ nav li b {
 
 #headercontent {
     display: grid;
+    height: 80vh;
+    overflow: auto;
+    background-color: #FFF;
+    padding: 5px;
 }
 
 .message.left {

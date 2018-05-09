@@ -28,7 +28,7 @@
 </nav>
 <h1>Mini chat</h1>
 <div id="content">
-    <div id="headercontent"></div>  
+    <div id="headercontent"></div>
 </div>
 	<div id="emoji-bar">
             <img onclick="emojiBar('smile')" class="emoji" src="img/smile.png">
@@ -68,11 +68,12 @@
             document.getElementById("mySUBMIT").click();
         }
     });
-
+  
 function emojiBar(emoji){
         document.getElementById('myTXT').value += ":"+emoji+":";
-    }
+}
 
 </script>
+
 </body>
 </html>
