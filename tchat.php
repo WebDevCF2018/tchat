@@ -30,6 +30,23 @@
 <div id="content">
     <div id="headercontent"></div>  
 </div>
+	<div id="emoji-bar">
+            <img onclick="emojiBar('smile')" class="emoji" src="img/smile.png">
+            <img onclick="emojiBar('happy')" class="emoji" src="img/happy.png">
+            <img onclick="emojiBar('angry')" class="emoji" src="img/angry.gif">
+            <img onclick="emojiBar('sad')" class="emoji" src="img/sad.gif">
+            <img onclick="emojiBar('laugh')" class="emoji" src="img/laugh.gif">
+            <img onclick="emojiBar('wow')" class="emoji" src="img/wow.gif">
+            <img onclick="emojiBar('surprised')" class="emoji" src="img/surprised.png">
+            <img onclick="emojiBar('confused')" class="emoji" src="img/confused.png">
+            <img onclick="emojiBar('like')" class="emoji" src="img/like.gif">
+            <img onclick="emojiBar('heart')" class="emoji" src="img/heart.gif">
+            <img onclick="emojiBar('troll')" class="emoji" src="img/troll.png">
+            <img onclick="emojiBar('star')" class="emoji" src="img/star.png">
+            <img onclick="emojiBar('knuckle')" class="emoji" src="img/knuckle.png">
+            <img onclick="emojiBar('nyan')" class="emoji" src="img/nyan.gif">
+        </div>
+	
 <div id="envoi">
         <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?=$_SESSION["thelogin"];?>" required>
         <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
@@ -52,6 +69,9 @@
         }
     });
 
+function emojiBar(emoji){
+        document.getElementById('myTXT').value += ":"+emoji+":";
+    }
 
 </script>
 </body>
