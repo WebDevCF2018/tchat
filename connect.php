@@ -95,8 +95,7 @@
     <label for="thepwd">Password :</label>
     <input type="password" id="thepwd" class="input-deco input-pwd" name="thepwd" value="<?=@$_POST["thepwd"];?>">
     <input id="button" type="submit">
-
-
+    
     <div class="inscription">
         <a href="?p=inscription">Inscription</a>
     </div>
