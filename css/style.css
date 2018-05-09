@@ -46,8 +46,9 @@ label {
 
 .emoji {
     position: relative;
-    top: 15px;
-    width: 50px;
+    top: 8px;
+    border-radius: 100%;
+    width: 30px;
 }
 
 #button,#mySUBMIT {
