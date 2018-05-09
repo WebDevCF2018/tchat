@@ -156,7 +156,7 @@ input:focus {
 }
 
 .g-recaptcha {
-    margin: 10px 26px;
+    margin: auto;
 }
 
 @font-face {
