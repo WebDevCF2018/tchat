@@ -10,6 +10,22 @@ define("DB_LOGIN","root");
 define("DB_PWD","");
 define("DB_CHARSET","utf8");
 
+## 14/05/2018
+
+CREATE TABLE `theonline` (
+  `idonline` bigint(20) UNSIGNED NOT NULL,
+  `idutil` int(10) UNSIGNED NOT NULL,
+  `thetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `theonline`
+  ADD PRIMARY KEY (`idonline`);
+
+
+ALTER TABLE `theonline`
+  MODIFY `idonline` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 ## 09/05/2018 b
 
 ALTER TABLE `theuser` CHANGE `thecolor` `thecolor` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
