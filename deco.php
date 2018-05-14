@@ -28,9 +28,7 @@ echo '<meta http-equiv="refresh" content="3">';
 <head>
     <meta charset="UTF-8">
     <title>Tchat: Déconnexion</title>
-    <script type="javascript" src="js/ajax.js"></script>
-    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-    <meta name="author" content="Vincent Garreau" />
+    <script type="javascript" src="js/ajax.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
@@ -40,8 +38,8 @@ echo '<meta http-equiv="refresh" content="3">';
 <div id="particles-js"></div>
 
 <!-- scripts -->
-<script src="particles.js"></script>
-<script src="js/app.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.min.js"></script>
 
 <h1 style="color: ghostwhite">Déconnexion</h1>
 <center><p style="border: 5px outset orange; color: ghostwhite">Aurevoir <?=$nom;?> et à bientôt !</p></center>

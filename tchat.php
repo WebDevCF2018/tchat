@@ -8,9 +8,7 @@
     <meta charset="UTF-8">
     <title>Tchat</title>
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
-    <script src="js/ajax.js"></script>
-    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-    <meta name="author" content="Vincent Garreau" />
+    <script src="js/ajax.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
 </head>
@@ -19,8 +17,8 @@
 <div id="particles-js"></div>
 
 <!-- scripts -->
-<script src="particles.js"></script>
-<script src="js/app.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.min.js"></script>
 <nav>
 	<li>Bonjour, <b><?=$_SESSION["thelogin"];?></b></li>
 	<a href="deco.php"><li><b>Déconnexion</b></li></a>
@@ -54,7 +52,7 @@
     </div>
 <script>
     // Affichage des personnes connectés
-    setInterval(function(){ chargeContent('phpAjax/online.php','row-connected');},3000);
+    //setInterval(function(){ chargeContent('phpAjax/online.php','row-connected');},3000);
     // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
     setInterval(function(){verifContenu('phpAjax/verif.php','phpAjax/recup.php','headercontent')},3000);
     // Get the input field
