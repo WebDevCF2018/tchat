@@ -24,7 +24,7 @@ function uploadContent(TheURL,idutil,TheContent){
     XHR.onreadystatechange=function(){
         // si on a récupéré le résultat
         if(XHR.readyState==4 && XHR.status==200){
-            // on vérifie la réponse venant de phpAjax/insert.php
+            // on vérifie la réponse venant de phpAjax/insert.php 
             switch(XHR.responseText) {
                 case "0":
                     alert("Problème d'existance d'une variable de type POST");
