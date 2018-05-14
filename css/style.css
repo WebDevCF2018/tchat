@@ -410,7 +410,6 @@ nav li:hover {
     color: #FFF;
     border-radius: 5px;
     border: 1px solid #75a939;
-    padding: 5px 8px 5px 0px;
     width: 60%;
     word-break: break-word;
     -webkit-hyphens: auto;
@@ -418,6 +417,7 @@ nav li:hover {
     -ms-hyphens: auto;
     -o-hyphens: auto;
     hyphens: auto;
+    display: flex;
 }
 
 .message i {
@@ -430,6 +430,7 @@ nav li:hover {
     background-color: #a4de5f;
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
+    word-break: normal;
 }
 
 nav li b {
@@ -476,4 +477,8 @@ nav li b {
         padding-left: 5vw;
         border-radius: 0;
     }
+}
+
+.message p {
+    margin: 10px;
 }
