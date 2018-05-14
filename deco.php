@@ -6,7 +6,7 @@ require_once "function.php";
 session_start();
 
 if(!isset($_SESSION["key"])){
-	header("Location: index.php");
+	header("Location: ./");
 }
 
 $_SESSION = array();
