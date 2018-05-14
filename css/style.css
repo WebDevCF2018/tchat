@@ -1,33 +1,26 @@
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
 }
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
     width: 10px;
     height: 10px;
     background-color: #F5F5F5;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
     background-color: #a3c55d;
-
-    background-image: -webkit-gradient(linear, 0 0, 0 100%,
-    color-stop(.5, rgba(255, 255, 255, .2)),
-    color-stop(.5, transparent), to(transparent));
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
 #particles-js {
     background-color: #8bc34a;
-    background-size: cover;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     overflow: hidden;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 form {
@@ -37,7 +30,6 @@ form {
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
     display: grid;
-
     z-index: 5;
     margin-left: auto;
     margin-right: auto;
@@ -45,8 +37,6 @@ form {
     right: 0;
     margin-top: 45px;
     position: absolute;
-
-
 }
 
 form h1,.tchat h1 {
@@ -67,15 +57,15 @@ form div + div {
     border-right: solid 2px #218d24;
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
+    overflow: hidden;
 }
 
 #envoi {
-    height: 5vh;
     display: flex;
     text-align: right;
-    border-bottom: groove 1px #218d24;
-    border-right: groove 1px #218d24;
-    border-left: groove 1px #218d24;
+    border-bottom: solid 2px #218d24;
+    border-right: solid 2px #218d24;
+    border-left: solid 2px #218d24;
 }
 
 label {
@@ -84,20 +74,20 @@ label {
     margin: 5px 0;
 }
 
-.emoji{
+.emoji {
     position: relative;
     top: 8px;
     border-radius: 100%;
     width: 30px;
 }
 
-#emoji-bar img{
+#emoji-bar img {
     height: 30px;
     margin-left: 0.2vw;
     margin-right: 0.2vw;
 }
 
-#emoji-bar{
+#emoji-bar {
     margin: auto;
     width: auto;
     height: 50px;
@@ -106,7 +96,8 @@ label {
     flex-direction: row;
     justify-content: center;
     overflow: auto;
-    border: 1px solid #DDD;
+    border-right: solid 2px #218d24;
+    border-left: solid 2px #218d24;
 }
 
 #button,#mySUBMIT {
@@ -372,19 +363,8 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-
-    #emoji-bar{
-        margin: auto;
-        padding-left: 1vw;
-        padding-right: 1vw;
+    #emoji-bar {
         width: 60vw;
-        height: 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        overflow: auto;
-        border-left: solid 1px #156218;
-        border-right: solid 1px #156218;
     }
 
     .tchat-submit {
@@ -430,7 +410,6 @@ nav li:hover {
     color: #FFF;
     border-radius: 5px;
     border: 1px solid #75a939;
-    padding: 5px 8px 5px 0px;
     width: 60%;
     word-break: break-word;
     -webkit-hyphens: auto;
@@ -438,6 +417,7 @@ nav li:hover {
     -ms-hyphens: auto;
     -o-hyphens: auto;
     hyphens: auto;
+    display: flex;
 }
 
 .message i {
@@ -450,6 +430,7 @@ nav li:hover {
     background-color: #a4de5f;
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
+    word-break: normal;
 }
 
 nav li b {
@@ -460,7 +441,6 @@ nav li b {
     display: grid;
     height: 80vh;
     overflow: auto;
-    background-color: #FFF;
     padding: 5px;
 }
 
@@ -484,7 +464,6 @@ nav li b {
     font-size: smaller;
 }
 
-
 @media (max-width: 480px) {
     #emoji-bar {
         margin: auto;
@@ -498,4 +477,8 @@ nav li b {
         padding-left: 5vw;
         border-radius: 0;
     }
+}
+
+.message p {
+    margin: 10px;
 }
