@@ -26,3 +26,6 @@ if(!isset($_SESSION['nombre'])){
         echo "rien";
     }
 }
+// pour online
+$sql = "INSERT INTO theonline (idutil) VALUES (".$_SESSION['idutil'].")";
+$recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));

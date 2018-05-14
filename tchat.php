@@ -52,7 +52,7 @@ require "verifSession.php";
         </div>
         <script>
             // Affichage des personnes connectés
-            //setInterval(function(){ chargeContent('phpAjax/online.php','row-connected');},3000);
+            setInterval(function(){ chargeContent('phpAjax/online.php','row-connected');},10000);
             // on va vérifier toutes les 3 secondes si quelqu'un d'autre que nous a posté un contenu
             setInterval(function () {
                 verifContenu('phpAjax/verif.php', 'phpAjax/recup.php', 'headercontent')
