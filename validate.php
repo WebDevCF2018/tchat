@@ -3,8 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Validation</title>
-        <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-        <meta name="author" content="Vincent Garreau" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" media="screen" href="css/style.css">
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
@@ -13,8 +11,8 @@
 <div id="particles-js"></div>
 
 <!-- scripts -->
-<script src="particles.js"></script>
-<script src="js/app.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.min.js"></script>
 
 
 <?php
