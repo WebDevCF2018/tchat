@@ -9,8 +9,6 @@ if(!isset($_SESSION["key"])){
 	header("Location: index.php");
 }
 
-$nom = $_SESSION["thelogin"];
-disconnect($mysqli, $nom);
 $_SESSION = array();
 
 if (ini_get("session.use_cookies")) {
@@ -34,7 +32,7 @@ echo '<meta http-equiv="refresh" content="3">';
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
 </head>
 
-<body class="tchat" onload="chargeContent('06-recup.php','content')">
+<body class="tchat">
 <div id="particles-js"></div>
 
 <!-- scripts -->
