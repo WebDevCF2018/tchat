@@ -20,9 +20,11 @@ require "verifSession.php";
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
+			<ul>
             <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
 			<li><a href="archives.php">Archives</a></li>
-            <a href="deco.php"><li><b>Déconnexion</b></li></a>
+            <li class="a-right"><a href="deco.php"><b>Déconnexion</b></a></li>
+			<ul>
         </nav>
         <h1>Mini chat</h1>
         <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connectés</p></div>
