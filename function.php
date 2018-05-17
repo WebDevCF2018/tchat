@@ -38,12 +38,12 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
     $message = "
      <html>
       <head>
-       <title>Validez votre inscription sur le Tchat Webdev CF2m 2018!</title>
+       <title>Confirm your registration on the Webdev CF2m 2018 Chat !</title>
       </head>
       <body>
-       <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
-       <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
+       <p>Thanks $lelogin for your registration on the Webdev CF2m 2018 Chat !</p>
+       <p>Click on <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>this link</a> to validate your account.</p>
+       <p>If you have not registered on our site, you can ignore this mail !</p>
       </body>
      </html>
      ";
@@ -73,7 +73,7 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $thekey = createKey();
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db, $sql) or die(mysqli_error($db));
+    $ajout = mysqli_query($db, $sql);
     if (mysqli_error($db)) {
         header("Location: ./?p=inscription&error=1");
         return false;
@@ -179,7 +179,7 @@ function confirmUser($connexion, $idutil, $thekey) {
 
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
-    $colorArray = ['#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080'];
+    $colorArray = ['#660000','#FF6600','#CC3300','#FF0000','#990033','#330000','#FF0066','#CC0099','#6600FF','#000033','#00CCFF','#003333','#00CCCC','#330033','#99CCCC','#009999','#33FFCC','#339966','#66FF00','#003300','#CCFF00','#CCCC99','#333300','#999966','#333333','#9966CC','#CCCC00','#FF6699','#3399CC'];;
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));

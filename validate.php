@@ -27,11 +27,11 @@
 					<div class=\"table\">
 						<div class=\"row\">
 							<div  class=\"cell\" data-title=\"Full Name\">
-								Votre compte a bien été validé !
+								Your account has been validated !
 							</div>
 						</div>
 					</div>
-					<a href='?p=connect'>se connecter</a>
+					<a href='?p=connect'>Login</a>
 			</div>
 		</div>
 	</div>";
@@ -42,11 +42,11 @@
 					<div class=\"table\">
 						<div class=\"row\">
 							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte est déjà validé !
+								Your account is already validated !
 							</div>
 						</div>
 					</div>
-					<a href='?p=connect'>se connecter</a>
+					<a href='?p=connect'>Login</a>
 			</div>
 		</div>
 	</div>";
@@ -57,12 +57,12 @@
 					<div class=\"table\">
 						<div class=\"row\">
 							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte n'est pas valide !
+								Your account is not valid !
 							</div>
 						</div>
 					</div>
 
-					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>Register</a>
 			</div>
 		</div>
 	</div>";
@@ -73,11 +73,11 @@
 					<div class=\"table\">
 						<div class=\"row\">
 							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte n'est pas valide !
+								Your account is not valid !
 							</div>
 						</div>
 					</div>
-					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>Register</a>
 			</div>
 		</div>
 	</div>";
