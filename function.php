@@ -184,3 +184,18 @@ function colorMessage($db, $idutil) {
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
+
+function thedate ($db,$idmess,$date){
+
+    $idmess = (int) $idmess;
+    $date= date($date,'Y-m-d H:i:s');
+
+        if ()
+
+
+    $sql= "SELECT idmessage , thedatetime FROM themessage WHERE idmessage = $idmess and thedatetime = $date ";
+
+
+
+
+}
