@@ -8,10 +8,10 @@
     	
     	}
     	else if(empty($_POST['thelogin'])){
-    		$erreur = "<p style='color:#2e9aaf'>Veuillez insérer un nom d'utilisateur !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un nom d'utilisateur !</p>";
     	}
     	else if(empty($_POST['thepwd'])){
-    		$erreur = "<p style='color:#2e9aaf'>Veuillez insérer un mot de passe !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un mot de passe !</p>";
     	}
     	else {
 
@@ -24,7 +24,7 @@
             	$erreur = "utilisateur ou mot de passe incorrect !";
             }
             else if($connect["thevalidate"] == 0){
-            	$erreur = "<p style='color:#fbb82d'>Veuillez validé votre compte dans votre boîte mail !</p>";
+            	$erreur = "<p style='background-color:#dda93fb3'>Veuillez validé votre compte dans votre boîte mail !</p>";
             }
             else {
             	$_SESSION = $connect;
