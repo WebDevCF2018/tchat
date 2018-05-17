@@ -188,7 +188,8 @@ function colorMessage($db, $idutil) {
 function thedate ($db,$idmess,$date){
 
     $idmess = (int) $idmess;
-    $date= date($date,'Y-m-d H:i:s');
+    $timesec = time();
+    $date= strtotime($date,$timesec);
 
         if ($date)
 

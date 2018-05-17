@@ -21,6 +21,7 @@ require "verifSession.php";
         <script src="js/app.min.js"></script>
         <nav>
             <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
+			<li><a href="archives.php">Archives</a></li>
             <a href="deco.php"><li><b>Déconnexion</b></li></a>
         </nav>
         <h1>Mini chat</h1>
