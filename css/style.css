@@ -505,10 +505,10 @@ nav li b {
     hyphens: auto;
 }
 .back-to-tchat{
-    width:80%;
-    margin: 0 auto;
+	width:80%;
+	margin: 0 auto;
 }
 .back-to-tchat p{
-    padding: 5px 5px;
-    text-align:right;
+	padding: 5px 5px;
+	text-align:right;
 }
