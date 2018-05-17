@@ -179,7 +179,7 @@ function confirmUser($connexion, $idutil, $thekey) {
 
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
-    $colorArray = ['#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF', '#C0C0C0', '#808080', '#800000', '#808000', '#008000', '#800080', '#008080', '#000080'];
+    $colorArray = ['#660000','#FF6600','#CC3300','#FF0000','#990033','#330000','#FF0066','#CC0099','#6600FF','#000033','#00CCFF','#003333','#00CCCC','#330033','#99CCCC','#009999','#33FFCC','#339966','#66FF00','#003300','#CCFF00','#CCCC99','#333300','#999966','#333333','#9966CC','#CCCC00','#FF6699','#3399CC'];;
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
