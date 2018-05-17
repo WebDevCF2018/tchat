@@ -25,13 +25,13 @@
         
             }
             else if(empty($_POST['thelogin'])){
-                $erreur = "Please insert a username !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert a username !</p>";
             }
             else if(empty($_POST['thepwd'])){
-                $erreur = "Please insert a password !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert a password !</p>";
             }
             else if(empty($_POST['themail'])){
-                $erreur = "Please insert an email address !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert an email address !</p>";
             } 
         
         else {
@@ -40,9 +40,9 @@
             $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
             $envReq = newuser($mysqli, $login, $pwd, $email);
                 if($envReq){
-                    $erreur = "You are registered. You will receive a confirmation email before you can log in";
+                    $erreur = "<p style='background-color:#dda93fb3'>You are registered. You will receive a confirmation email before you can log in</p>";
                     }else {
-                        $erreur = "Failed to register, please try again";
+                        $erreur = "<p style='background-color:#2e9aaf'>Failed to register, please try again</p>";
                     }
                 }
             }    
@@ -50,7 +50,7 @@
     }
     if(isset($_GET['error'])){
         if($_GET['error'] == 1){
-            $erreur = "Username already used !";
+            $erreur = "<p style='background-color:#2e9aaf'>Username already used !</p>";
         }
     }
 ?>
