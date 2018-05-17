@@ -101,7 +101,7 @@ label {
 }
 
 #button,#mySUBMIT {
-    background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
+    background: linear-gradient(to right,#65b806 32%, #7ac228 70%, #bde195 100%);
     margin: 28px 0;
     align-items: flex-start;
     text-align: center;
@@ -288,7 +288,7 @@ button {
 
 .wrap-table100 {
     width: 960px;
-    border-radius: 50px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -301,6 +301,7 @@ button {
 .row {
     display: table-row;
     background: #fff;
+    box-shadow: 1px -4px 20px 0px;
 }
 
 .row.header {
@@ -344,7 +345,6 @@ button {
 .row .cell:nth-child(1) {
     width: 360px;
     padding-left: 40px;
-    border-radius: 50px;
 }
 
 .row .cell:nth-child(2) {
