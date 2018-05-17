@@ -9,7 +9,7 @@ ORDER BY m.idmessage DESC";
 $recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
 // pas de résultats
 if(!mysqli_num_rows($recup)){
-    echo "<h3>Pas encore de message!</h3>";
+    echo "<h3>No message yet !</h3>";
 }else{
     $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
 
