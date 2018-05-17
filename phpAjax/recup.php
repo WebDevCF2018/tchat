@@ -5,7 +5,7 @@ header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
 require_once "../mysqliConnect.php";
 require_once "../function.php";
-$sql = "SELECT m.*,u.thelogin FROM themessage m 
+$sql = "SELECT m.*,u.thelogin,u.thecolor FROM themessage m 
         INNER JOIN theuser u 
           ON u.idutil = m.theuser_idutil
 ORDER BY m.idmessage DESC LIMIT 0,30";
@@ -19,9 +19,9 @@ if(!mysqli_num_rows($recup)){
     foreach($tous AS $item){
             $item['thecontent'] = traiteChaine($item['thecontent']);
     	if ($item["thelogin"] == $_SESSION["thelogin"]) {
-    		echo "<div class='message left'><i>{$item['thelogin']}</i> <p>{$item['thecontent']}<span id='date'>{$item['thedatetime']}</span></p></div>";
+    		echo "<div class='message right' style='color:{$item["thecolor"]};'><i>{$item['thelogin']}</i> <p>{$item['thecontent']}<br><br><span id='date'>{$item['thedatetime']}</span></p></div>";
     	} else{
-        	echo "<div class='message right'><i>{$item['thelogin']}</i> <p>{$item['thecontent']}<span id='date'>{$item['thedatetime']}</span></p></div>";
+        	echo "<div class='message left' style='color:{$item["thecolor"]};'><i>{$item['thelogin']}</i> <p>{$item['thecontent']}<br><br><span id='date'>{$item['thedatetime']}</span></p></div>";
         }
     }
 }
