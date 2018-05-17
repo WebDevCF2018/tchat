@@ -22,7 +22,7 @@ require "verifSession.php";
         <nav>
 			<ul>
             <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-			<li><a href="archives.php">Archives</a></li>
+			<li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
             <li class="a-right"><a href="deco.php"><b>Déconnexion</b></a></li>
 			<ul>
         </nav>
