@@ -23,6 +23,10 @@
     height: 100%;
 }
 
+#button-archives{
+    cursor: pointer;
+}
+
 form {
     margin: 0 auto;
     width: 360px;
@@ -43,7 +47,7 @@ form h1,.tchat h1 {
     text-align: center;
     text-align: center;
     color: #FEFEFEFE;
-    margin-top: 0;
+    margin: 3vh 0 2vh 0;
 }
 
 form div + div {
@@ -237,8 +241,16 @@ a {
     margin: 0px;
     -webkit-transition: all 0.4s;
     text-decoration: none;
-    color: #0029ff;
-    margin-left: 46%;
+    color: #cacaca;
+    /* margin-left: 46%; */
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+    margin-top: 3%;
+    font-family: arial;
+    margin-bottom: 3%;
+    color: #808080;
 }
 
 /* ------------------------------------ */
@@ -294,9 +306,18 @@ button {
 }
 
 .wrap-table100 {
-    width: 960px;
-    border-radius: 10px;
+    width: 360px;
+    /* border-radius: 10px; */
     overflow: hidden;
+    margin: 0 auto;
+    /* padding: 1em; */
+    box-shadow: 2px 3px 5px #cecece;
+    display: grid;
+    z-index: 5;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 45px;
+    position: absolute;
 }
 
 .table {
@@ -308,7 +329,6 @@ button {
 .row {
     display: table-row;
     background: #fff;
-    box-shadow: 1px -4px 20px 0px;
 }
 
 .row.header {
@@ -331,13 +351,15 @@ button {
 
 .row .cell {
     font-size: 15px;
-    color: #666666;
+    color: #9e9e9ead;
     line-height: 1.2;
-    font-weight: unset !important;
+    /* font-weight: unset !important; */
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #f2f2f2;
     text-align: center;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .row.header .cell {
@@ -351,7 +373,6 @@ button {
 
 .row .cell:nth-child(1) {
     width: 360px;
-    padding-left: 40px;
 }
 
 .row .cell:nth-child(2) {
@@ -372,7 +393,7 @@ button {
 
 @media only screen and (min-width: 768px) {
     #emoji-bar {
-        width: 60vw;
+        width: 70vw;
     }
 
     .tchat-submit {
@@ -383,13 +404,13 @@ button {
     }
 
     #content {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
         box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
     }
 }
@@ -401,7 +422,7 @@ nav {
 }
 
 nav ul {
-    width: 80%;
+    width: 70vw;
     margin: 0 auto;
 }
 nav ul li {
@@ -469,7 +490,7 @@ nav li b {
 }
 
 #user-connected {
-    width: 60vw;
+    width: 70vw;
     margin: auto;
 }
 
@@ -502,7 +523,7 @@ nav li b {
 /* ARCHIVES */
 /* -------- */
 #archives{
-    width:80%;
+    width:70vw;
     margin: 0 auto;
 }
 #archives .archives-message{
@@ -520,7 +541,7 @@ nav li b {
     hyphens: auto;
 }
 .back-to-tchat{
-	width:80%;
+	width:70vw;
 	margin: 0 auto;
 }
 .back-to-tchat p{
