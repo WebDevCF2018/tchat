@@ -43,7 +43,7 @@ form h1,.tchat h1 {
     text-align: center;
     text-align: center;
     color: #FEFEFEFE;
-    margin: 3vh 0 2vh 0;
+    margin: 2vh 0 2vh 0;
 }
 
 form div + div {
@@ -471,6 +471,7 @@ nav li b {
 #user-connected {
     width: 70vw;
     margin: auto;
+	margin-top: -4vh;
 }
 
 #user-connected p {
