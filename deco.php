@@ -40,6 +40,6 @@ echo '<meta http-equiv="refresh" content="3">';
 <script src="js/app.min.js"></script>
 
 <h1 style="color: ghostwhite">Déconnexion</h1>
-<center><p style="border: 5px outset orange; color: ghostwhite">Aurevoir <?=$nom;?> et à bientôt !</p></center>
+<center><p style="color: ghostwhite">Aurevoir <?=$nom;?> et à bientôt !</p></center>
 </body>
 </html>
