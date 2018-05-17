@@ -43,7 +43,7 @@ form h1,.tchat h1 {
     text-align: center;
     text-align: center;
     color: #FEFEFEFE;
-    margin-top: 0;
+    margin: 3vh 0 2vh 0;
 }
 
 form div + div {
