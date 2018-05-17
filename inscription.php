@@ -20,17 +20,18 @@
 
         if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
             if (empty($_POST['thelogin']) && empty($_POST["thepwd"]) && empty($_POST["themail"])) {
-                $erreur = "Veuillez remplir tous les champs !";
+                $erreur = "Please complete all fields !
+";
         
             }
             else if(empty($_POST['thelogin'])){
-                $erreur = "Veuillez insérer un nom d'utilisateur !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert a username !</p>";
             }
             else if(empty($_POST['thepwd'])){
-                $erreur = "Veuillez insérer un mot de passe !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert a password !</p>";
             }
             else if(empty($_POST['themail'])){
-                $erreur = "Veuillez insérer une adresse mail !";
+                $erreur = "<p style='background-color:#2e9aaf'>Please insert an email address !</p>";
             } 
         
         else {
@@ -39,9 +40,9 @@
             $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
             $envReq = newuser($mysqli, $login, $pwd, $email);
                 if($envReq){
-                    $erreur = "Vous êtes bien inscrit. Vous allez recevoir un mail de confirmation avant de pouvoir vous connecter";
+                    $erreur = "<p style='background-color:#dda93fb3'>You are registered. You will receive a confirmation email before you can log in</p>";
                     }else {
-                        $erreur = "Echec de l'inscription, veuillez recommencer";
+                        $erreur = "<p style='background-color:#2e9aaf'>Failed to register, please try again</p>";
                     }
                 }
             }    
@@ -49,7 +50,7 @@
     }
     if(isset($_GET['error'])){
         if($_GET['error'] == 1){
-            $erreur = "Nom d'utilisateur déjà utilisé !";
+            $erreur = "<p style='background-color:#2e9aaf'>Username already used !</p>";
         }
     }
 ?>
@@ -77,8 +78,8 @@
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
 <form action="?p=inscription" method="post">
-	<div class="retour"><a href="index.php">Retour</a></div>
-    <h1>Inscription</h1>
+	<div class="retour"><a href="index.php">Return</a></div>
+    <h1>Registration</h1>
 
     <label for="login">Login :</label>
     <input type="text" placeholder="your login" id="login" name="thelogin" class="input-deco input-user" autocomplete="off" value="<?=@$_POST["thelogin"];?>">

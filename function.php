@@ -38,12 +38,12 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
     $message = "
      <html>
       <head>
-       <title>Validez votre inscription sur le Tchat Webdev CF2m 2018!</title>
+       <title>Confirm your registration on the Webdev CF2m 2018 Chat !</title>
       </head>
       <body>
-       <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
-       <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
+       <p>Thanks $lelogin for your registration on the Webdev CF2m 2018 Chat !</p>
+       <p>Click on <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>this link</a> to validate your account.</p>
+       <p>If you have not registered on our site, you can ignore this mail !</p>
       </body>
      </html>
      ";
@@ -185,22 +185,26 @@ function colorMessage($db, $idutil) {
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
 
-function thedate ($db,$idMess,$date){
+function thedate ($date){
 
-    $idMess = (int) $idMess;
+
     $timeSec = time();
-    $date= strtotime($date,$timeSec);
+    $date= strtotime($date);
+    $diff = $timeSec - $date ;
+        if ($diff >= 60){
+            return date('i',$diff);
 
-        if ($date >= 60){
-            return date('i',$date);
+        }elseif ($diff >= 3600){
+            return date('H',$diff);
+
+        }elseif ($diff >= 86400){
+            return date('d',$diff);
+
+        }elseif ($diff >= 2629738){
+            return date('M',$diff);
+
+        }elseif ($diff >= 31536000 ){
+            return date('Y',$diff);
 
         }
-
-
-
-    $sql= "SELECT idmessage , thedatetime FROM themessage WHERE idmessage = '$idMess' AND thedatetime = '$date' ";
-
-       $req = mysqli_query($db,$sql) or die(mysqli_error($db));
-
-
 }

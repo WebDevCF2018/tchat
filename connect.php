@@ -8,10 +8,10 @@
     	
     	}
     	else if(empty($_POST['thelogin'])){
-    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un nom d'utilisateur !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Please insert a username !</p>";
     	}
     	else if(empty($_POST['thepwd'])){
-    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un mot de passe !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Please insert a password !</p>";
     	}
     	else {
 
@@ -21,10 +21,10 @@
             $connect = connectUser($mysqli, $login, $pwd);
 
             if($connect == false){
-            	$erreur = "utilisateur ou mot de passe incorrect !";
+            	$erreur = "User or password incorrect !";
             }
             else if($connect["thevalidate"] == 0){
-            	$erreur = "<p style='background-color:#dda93fb3'>Veuillez validé votre compte dans votre boîte mail !</p>";
+            	$erreur = "<p style='background-color:#dda93fb3'>Please validate your account in your mailbox !</p>";
             }
             else {
             	$_SESSION = $connect;
@@ -41,7 +41,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>connect</title>
+    <title>Connect</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
@@ -74,7 +74,7 @@
     <input id="button" type="submit">
 
     <div class="inscription">
-        <a href="?p=inscription">Inscription</a>
+        <a href="?p=inscription">Registration</a>
     </div>
 </body>
 </html>
