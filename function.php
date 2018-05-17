@@ -190,7 +190,7 @@ function thedate ($db,$idmess,$date){
     $idmess = (int) $idmess;
     $date= date($date,'Y-m-d H:i:s');
 
-        if ()
+        if ($date)
 
 
     $sql= "SELECT idmessage , thedatetime FROM themessage WHERE idmessage = $idmess and thedatetime = $date ";
