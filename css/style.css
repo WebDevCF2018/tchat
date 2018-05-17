@@ -102,7 +102,7 @@ label {
 
 #button,#mySUBMIT {
     background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
-    margin: 10px 0;
+    margin: 28px 0;
     align-items: flex-start;
     text-align: center;
     cursor: pointer;
@@ -115,7 +115,7 @@ label {
 
 .inscription a, .retour a {
     text-decoration: none;
-    font-family: "Times New Roman", Times, serif;
+    font-family: arial;
     color: #808080;
     font-size: smaller;
     letter-spacing: 1px;
@@ -150,6 +150,7 @@ input:focus {
 
 .inscription {
     text-align: right;
+    font-family: Arial;
 }
 
 #button:hover {
@@ -206,6 +207,7 @@ input:focus {
 
 .g-recaptcha {
     margin: auto;
+    margin-top: 9%;
 }
 
 @font-face {
@@ -250,7 +252,6 @@ ul, li {
 input {
     display: block;
     outline: none;
-    border: none !important;
 }
 
 textarea {
