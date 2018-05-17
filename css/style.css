@@ -288,7 +288,7 @@ button {
 
 .wrap-table100 {
     width: 960px;
-    border-radius: 10px;
+    border-radius: 50px;
     overflow: hidden;
 }
 
@@ -301,7 +301,6 @@ button {
 .row {
     display: table-row;
     background: #fff;
-    box-shadow: 1px -4px 20px 0px;
 }
 
 .row.header {
@@ -345,6 +344,7 @@ button {
 .row .cell:nth-child(1) {
     width: 360px;
     padding-left: 40px;
+    border-radius: 50px;
 }
 
 .row .cell:nth-child(2) {
@@ -487,11 +487,11 @@ nav li b {
 /* ARCHIVES */
 /* -------- */
 #archives{
-	width:80%;
-	margin: 0 auto;
+    width:80%;
+    margin: 0 auto;
 }
 #archives .archives-message{
-	background-color: #fff;
+    background-color: #fff;
     padding: 5px 5px;
     color: #FFF;
     border-radius: 5px;
@@ -504,11 +504,11 @@ nav li b {
     -o-hyphens: auto;
     hyphens: auto;
 }
-#back-to-tchat{
-	width:80%;
-	margin: 0 auto;
+.back-to-tchat{
+    width:80%;
+    margin: 0 auto;
 }
-#back-to-tchat p{
-	padding: 5px 5px;
-	text-align:right;
+.back-to-tchat p{
+    padding: 5px 5px;
+    text-align:right;
 }
