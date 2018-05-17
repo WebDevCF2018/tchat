@@ -372,7 +372,7 @@ button {
 
 @media only screen and (min-width: 768px) {
     #emoji-bar {
-        width: 60vw;
+        width: 70vw;
     }
 
     .tchat-submit {
@@ -383,13 +383,13 @@ button {
     }
 
     #content {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
         box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
     }
 }
@@ -401,7 +401,7 @@ nav {
 }
 
 nav ul {
-    width: 80%;
+    width: 70vw;
     margin: 0 auto;
 }
 nav ul li {
@@ -469,7 +469,7 @@ nav li b {
 }
 
 #user-connected {
-    width: 60vw;
+    width: 70vw;
     margin: auto;
 }
 
@@ -502,7 +502,7 @@ nav li b {
 /* ARCHIVES */
 /* -------- */
 #archives{
-    width:80%;
+    width:70vw;
     margin: 0 auto;
 }
 #archives .archives-message{
@@ -520,7 +520,7 @@ nav li b {
     hyphens: auto;
 }
 .back-to-tchat{
-	width:80%;
+	width:70vw;
 	margin: 0 auto;
 }
 .back-to-tchat p{
