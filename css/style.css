@@ -543,3 +543,33 @@ nav li b {
 .pf-center {
     place-self: center;
 }
+
+/* -------- */
+/* ARCHIVES */
+/* -------- */
+#archives{
+    width:70vw;
+    margin: 0 auto;
+}
+#archives .archives-message{
+    background-color: #fff;
+    padding: 5px 5px;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #75a939;
+    width: 100%;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+.back-to-tchat{
+	width:70vw;
+	margin: 0 auto;
+}
+.back-to-tchat p{
+	padding: 5px 5px;
+	text-align:right;
+}
