@@ -36,6 +36,9 @@ if(!mysqli_num_rows($recup)){
             <a href="deco.php"><li><b>Déconnexion</b></li></a>
         </nav>
         <h1>Archives : Mini chat</h1>
+		<div class="back-to-tchat">
+	<p><a href="index.php">Retour au tchat</a></p>
+	</div>
 		<div id="archives">	
 		<?php
                 foreach($tous AS $item){
@@ -44,9 +47,10 @@ if(!mysqli_num_rows($recup)){
 			}
 			?>
     </div>
-	<div id="back-to-tchat">
+<div class="back-to-tchat">
 	<p><a href="index.php">Retour au tchat</a></p>
 	</div>
+	
 
 
     </body>
