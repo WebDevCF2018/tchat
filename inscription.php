@@ -15,6 +15,7 @@
             $response = file_get_contents($gRecaptcha);
             $responseData = json_decode($response);
 
+
             if($responseData->success){
 
         if (isset($_POST['thelogin']) && isset($_POST["thepwd"]) && isset($_POST["themail"])) {
