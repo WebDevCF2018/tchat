@@ -185,18 +185,19 @@ function colorMessage($db, $idutil) {
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
 
-function thedate ($db,$idmess,$date){
+function thedate ($db,$idMess,$date){
 
-    $idmess = (int) $idmess;
-    $timesec = time();
-    $date= strtotime($date,$timesec);
+    $idmess = (int) $idMess;
+    $timeSec = time();
+    $date= strtotime($date,$timeSec);
 
-        if ($date)
-
-
-    $sql= "SELECT idmessage , thedatetime FROM themessage WHERE idmessage = $idmess and thedatetime = $date ";
+        if ($date == 60)
 
 
+
+    $sql= "SELECT idmessage , thedatetime FROM themessage WHERE idmessage = '$idMess' AND thedatetime = '$date' ";
+
+       $req = mysqli_query($db,$sql) or die(mysqli_error($db));
 
 
 }
