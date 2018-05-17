@@ -250,7 +250,7 @@ function thedate ($date){
             } else if (!empty($_FILES['uploaded_file']) && !empty($password)) {
                 if ($password == $repassword) {
                     $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
-                    $password = sha256($p wd);
+                    $password = sha256($pwd);
 
                     $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
                     $query = mysqli_query($db, $sql) or die(mysqli_error($db));
