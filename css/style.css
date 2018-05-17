@@ -30,11 +30,14 @@
 }
 =======
 
+<<<<<<< HEAD
 #button-archives{
     cursor: pointer;
 }
 
 >>>>>>> 2cb120a90972c153585e3024e15c97d483f7af82
+=======
+>>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 form {
     margin: 0 auto;
     width: 360px;
@@ -42,27 +45,26 @@ form {
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
     display: grid;
-    z-index: 5;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    margin-top: 45px;
-    position: absolute;
 }
 
 form h1,.tchat h1 {
     text-align: center;
+<<<<<<< HEAD
     color: #FEFEFEFE;
     margin: 3vh 0 2vh 0;
 }
 
 form div + div {
     margin-top: 1em;
+=======
+    text-align: center;
+    color: #e8e8e8fe;
+    margin-top: 0;
+>>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
 
 #content {
-    height: 77vh;
+    height: 80vh;
     background-color: #FFF;
     position: relative;
     border: solid 2px #3e3e3e;
@@ -122,7 +124,6 @@ label {
 }
 
 #button,#mySUBMIT {
-
     background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
     margin: 10px 0;
     align-items: flex-start;
@@ -135,7 +136,7 @@ label {
 
 .inscription a, .retour a {
     text-decoration: none;
-    font-family: arial;
+    font-family: "Times New Roman", Times, serif;
     color: #808080;
     font-size: smaller;
     letter-spacing: 1px;
@@ -169,7 +170,6 @@ input:focus {
 
 .inscription {
     text-align: right;
-    font-family: Arial;
 }
 
 #button:hover {
@@ -177,7 +177,7 @@ input:focus {
 }
 
 .erreur {
-    margin: 5px auto;
+    margin: 0 auto;
     width: 360px;
     padding: 8px 1em;
     text-align: center;
@@ -196,20 +196,14 @@ input:focus {
 
 .input-user {
     background-image: url(../img/user.png);
-    font-style: italic;
-    font-weight: lighter;
 }
 
 .input-pwd {
-    background-image: url(../img/user.png);
-    font-style: italic;
-    font-weight: lighter;
+    background-image: url(../img/pwd.png);
 }
 
 .input-mail {
-    background-image: url(../img/user.png);
-    font-style: italic;
-    font-weight: lighter;
+    background-image: url(../img/mail.png);
 }
 
 .tchat-submit {
@@ -232,7 +226,6 @@ input:focus {
 
 .g-recaptcha {
     margin: auto;
-    margin-top: 9%;
 }
 
 @font-face {
@@ -255,16 +248,6 @@ a {
     margin: 0px;
     -webkit-transition: all 0.4s;
     text-decoration: none;
-    color: #cacaca;
-    /* margin-left: 46%; */
-    background: white;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: lighter;
-    margin-top: 3%;
-    font-family: arial;
-    margin-bottom: 3%;
-    color: #808080;
 }
 
 /* ------------------------------------ */
@@ -285,7 +268,11 @@ ul, li {
 input {
     display: block;
     outline: none;
+<<<<<<< HEAD
     border-left: solid 2px black;
+=======
+    border: none !important;
+>>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
 
 textarea {
@@ -320,18 +307,9 @@ button {
 }
 
 .wrap-table100 {
-    width: 360px;
-    /* border-radius: 10px; */
+    width: 960px;
+    border-radius: 10px;
     overflow: hidden;
-    margin: 0 auto;
-    /* padding: 1em; */
-    box-shadow: 2px 3px 5px #cecece;
-    display: grid;
-    z-index: 5;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 45px;
-    position: absolute;
 }
 
 .table {
@@ -343,6 +321,7 @@ button {
 .row {
     display: table-row;
     background: #fff;
+    box-shadow: 1px -4px 20px 0px;
 }
 
 .row.header {
@@ -365,15 +344,13 @@ button {
 
 .row .cell {
     font-size: 15px;
-    color: #9e9e9ead;
+    color: #666666;
     line-height: 1.2;
-    /* font-weight: unset !important; */
+    font-weight: unset !important;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #f2f2f2;
     text-align: center;
-    font-style: italic;
-    font-weight: lighter;
 }
 
 .row.header .cell {
@@ -387,6 +364,7 @@ button {
 
 .row .cell:nth-child(1) {
     width: 360px;
+    padding-left: 40px;
 }
 
 .row .cell:nth-child(2) {
@@ -419,7 +397,7 @@ button {
         padding-right: 1vw;
     }
     #emoji-bar {
-        width: 70vw;
+        width: 60vw;
     }
 
     .tchat-submit {
@@ -430,43 +408,33 @@ button {
     }
 
     #content {
-        width: 70vw;
+        width: 60vw;
         margin: auto;
         box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
-        width: 70vw;
+        width: 60vw;
         margin: auto;
     }
 }
 
 nav {
     background-color: #a4de5f;
-    display: flex;
-    justify-content: center;
 }
 
-nav ul {
-    width: 70vw;
-    margin: 0 auto;
-}
-nav ul li {
+nav li {
     padding: 15px;
-	display:inline-block;
 }
 
-nav ul li a {
+nav a {
     color: #fff;
-	margin-left: 0!important;
-}
-nav ul .a-right {
-	float:right;
 }
 
-nav ul li:hover {
+nav li:hover {
     background-color: #7fa94e;
 }
+
 .message {
     background-color: #8bc34a;
     margin: 10px 10px;
@@ -502,7 +470,7 @@ nav li b {
 
 #headercontent {
     display: grid;
-    height: 77vh;
+    height: 80vh;
     overflow: auto;
     padding: 5px;
 }
@@ -516,7 +484,7 @@ nav li b {
 }
 
 #user-connected {
-    width: 70vw;
+    width: 60vw;
     margin: auto;
 }
 
@@ -546,6 +514,7 @@ nav li b {
     margin: 10px;
 }
 
+<<<<<<< HEAD
 
 /* -------- */
 /* ARCHIVES */
@@ -553,28 +522,67 @@ nav li b {
 #archives{
     width:70vw;
     margin: 0 auto;
+=======
+.display {
+    display: flex;
+    width: 60vw;
+    margin: auto;
+    justify-content: space-between;
+>>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
-#archives .archives-message{
-    background-color: #fff;
-    padding: 5px 5px;
-    color: #FFF;
-    border-radius: 5px;
-    border: 1px solid #75a939;
+
+.user-tchat {
+    display: flex;
+}
+
+.user-tchat img {
+    height: 41px;
+    justify-self: center;
+    place-self: center;
+    background-color: #FFF;
+    border-radius: 40px;
+}
+
+.user-tchat:hover {
+    background-color: #7fa94e;
+}
+
+.profil {
+    background-color: #FFF;
+    box-shadow: 2px 3px 5px #909090;
+    padding: 10px 25px;
+    margin-top: 15px;
+    display: block;
+}
+
+.profil h1 {
+    border-bottom: 1px solid;
+    margin: 10px;
+    color: #5a5a5a;
+}
+
+.profil form {
+    width: unset;
+    margin: unset;
+    box-shadow: initial;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profil img {
+    height: 180px;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+}
+
+.profil input {
     width: 100%;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
 }
-.back-to-tchat{
-	width:70vw;
-	margin: 0 auto;
+
+.profil-form {
+    padding: 5px 15px;
 }
-.back-to-tchat p{
-	padding: 5px 5px;
-	text-align:right;
+.pf-center {
+    place-self: center;
 }
 <<<<<<< HEAD
 
