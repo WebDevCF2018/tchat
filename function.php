@@ -38,12 +38,12 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
     $message = "
      <html>
       <head>
-       <title>Validez votre inscription sur le Tchat Webdev CF2m 2018!</title>
+       <title>Confirm your registration on the Webdev CF2m 2018 Chat !</title>
       </head>
       <body>
-       <p>Merci $lelogin pour votre inscription sur le Tchat Webdev CF2m 2018!</p>
-       <p>Cliquez sur <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>ce lien</a> pour valider votre compte.</p>
-       <p>Si vous ne vous êtes pas inscrit sur notre site, vous pouvez ignorer ce mail!</p>
+       <p>Thanks $lelogin for your registration on the Webdev CF2m 2018 Chat !</p>
+       <p>Click on <a href='https://yourtchat.webdev-cf2m.be/?p=validate&id=$lastid&key=$thekey' target='_blank'>this link</a> to validate your account.</p>
+       <p>If you have not registered on our site, you can ignore this mail !</p>
       </body>
      </html>
      ";

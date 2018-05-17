@@ -23,11 +23,11 @@ require "verifSession.php";
 			<ul>
             <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
 			<li><a href="archives.php">Archives</a></li>
-            <li class="a-right"><a href="deco.php"><b>Déconnexion</b></a></li>
+            <li class="a-right"><a href="deco.php"><b>Sign Out</b></a></li>
 			<ul>
         </nav>
         <h1>Mini chat</h1>
-        <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connectés</p></div>
+        <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connected</p></div>
         <div id="content">
             <div id="headercontent"></div>
         </div>
@@ -50,8 +50,8 @@ require "verifSession.php";
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
-            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
-            <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Envoyer">
+            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="You're message" required>
+            <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
         <script>
             // Affichage des personnes connectés
