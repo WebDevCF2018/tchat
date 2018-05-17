@@ -52,7 +52,7 @@ form div + div {
 }
 
 #content {
-    height: 80vh;
+    height: 77vh;
     background-color: #FFF;
     position: relative;
     border: solid 2px #3e3e3e;
@@ -459,7 +459,7 @@ nav li b {
 
 #headercontent {
     display: grid;
-    height: 80vh;
+    height: 77vh;
     overflow: auto;
     padding: 5px;
 }
