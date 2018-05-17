@@ -184,3 +184,62 @@ function colorMessage($db, $idutil) {
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
+
+function infoUser($db,$lelogin) {
+
+    $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
+
+
+    $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
+
+    return mysqli_fetch_assoc($recupLogin);
+}
+
+function updateUser($db,$idutil,$password,$repassword){
+    if (isset($_POST["submit"])){
+        if(!empty($_FILES['uploaded_file']) && empty($password)){
+            $path = "img/";
+            $path = $path . basename( $_FILES['uploaded_file']['name']);
+            if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+                echo "Mise à jour du profil !";
+                $theimage = basename($_FILES['uploaded_file']['name']);
+                $sql = "UPDATE theuser SET theimage = '$theimage' WHERE thelogin = '$lelogin'";
+                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+            } else{
+                echo "erreur d'upload !";
+            }
+        }
+        else if (!empty($password) && empty($_FILES['uploaded_file'])) {
+            if($password == $repassword){
+                echo "Mise à jour du profil !";
+                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
+                $password = sha256($pwd);
+                
+                $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
+                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                
+            }else {
+                echo "les mots de passes ne sont pas identiques !";
+            }
+        }
+        else if(!empty($_FILES['uploaded_file']) && !empty($password)){
+            if($password == $repassword){
+                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
+                $password = sha256($pwd);
+                
+                $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
+                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                $path = "img/";
+                $path = $path . basename( $_FILES['uploaded_file']['name']);
+                if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+                  echo "Mise à jour du profil";
+                } else{
+                    echo "erreur d'upload !";
+                }
+
+            }else {
+                echo "les mots de passes ne sont pas identiques !";
+            }
+        }
+    }
+}

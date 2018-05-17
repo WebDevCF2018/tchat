@@ -20,11 +20,17 @@ require "verifSession.php";
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
-			<ul>
-            <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-			<li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
-            <li class="a-right"><a href="deco.php"><b>Sign Out</b></a></li>
-			<ul>
+            <div class="display">
+                <a href="profil.php">
+                    <div class="user-tchat">
+                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
+                    </div>
+                </a>
+                <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
+                <a href="deco.php"><li><b>Déconnexion</b></li></a>
+            </div>
+
         </nav>
         <h1>Mini chat</h1>
         <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connected</p></div>
