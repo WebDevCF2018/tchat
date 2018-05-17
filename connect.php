@@ -8,10 +8,10 @@
     	
     	}
     	else if(empty($_POST['thelogin'])){
-    		$erreur = "<p style='color:#2e9aaf'>Veuillez insérer un nom d'utilisateur !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un nom d'utilisateur !</p>";
     	}
     	else if(empty($_POST['thepwd'])){
-    		$erreur = "<p style='color:#2e9aaf'>Veuillez insérer un mot de passe !</p>";
+    		$erreur = "<p style='background-color:#2e9aaf'>Veuillez insérer un mot de passe !</p>";
     	}
     	else {
 
@@ -24,7 +24,7 @@
             	$erreur = "utilisateur ou mot de passe incorrect !";
             }
             else if($connect["thevalidate"] == 0){
-            	$erreur = "<p style='color:#fbb82d'>Veuillez validé votre compte dans votre boîte mail !</p>";
+            	$erreur = "<p style='background-color:#dda93fb3'>Veuillez validé votre compte dans votre boîte mail !</p>";
             }
             else {
             	$_SESSION = $connect;
@@ -68,9 +68,9 @@
     <h1>Connexion</h1>
     <label for="login">Login :</label>
 
-    <input type="text" id="login" class="input-deco input-user" name="thelogin" value="<?=@$_POST["thelogin"];?>">
+    <input type="text" placeholder="your login" id="login" class="input-deco input-user" name="thelogin" value="<?=@$_POST["thelogin"];?>">
     <label for="thepwd">Password :</label>
-    <input type="password" id="thepwd" class="input-deco input-pwd" name="thepwd" value="<?=@$_POST["thepwd"];?>">
+    <input type="password" placeholder="your password" id="thepwd" class="input-deco input-pwd" name="thepwd" value="<?=@$_POST["thepwd"];?>">
     <input id="button" type="submit">
 
     <div class="inscription">

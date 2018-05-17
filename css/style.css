@@ -114,8 +114,9 @@ label {
 }
 
 #button,#mySUBMIT {
+
     background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
-    margin: 28px 0;
+    margin: 10px 0;
     align-items: flex-start;
     text-align: center;
     cursor: pointer;
@@ -187,14 +188,20 @@ input:focus {
 
 .input-user {
     background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .input-pwd {
-    background-image: url(../img/pwd.png);
+    background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .input-mail {
-    background-image: url(../img/mail.png);
+    background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .tchat-submit {
@@ -387,7 +394,7 @@ button {
         padding-right: 1vw;
     }
     #emoji-bar {
-        width: 60vw;
+        width: 70vw;
     }
 
     .tchat-submit {
@@ -398,13 +405,13 @@ button {
     }
 
     #content {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
         box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
-        width: 60vw;
+        width: 70vw;
         margin: auto;
     }
 }
@@ -415,18 +422,26 @@ nav {
     justify-content: center;
 }
 
-nav li {
+nav ul {
+    width: 70vw;
+    margin: 0 auto;
+}
+nav ul li {
     padding: 15px;
+	display:inline-block;
 }
 
-nav a {
+nav ul li a {
     color: #fff;
+	margin-left: 0!important;
+}
+nav ul .a-right {
+	float:right;
 }
 
-nav li:hover {
+nav ul li:hover {
     background-color: #7fa94e;
 }
-
 .message {
     background-color: #8bc34a;
     margin: 10px 10px;
@@ -476,7 +491,7 @@ nav li b {
 }
 
 #user-connected {
-    width: 60vw;
+    width: 70vw;
     margin: auto;
 }
 
@@ -511,11 +526,11 @@ nav li b {
 /* ARCHIVES */
 /* -------- */
 #archives{
-	width:80%;
-	margin: 0 auto;
+    width:70vw;
+    margin: 0 auto;
 }
 #archives .archives-message{
-	background-color: #fff;
+    background-color: #fff;
     padding: 5px 5px;
     color: #FFF;
     border-radius: 5px;
@@ -529,7 +544,7 @@ nav li b {
     hyphens: auto;
 }
 .back-to-tchat{
-	width:80%;
+	width:70vw;
 	margin: 0 auto;
 }
 .back-to-tchat p{

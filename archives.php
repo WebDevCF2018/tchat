@@ -32,13 +32,13 @@ if(!mysqli_num_rows($recup)){
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
+		<ul>
             <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-            <a href="deco.php"><li><b>Déconnexion</b></li></a>
+			<li><a href="index.php">Retour</a></li>
+            <li class="a-right"><a href="deco.php"><b>Déconnexion</b></a></li>
+		</ul>
         </nav>
         <h1>Archives : Mini chat</h1>
-		<div class="back-to-tchat">
-	<p><a href="index.php">Retour au tchat</a></p>
-	</div>
 		<div id="archives">	
 		<?php
                 foreach($tous AS $item){
@@ -47,11 +47,5 @@ if(!mysqli_num_rows($recup)){
 			}
 			?>
     </div>
-<div class="back-to-tchat">
-	<p><a href="index.php">Retour au tchat</a></p>
-	</div>
-	
-
-
     </body>
 </html>

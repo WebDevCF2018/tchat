@@ -73,7 +73,7 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $thekey = createKey();
     // req sql
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db, $sql) or die(mysqli_error($db));
+    $ajout = mysqli_query($db, $sql);
     if (mysqli_error($db)) {
         header("Location: ./?p=inscription&error=1");
         return false;
