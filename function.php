@@ -187,11 +187,14 @@ function colorMessage($db, $idutil) {
 
 function thedate ($db,$idMess,$date){
 
-    $idmess = (int) $idMess;
+    $idMess = (int) $idMess;
     $timeSec = time();
     $date= strtotime($date,$timeSec);
 
-        if ($date == 60)
+        if ($date >= 60){
+            return date('i',$date);
+
+        }
 
 
 
