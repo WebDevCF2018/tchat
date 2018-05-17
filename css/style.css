@@ -102,7 +102,7 @@ label {
 
 #button,#mySUBMIT {
     background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
-    margin: 28px 0;
+    margin: 10px 0;
     align-items: flex-start;
     text-align: center;
     cursor: pointer;
@@ -177,14 +177,20 @@ input:focus {
 
 .input-user {
     background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .input-pwd {
-    background-image: url(../img/pwd.png);
+    background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .input-mail {
-    background-image: url(../img/mail.png);
+    background-image: url(../img/user.png);
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .tchat-submit {

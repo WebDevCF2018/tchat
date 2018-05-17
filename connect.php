@@ -68,9 +68,9 @@
     <h1>Connexion</h1>
     <label for="login">Login :</label>
 
-    <input type="text" id="login" class="input-deco input-user" name="thelogin" value="<?=@$_POST["thelogin"];?>">
+    <input type="text" placeholder="your login" id="login" class="input-deco input-user" name="thelogin" value="<?=@$_POST["thelogin"];?>">
     <label for="thepwd">Password :</label>
-    <input type="password" id="thepwd" class="input-deco input-pwd" name="thepwd" value="<?=@$_POST["thepwd"];?>">
+    <input type="password" placeholder="your password" id="thepwd" class="input-deco input-pwd" name="thepwd" value="<?=@$_POST["thepwd"];?>">
     <input id="button" type="submit">
 
     <div class="inscription">
