@@ -13,7 +13,7 @@ require "verifSession.php";
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
-    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent')">
+    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent');chargeContent('phpAjax/online.php','row-connected');">
         <div id="particles-js"></div>
 
         <!-- scripts -->
