@@ -237,8 +237,16 @@ a {
     margin: 0px;
     -webkit-transition: all 0.4s;
     text-decoration: none;
-    color: #0029ff;
-    margin-left: 46%;
+    color: #cacaca;
+    /* margin-left: 46%; */
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+    margin-top: 3%;
+    font-family: arial;
+    margin-bottom: 3%;
+    color: #808080;
 }
 
 /* ------------------------------------ */
@@ -294,9 +302,18 @@ button {
 }
 
 .wrap-table100 {
-    width: 960px;
-    border-radius: 10px;
+    width: 360px;
+    /* border-radius: 10px; */
     overflow: hidden;
+    margin: 0 auto;
+    /* padding: 1em; */
+    box-shadow: 2px 3px 5px #cecece;
+    display: grid;
+    z-index: 5;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 45px;
+    position: absolute;
 }
 
 .table {
@@ -308,7 +325,6 @@ button {
 .row {
     display: table-row;
     background: #fff;
-    box-shadow: 1px -4px 20px 0px;
 }
 
 .row.header {
@@ -331,13 +347,15 @@ button {
 
 .row .cell {
     font-size: 15px;
-    color: #666666;
+    color: #9e9e9ead;
     line-height: 1.2;
-    font-weight: unset !important;
+    /* font-weight: unset !important; */
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #f2f2f2;
     text-align: center;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .row.header .cell {
@@ -351,7 +369,6 @@ button {
 
 .row .cell:nth-child(1) {
     width: 360px;
-    padding-left: 40px;
 }
 
 .row .cell:nth-child(2) {
