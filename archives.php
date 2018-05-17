@@ -33,9 +33,9 @@ if(!mysqli_num_rows($recup)){
         <script src="js/app.min.js"></script>
         <nav>
 		<ul>
-            <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-			<li><a href="index.php">Retour</a></li>
-            <li class="a-right"><a href="deco.php"><b>Déconnexion</b></a></li>
+            <li>Hi, <b><?= $_SESSION["thelogin"]; ?></b></li>
+			<li><a href="index.php">Return</a></li>
+            <li class="a-right"><a href="deco.php"><b>Sign Out</b></a></li>
 		</ul>
         </nav>
         <h1>Archives : Mini chat</h1>
