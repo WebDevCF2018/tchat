@@ -65,7 +65,7 @@
 <?php }?>
 <form action="" method="post">
 
-    <h1>Connexion</h1>
+    <h1>Login</h1>
     <label for="login">Login :</label>
 
     <input type="text" placeholder="your login" id="login" class="input-deco input-user" name="thelogin" value="<?=@$_POST["thelogin"];?>">

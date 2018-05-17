@@ -28,18 +28,18 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
             <a href="tchat.php">
                 <div class="user-tchat">
                     <img src="<?=$info["theimage"];?>">
-                    <li>Retour</b></li>
+                    <li>Return</b></li>
                 </div>
             </a>
-            <a href="deco.php"><li><b>Déconnexion</b></li></a>
+            <a href="deco.php"><li><b>Sign out</b></li></a>
         </div>
     </nav>
     <div class="profil display">
-    	<h1>Paramètre de Profil</h1>
+    	<h1>Profile Setting</h1>
     	<form enctype="multipart/form-data" method="post" action="">
     		<div class="profil-form">
 	    		<label>
-	    			Nom d'utilisateur:
+                    Username :
 	    			<input type="text" name="name" value="<?=$info["thelogin"];?>" disabled>
 	    		</label>
 	    		<label>
@@ -47,11 +47,11 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 	    			<input type="text" name="name" value="<?=$info["themail"];?>" disabled>
 	    		</label>
 	    		<label>
-	    			Nouveau mot de passe:
+                    New Password :
 	    			<input type="password" name="password">
 	    		</label>
 	    		<label>
-	    			Saisissez à nouveau le mot de passe:
+                    Enter the password again :
 	    			<input type="password" name="repassword">
 	    		</label>
 	    		<input type="submit" name="submit">
