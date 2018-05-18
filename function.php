@@ -193,19 +193,19 @@ function thedate ($date){
     $date = strtotime($date);
     $diff = $timeSec - $date;
     if ($diff >= 60) {
-        return date('i', $diff);
+        echo date('i', $diff)." minute(s)";
 
      } elseif ($diff >= 3600) {
-        return date('H', $diff);
+        return date('H', $diff)." heure(s)";
 
         } elseif ($diff >= 86400) {
-             return date('d', $diff);
+             return date('d', $diff)." jour(s)";
 
             } elseif ($diff >= 2629738) {
-                 return date('M', $diff);
+                 return date('M', $diff)." moi(s)";
 
                 } elseif ($diff >= 31536000) {
-                     return date('Y', $diff);
+                     return date('Y', $diff)." an(s)";
 
 
     }

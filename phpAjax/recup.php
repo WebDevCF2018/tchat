@@ -23,7 +23,7 @@ if (!mysqli_num_rows($recup)) {
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
             <i><?= $item['thelogin'] ?></i>
-            <p><?= $item['thecontent'] ?><br><br><span id='date'><?= $item['thedatetime'] ?></span></p></div>
+            <p><?= $item['thecontent'] ?><br><br><span id='date'><?= thedate($item['thedatetime']) ?></span></p></div>
 
         <?php
 
