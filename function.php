@@ -155,7 +155,8 @@ function infoUser($db,$lelogin) {
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
-function updateUser($db,$idutil,$password,$repassword){
+function updateUser($db,$lelogin,$password,$repassword){
+
     if (isset($_POST["submit"])){
         if(!empty($_FILES['uploaded_file']) && empty($password)){
             $path = "img/";
@@ -172,8 +173,8 @@ function updateUser($db,$idutil,$password,$repassword){
         else if (!empty($password) && empty($_FILES['uploaded_file'])) {
             if($password == $repassword){
                 echo "Mise à jour du profil !";
-                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
-                $password = sha256($pwd);
+                $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
+                $password = sha256($password);
 
                 $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
@@ -184,8 +185,8 @@ function updateUser($db,$idutil,$password,$repassword){
         }
         else if(!empty($_FILES['uploaded_file']) && !empty($password)){
             if($password == $repassword){
-                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
-                $password = sha256($pwd);
+                $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
+                $password = sha256($password);
 
                 $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
@@ -200,5 +201,28 @@ function updateUser($db,$idutil,$password,$repassword){
                 echo "les mots de passes ne sont pas identiques !";
             }
         }
+    }
+}
+function thedate ($date){
+
+    $timeSec = time();
+    $date = strtotime($date);
+    $diff = $timeSec - $date;
+    if ($diff >= 60) {
+        echo "il y a " . date('i', $diff) . " minute(s)";
+
+    } elseif ($diff >= 3600) {
+        echo "il y a " . date('H', $diff) . " heure(s)";
+
+    } elseif ($diff >= 86400) {
+        echo "il y a " .  date('d', $diff) . " jour(s)";
+
+    } elseif ($diff >= 2629738) {
+        echo "il y a " .  date('M', $diff) . " moi(s)";
+
+    } elseif ($diff >= 31536000) {
+        echo "il y a " .  date('Y', $diff) . " an(s)";
+
+
     }
 }
