@@ -22,9 +22,8 @@ if (!mysqli_num_rows($recup)) {
         ?>
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
-            <i><?= $item['thelogin'] ?></i>
+            <i><?= $item['thelogin'] ?><p>connecté</p></i>
             <p><?= $item['thecontent'] ?><br><br><span id='date'><?= thedate($item['thedatetime']) ?></span></p></div>
-
         <?php
 
     }
