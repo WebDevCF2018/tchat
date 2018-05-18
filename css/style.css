@@ -24,20 +24,14 @@
     width: 100%;
     height: 100%;
 }
-<<<<<<< HEAD
 #data {
     color: black;
 }
-=======
 
-<<<<<<< HEAD
 #button-archives{
     cursor: pointer;
 }
 
->>>>>>> 2cb120a90972c153585e3024e15c97d483f7af82
-=======
->>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 form {
     margin: 0 auto;
     width: 360px;
@@ -49,18 +43,15 @@ form {
 
 form h1,.tchat h1 {
     text-align: center;
-<<<<<<< HEAD
     color: #FEFEFEFE;
     margin: 3vh 0 2vh 0;
 }
 
 form div + div {
     margin-top: 1em;
-=======
     text-align: center;
     color: #e8e8e8fe;
     margin-top: 0;
->>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
 
 #content {
@@ -283,11 +274,8 @@ ul, li {
 input {
     display: block;
     outline: none;
-<<<<<<< HEAD
     border-left: solid 2px black;
-=======
     border: none !important;
->>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
 
 textarea {
@@ -529,21 +517,19 @@ nav li b {
     margin: 10px;
 }
 
-<<<<<<< HEAD
 
 /* -------- */
 /* ARCHIVES */
 /* -------- */
-#archives{
-    width:70vw;
+#archives {
+    width: 70vw;
     margin: 0 auto;
-=======
+}
 .display {
     display: flex;
     width: 60vw;
     margin: auto;
     justify-content: space-between;
->>>>>>> 7f4290b9f00e1e91c29123d3342281fe4e93982a
 }
 
 .user-tchat {
@@ -599,7 +585,33 @@ nav li b {
 .pf-center {
     place-self: center;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2cb120a90972c153585e3024e15c97d483f7af82
+/* -------- */
+/* ARCHIVES */
+/* -------- */
+#archives{
+    width:70vw;
+    margin: 0 auto;
+}
+#archives .archives-message{
+    background-color: #fff;
+    padding: 5px 5px;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #75a939;
+    width: 100%;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+.back-to-tchat{
+	width:70vw;
+	margin: 0 auto;
+}
+.back-to-tchat p{
+	padding: 5px 5px;
+	text-align:right;
+}
