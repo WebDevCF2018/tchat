@@ -220,10 +220,10 @@ function thedate($date){
     } elseif ($diff >= 3600) {
         echo "il y a " . date('G', $diff) . " heures";
 
-    }elseif ($diff >= 60){
+    }elseif ($diff >= 60) {
         echo "il y a " . date('i', $diff) . " minutes";
 
-    }elseif ($diff > 60) {
-        echo "il y a moins d'une minute";
+    }else{
+        echo "il y a moin d'une minute";
     }
 }
