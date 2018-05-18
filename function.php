@@ -203,26 +203,27 @@ function updateUser($db,$lelogin,$password,$repassword){
         }
     }
 }
-function thedate ($date){
+function thedate($date){
 
     $timeSec = time();
     $date = strtotime($date);
     $diff = $timeSec - $date;
-    if ($diff >= 60) {
-        echo "il y a " . date('i', $diff) . " minute(s)";
+    if ($diff >= 31536000) {
+        echo "il y a " .  date('Y', $diff) . " ans";
 
-    } elseif ($diff >= 3600) {
-        echo "il y a " . date('H', $diff) . " heure(s)";
+    } elseif ($diff >= 2629738){
+        echo "il y a " . date('M', $diff) . " mois";
 
     } elseif ($diff >= 86400) {
-        echo "il y a " .  date('d', $diff) . " jour(s)";
+        echo "il y a " .  date('d', $diff) . " jours";
 
-    } elseif ($diff >= 2629738) {
-        echo "il y a " .  date('M', $diff) . " moi(s)";
+    } elseif ($diff >= 3600) {
+        echo "il y a " . date('H', $diff) . " heures";
 
-    } elseif ($diff >= 31536000) {
-        echo "il y a " .  date('Y', $diff) . " an(s)";
+    }elseif ($diff >= 60){
+        echo "il y a " . date('i', $diff) . " minutes";
 
-
+    }else{
+        echo "il y a moin d'une minute";
     }
 }
