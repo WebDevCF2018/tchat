@@ -25,7 +25,7 @@ echo '<meta http-equiv="refresh" content="3">';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Tchat: Déconnexion</title>
+    <title>Tchat: Disconnected</title>
     <script type="javascript" src="js/ajax.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="css/style.css">
@@ -39,7 +39,7 @@ echo '<meta http-equiv="refresh" content="3">';
 <script src="js/particles.min.js"></script>
 <script src="js/app.min.js"></script>
 
-<h1 style="color: ghostwhite">Déconnexion</h1>
-<center><p style="border: 5px outset orange; color: ghostwhite">Aurevoir <?=$nom;?> et à bientôt !</p></center>
+<h1 style="color: ghostwhite">Disconnected</h1>
+<center><p style="color: ghostwhite">Good By<?=$nom;?> and see you soon !</p></center>
 </body>
 </html>

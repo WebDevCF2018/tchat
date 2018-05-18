@@ -13,18 +13,28 @@ require "verifSession.php";
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
-    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent')">
+    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent');chargeContent('phpAjax/online.php','row-connected');">
         <div id="particles-js"></div>
 
         <!-- scripts -->
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
-            <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-            <a href="deco.php"><li><b>Déconnexion</b></li></a>
+            <div class="display">
+                <a href="profil.php">
+                    <div class="user-tchat">
+                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
+                    </div>
+                </a>
+                <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
+                <a href="deco.php"><li><b>Sign out</b></li></a>
+
+            </div>
+
         </nav>
         <h1>Mini chat</h1>
-        <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connectés</p></div>
+        <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connected</p></div>
         <div id="content">
             <div id="headercontent"></div>
         </div>
@@ -47,8 +57,8 @@ require "verifSession.php";
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
-            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Votre message" required>
-            <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Envoyer">
+            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your message" required>
+            <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
         <script>
             // Affichage des personnes connectés
@@ -70,12 +80,9 @@ require "verifSession.php";
                     document.getElementById("mySUBMIT").click();
                 }
             });
-
             function emojiBar(emoji) {
                 document.getElementById('myTXT').value += ":" + emoji + ":";
             }
-
         </script>
-
     </body>
 </html>

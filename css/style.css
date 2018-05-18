@@ -30,28 +30,17 @@ form {
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
     display: grid;
-    z-index: 5;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    margin-top: 45px;
-    position: absolute;
 }
 
 form h1,.tchat h1 {
     text-align: center;
     text-align: center;
-    color: #FEFEFEFE;
+    color: #e8e8e8fe;
     margin-top: 0;
 }
 
-form div + div {
-    margin-top: 1em;
-}
-
 #content {
-    height: 77vh;
+    height: 80vh;
     background-color: #FFF;
     padding: 5px;
     border-right: solid 2px #218d24;
@@ -157,7 +146,7 @@ input:focus {
 }
 
 .erreur {
-    margin: 5px auto;
+    margin: 0 auto;
     width: 360px;
     padding: 8px 1em;
     text-align: center;
@@ -228,8 +217,21 @@ a {
     margin: 0px;
     -webkit-transition: all 0.4s;
     text-decoration: none;
-    color: #0029ff;
-    margin-left: 46%;
+}
+
+.validate a{
+    margin: 0px;
+    -webkit-transition: all 0.4s;
+    text-decoration: none;
+    color: #cacaca;
+    /* margin-left: 46%; */
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+    margin-top: 3%;
+    font-family: arial;
+    margin-bottom: 3%;
+    color: #808080;
 }
 
 /* ------------------------------------ */
@@ -388,8 +390,6 @@ button {
 
 nav {
     background-color: #a4de5f;
-    display: flex;
-    justify-content: center;
 }
 
 nav li {
@@ -439,7 +439,7 @@ nav li b {
 
 #headercontent {
     display: grid;
-    height: 77vh;
+    height: 80vh;
     overflow: auto;
     padding: 5px;
 }
@@ -481,4 +481,87 @@ nav li b {
 
 .message p {
     margin: 10px;
+}
+
+.display {
+    display: flex;
+    width: 60vw;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.user-tchat {
+    display: flex;
+}
+
+.user-tchat img {
+    height: 41px;
+    justify-self: center;
+    place-self: center;
+    background-color: #FFF;
+    border-radius: 40px;
+}
+
+.user-tchat:hover {
+    background-color: #7fa94e;
+}
+
+.profil {
+    background-color: #FFF;
+    box-shadow: 2px 3px 5px #909090;
+    padding: 10px 25px;
+    margin-top: 15px;
+    display: block;
+}
+
+.profil h1 {
+    border-bottom: 1px solid;
+    margin: 10px;
+    color: #5a5a5a;
+}
+
+.profil form {
+    width: unset;
+    margin: unset;
+    box-shadow: initial;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profil img {
+    height: 180px;
+    border: 1px solid #5a5a5a;
+    border-radius: 4px;
+}
+
+.profil input {
+    width: 100%;
+}
+
+.profil-form {
+    padding: 5px 15px;
+}
+.pf-center {
+    place-self: center;
+}
+
+/* -------- */
+/* ARCHIVES */
+/* -------- */
+#archives{
+    width:60vw;
+    margin: 0 auto;
+}
+#archives .archives-message{
+    background-color: #fff;
+    padding: 5px 5px;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #75a939;
+    width: 100%;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
 }

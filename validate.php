@@ -21,66 +21,67 @@
             $identifiant = $_GET['id'];
             $recup = confirmUser($mysqli, $identifiant, $clef);
             if ($recup == "ok") {
-                echo "<div class=\"limiter\">
-		<div class=\"container-table100\">
-			<div class=\"wrap-table100\">
-					<div class=\"table\">
-						<div class=\"row\">
-							<div  class=\"cell\" data-title=\"Full Name\">
-								Votre compte a bien été validé !
+                ?><div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+						<div class="row">
+							<div  class="cell" data-title="Full Name">
+								Your account has been validated !
 							</div>
 						</div>
 					</div>
-					<a href='?p=connect'>se connecter</a>
+					<a href='?p=connect'>Login</a>
 			</div>
 		</div>
-	</div>";
+	</div><?php
             } elseif ($recup == "already") {
-                echo "<div class=\"limiter\">
-		<div class=\"container-table100\">
-			<div class=\"wrap-table100\">
-					<div class=\"table\">
-						<div class=\"row\">
-							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte est déjà validé !
+
+                ?> <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+						<div class="row">
+							<div class="cell" data-title="Full Name">
+								Your account is already validated !
 							</div>
 						</div>
 					</div>
-					<a href='?p=connect'>se connecter</a>
+					<a href='?p=connect'>Login</a>
 			</div>
 		</div>
-	</div>";
+	</div><?php
             } elseif ($recup == "rejected") {
-                echo "<div class=\"limiter\">
-		<div class=\"container-table100\">
-			<div class=\"wrap-table100\">
-					<div class=\"table\">
-						<div class=\"row\">
-							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte n'est pas valide !
+                ?><div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+						<div class="row">
+							<div class="cell" data-title="Full Name">
+								Your account is not valid !
 							</div>
 						</div>
 					</div>
 
-					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>Register</a>
 			</div>
 		</div>
-	</div>";
+	</div><?php
             } else {
-                echo "<div class=\"limiter\">
-		<div class=\"container-table100\">
-			<div class=\"wrap-table100\">
-					<div class=\"table\">
-						<div class=\"row\">
-							<div class=\"cell\" data-title=\"Full Name\">
-								Votre compte n'est pas valide !
+                ?><div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+						<div class="row">
+							<div class="cell" data-title="Full Name">
+								Your account is not valid !
 							</div>
 						</div>
 					</div>
-					<a href='?p=inscription'>s'inscrire</a>
+					<a href='?p=inscription'>Register</a>
 			</div>
 		</div>
-	</div>";
+	</div><?php
             }
         }
         ?>
