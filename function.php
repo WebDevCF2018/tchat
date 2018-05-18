@@ -223,7 +223,7 @@ function thedate($date){
     }elseif ($diff >= 60){
         echo "il y a " . date('i', $diff) . " minutes";
 
-    }elseif ($diff > 60) {
+    }else{
         echo "il y a moin d'une minute";
     }
 }
