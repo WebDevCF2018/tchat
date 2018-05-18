@@ -243,3 +243,7 @@ function updateUser($db,$idutil,$password,$repassword){
         }
     }
 }
+
+function suppGrosMots(){
+
+}
