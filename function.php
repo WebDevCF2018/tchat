@@ -203,6 +203,26 @@ function updateUser($db,$lelogin,$password,$repassword){
         }
     }
 }
+
+/* Fonctions de Romain */
+
+/*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
+
+function links($text){
+
+    $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+
+    if(preg_match($reg_exUrl, $text, $url)) {
+
+        // make the urls hyper links
+        return preg_replace($reg_exUrl, '<a href="'.$url[0].'" rel="nofollow" target="_blank">'.$url[0].'</a>', $text);
+
+    } else {
+
+        // if no urls in the text just return the text
+        return $text;
+    }
+
 function thedate($date){
 
     $timeSec = time();
@@ -286,5 +306,5 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
     }
     $sortie .= "</div>";
     return $sortie;
-    //return $nombre_elements_total."|".$page_actuelle."|".$nom_variable_get."|".$nb_elements_par_pg;
+
 }
