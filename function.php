@@ -212,18 +212,18 @@ function thedate($date){
         echo "il y a " .  date('Y', $diff) . " ans";
 
     } elseif ($diff >= 2629738){
-        echo "il y a " . date('M', $diff) . " mois";
+        echo "il y a " . date('n', $diff) . " mois";
 
     } elseif ($diff >= 86400) {
-        echo "il y a " .  date('d', $diff) . " jours";
+        echo "il y a " .  date('j', $diff) . " jours";
 
     } elseif ($diff >= 3600) {
-        echo "il y a " . date('H', $diff) . " heures";
+        echo "il y a " . date('G', $diff) . " heures";
 
     }elseif ($diff >= 60){
         echo "il y a " . date('i', $diff) . " minutes";
 
     }elseif ($diff > 60) {
-        echo "il y a moin d'une minute";
+        echo "il y a moins d'une minute";
     }
 }
