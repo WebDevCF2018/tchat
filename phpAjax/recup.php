@@ -5,7 +5,6 @@ header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
 require_once "../mysqliConnect.php";
 require_once "../function.php";
-require "../profil.php";
 
 $sql = "SELECT m.*,u.thelogin,u.thecolor,u.theimage FROM themessage m 
         INNER JOIN theuser u 
