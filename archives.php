@@ -32,11 +32,16 @@ if(!mysqli_num_rows($recup)){
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
-		<ul>
-            <li>Hi, <b><?= $_SESSION["thelogin"]; ?></b></li>
-			<li><a href="index.php">Return</a></li>
-            <li class="a-right"><a href="deco.php"><b>Sign Out</b></a></li>
-		</ul>
+            <div class="display">
+                <a href="profil.php">
+                    <div class="user-tchat">
+                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
+                    </div>
+                </a>
+                <li><a href="index.php">Return</a></li>
+                <a href="deco.php"><li><b>Sign out</b></li></a>
+            </div>
         </nav>
         <h1>Archives : Mini chat</h1>
 		<div id="archives">	
