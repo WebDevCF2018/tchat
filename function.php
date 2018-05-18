@@ -1,14 +1,10 @@
 <?php
-
 function sha256($lepwd) {
     $lepwd = hash('sha256', $lepwd);
     return $lepwd;
 }
-
 //var_dump(sha256($lepwd));
 function createKey() {
-
-
     // longueur chaîne de sortie
     $length = 64;
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
@@ -25,16 +21,10 @@ function createKey() {
     }
     return $string;
 }
-
 //var_dump(createKey());
-
-
 function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variables php du requete
-
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
-
     $subject = 'Validez votre inscription sur le Tchat Webdev CF2m 2018'; // l'adresse
-
     $message = "
      <html>
       <head>
@@ -47,23 +37,19 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
       </body>
      </html>
      ";
-
     $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
     $from .= 'From: tchat@webdev-cf2m.be ' . "\r\n" . // l'adresse du site
-            'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+        'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
     return @mail($to, $subject, $message, $from);
 }
-
 /*
  * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
  *
  * Create
  *
  */
-
 function newuser($db, $lelogin, $lepwd, $themail) {
     // vérification de sécurité de $title et $text
     if (empty($lelogin) || empty($lepwd)) {
@@ -86,26 +72,17 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     }
     return false;
 }
-
 // identification pour administration- connectUser()
 function connectUser($db, $lelogin, $pass) {
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)), ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
     $pwd = sha256($pwd);
-
     $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin= '$lelogin' AND thepwd= '$pwd' ;";
-
-
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
-
     return mysqli_fetch_assoc($recupLogin);
 }
-
-
 /* Fonctions de Niko */
-
 /* Fonction de remplacement de strings par smileys */
-
 function traiteChaine($text) {
     $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
     $text = str_replace(':-)', '<img class="emoji" src="img/smile.png" alt="smile" title=\':smile:\'>', $text);
@@ -132,29 +109,20 @@ function traiteChaine($text) {
     $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised" title=":surprised:">', $text);
     return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star" title=":star:">', $text);
 }
-
 /* Fonction d'activation du compte du nouvel utilisateur */
-
 function confirmUser($connexion, $idutil, $thekey) {
     // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
-
     /*
      * Protection des variables car elles peuvent être manipulées par les utilisateurs
      */
-
     $idutil = (int) $idutil;
     $thekey = htmlspecialchars(strip_tags($thekey), ENT_QUOTES);
-
     /* Récupère la clé d'activation */
     $req = mysqli_query($connexion, "SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil") or die(mysqli_error($connexion));
     // si on ne récupère pas d'utilisateur on quitte la fonction
     if (!mysqli_num_rows($req))
         return false;
-
-
     $data = mysqli_fetch_assoc($req);
-
-
     /* Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur */
     if ($thekey != $data['thekey'] || $data['thevalidate'] == 2) {
         /* Bad Key */
@@ -174,9 +142,7 @@ function confirmUser($connexion, $idutil, $thekey) {
         }
     }
 }
-
 /* ---------------Fin des fonctions de Niko---------------- */
-
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
     $colorArray = ['#660000','#FF6600','#CC3300','#FF0000','#990033','#330000','#FF0066','#CC0099','#6600FF','#000033','#00CCFF','#003333','#00CCCC','#330033','#99CCCC','#009999','#33FFCC','#339966','#66FF00','#003300','#CCFF00','#CCCC99','#333300','#999966','#333333','#9966CC','#CCCC00','#FF6699','#3399CC'];;
@@ -184,19 +150,13 @@ function colorMessage($db, $idutil) {
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
-
 function infoUser($db,$lelogin) {
-
     $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
-
-
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
-
     return mysqli_fetch_assoc($recupLogin);
 }
-
 function updateUser($db,$lelogin,$password,$repassword){
-    
+
     if (isset($_POST["submit"])){
         if(!empty($_FILES['uploaded_file']) && empty($password)){
             $path = "img/";
@@ -215,10 +175,10 @@ function updateUser($db,$lelogin,$password,$repassword){
                 echo "Mise à jour du profil !";
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
-                
+
                 $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
-                
+
             }else {
                 echo "les mots de passes ne sont pas identiques !";
             }
@@ -227,20 +187,42 @@ function updateUser($db,$lelogin,$password,$repassword){
             if($password == $repassword){
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
-                
+
                 $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
                 $path = "img/";
                 $path = $path . basename( $_FILES['uploaded_file']['name']);
                 if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-                  echo "Mise à jour du profil";
+                    echo "Mise à jour du profil";
                 } else{
                     echo "erreur d'upload !";
                 }
-
             }else {
                 echo "les mots de passes ne sont pas identiques !";
             }
         }
+    }
+}
+function thedate ($date){
+
+    $timeSec = time();
+    $date = strtotime($date);
+    $diff = $timeSec - $date;
+    if ($diff >= 60) {
+        echo "il y a " . date('i', $diff) . " minute(s)";
+
+    } elseif ($diff >= 3600) {
+        echo "il y a " . date('H', $diff) . " heure(s)";
+
+    } elseif ($diff >= 86400) {
+        echo "il y a " .  date('d', $diff) . " jour(s)";
+
+    } elseif ($diff >= 2629738) {
+        echo "il y a " .  date('M', $diff) . " moi(s)";
+
+    } elseif ($diff >= 31536000) {
+        echo "il y a " .  date('Y', $diff) . " an(s)";
+
+
     }
 }
