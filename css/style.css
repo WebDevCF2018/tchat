@@ -548,7 +548,7 @@ nav li b {
 /* ARCHIVES */
 /* -------- */
 #archives{
-    width:70vw;
+    width:60vw;
     margin: 0 auto;
 }
 #archives .archives-message{
@@ -564,12 +564,4 @@ nav li b {
     -ms-hyphens: auto;
     -o-hyphens: auto;
     hyphens: auto;
-}
-.back-to-tchat{
-	width:70vw;
-	margin: 0 auto;
-}
-.back-to-tchat p{
-	padding: 5px 5px;
-	text-align:right;
 }
