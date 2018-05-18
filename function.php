@@ -208,20 +208,22 @@ function updateUser($db,$lelogin,$password,$repassword){
 
 /*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
 
-function links($text){
+function links($text)
+{
 
     $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
-    if(preg_match($reg_exUrl, $text, $url)) {
+    if (preg_match($reg_exUrl, $text, $url)) {
 
         // make the urls hyper links
-        return preg_replace($reg_exUrl, '<a href="'.$url[0].'" rel="nofollow" target="_blank">'.$url[0].'</a>', $text);
+        return preg_replace($reg_exUrl, '<a href="' . $url[0] . '" rel="nofollow" target="_blank">' . $url[0] . '</a>', $text);
 
     } else {
 
         // if no urls in the text just return the text
         return $text;
     }
+}
 
 function thedate($date){
 
@@ -230,21 +232,27 @@ function thedate($date){
     $diff = $timeSec - $date;
     if ($diff >= 31536000) {
         echo "il y a " .  date('Y', $diff) . " ans";
+            if ($diff == 1){
+                echo "il y a " .  date('Y', $diff) . " an";
+            }
 
     } elseif ($diff >= 2629738){
         echo "il y a " . date('n', $diff) . " mois";
 
-    } elseif ($diff >= 86400) {
+
+        } elseif ($diff >= 86400) {
         echo "il y a " .  date('j', $diff) . " jours";
+
 
     } elseif ($diff >= 3600) {
         echo "il y a " . date('G', $diff) . " heures";
+
 
     }elseif ($diff >= 60) {
         echo "il y a " . date('i', $diff) . " minutes";
 
     }else{
-        echo "il y a moin d'une minute";
+        echo "il y a moins d'une minute";
     }
 }
 
