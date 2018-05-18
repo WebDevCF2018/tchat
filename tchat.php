@@ -1,6 +1,10 @@
 <?php
 require "verifSession.php";
 //var_dump($_SESSION);
+require_once "config.php";
+require_once "mysqliConnect.php";
+require_once "function.php";
+$info = infoUser($mysqli,$_SESSION["thelogin"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,12 +27,13 @@ require "verifSession.php";
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <img src="img/<?=$info["theimage"];?>">
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
                 <a href="deco.php"><li><b>Sign out</b></li></a>
+
             </div>
 
         </nav>
@@ -80,12 +85,9 @@ require "verifSession.php";
                     document.getElementById("mySUBMIT").click();
                 }
             });
-
             function emojiBar(emoji) {
                 document.getElementById('myTXT').value += ":" + emoji + ":";
             }
-
         </script>
-
     </body>
 </html>

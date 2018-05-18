@@ -27,7 +27,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div class="display">
             <a href="tchat.php">
                 <div class="user-tchat">
-                    <img src="<?=$info["theimage"];?>">
+                    <img src="img/<?=$info["theimage"];?>">
                     <li>Return</b></li>
                 </div>
             </a>
@@ -57,7 +57,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 	    		<input type="submit" name="submit">
 	    	</div>
 	    	<div class="profil-form pf-center">
-	    		<img src="<?=$info["theimage"];?>">
+	    		<img src="img/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
 	    	</div>
     	</form>
