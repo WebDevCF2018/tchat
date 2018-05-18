@@ -185,60 +185,86 @@ function colorMessage($db, $idutil) {
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
 
-function infoUser($db,$lelogin) {
 
-    $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
+function thedate ($date){
 
 
-    $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
+    $timeSec = time();
+    $date = strtotime($date);
+    $diff = $timeSec - $date;
+    if ($diff >= 60) {
+        echo date('i', $diff)." minute(s)";
 
-    return mysqli_fetch_assoc($recupLogin);
-}
+     } elseif ($diff >= 3600) {
+        return date('H', $diff)." heure(s)";
 
-function updateUser($db,$idutil,$password,$repassword){
-    if (isset($_POST["submit"])){
-        if(!empty($_FILES['uploaded_file']) && empty($password)){
-            $path = "img/";
-            $path = $path . basename( $_FILES['uploaded_file']['name']);
-            if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-                echo "Mise à jour du profil !";
-                $theimage = basename($_FILES['uploaded_file']['name']);
-                $sql = "UPDATE theuser SET theimage = '$theimage' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
-            } else{
-                echo "erreur d'upload !";
-            }
-        }
-        else if (!empty($password) && empty($_FILES['uploaded_file'])) {
-            if($password == $repassword){
-                echo "Mise à jour du profil !";
-                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
-                $password = sha256($pwd);
-                
-                $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
-                
-            }else {
-                echo "les mots de passes ne sont pas identiques !";
-            }
-        }
-        else if(!empty($_FILES['uploaded_file']) && !empty($password)){
-            if($password == $repassword){
-                $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
-                $password = sha256($pwd);
-                
-                $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+        } elseif ($diff >= 86400) {
+             return date('d', $diff)." jour(s)";
+
+            } elseif ($diff >= 2629738) {
+                 return date('M', $diff)." moi(s)";
+
+                } elseif ($diff >= 31536000) {
+                     return date('Y', $diff)." an(s)";
+
+
+    }
+
+    function infoUser($db, $lelogin)
+    {
+
+        $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
+
+
+        $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
+
+        return mysqli_fetch_assoc($recupLogin);
+    }
+
+    function updateUser($db, $idutil, $password, $repassword)
+    {
+        if (isset($_POST["submit"])) {
+            if (!empty($_FILES['uploaded_file']) && empty($password)) {
                 $path = "img/";
-                $path = $path . basename( $_FILES['uploaded_file']['name']);
-                if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-                  echo "Mise à jour du profil";
-                } else{
+                $path = $path . basename($_FILES['uploaded_file']['name']);
+                if (move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+                    echo "Mise à jour du profil !";
+                    $theimage = basename($_FILES['uploaded_file']['name']);
+                    $sql = "UPDATE theuser SET theimage = '$theimage' WHERE thelogin = '$lelogin'";
+                    $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                } else {
                     echo "erreur d'upload !";
                 }
+            } else if (!empty($password) && empty($_FILES['uploaded_file'])) {
+                if ($password == $repassword) {
+                    echo "Mise à jour du profil !";
+                    $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
+                    $password = sha256($pwd);
 
-            }else {
-                echo "les mots de passes ne sont pas identiques !";
+                    $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
+                    $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+
+                } else {
+                    echo "les mots de passes ne sont pas identiques !";
+                }
+            } else if (!empty($_FILES['uploaded_file']) && !empty($password)) {
+                if ($password == $repassword) {
+                    $password = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
+                    $password = sha256($pwd);
+
+                    $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
+                    $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                    $path = "img/";
+                    $path = $path . basename($_FILES['uploaded_file']['name']);
+                    if (move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+                        echo "Mise à jour du profil";
+                    } else {
+                        echo "erreur d'upload !";
+                    }
+
+                } else {
+                    echo "les mots de passes ne sont pas identiques !";
+                }
             }
         }
     }
