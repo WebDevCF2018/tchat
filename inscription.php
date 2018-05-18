@@ -90,7 +90,7 @@
 	
     <div class="g-recaptcha" data-sitekey="6LfI91cUAAAAAOxgTFYAqh-cO4aihwC_Nm5u3-_D"></div>
     <br>
-    <input id="button" type="submit">
+    <input id="button" type="submit" value="Send">
 
 
 </form>
