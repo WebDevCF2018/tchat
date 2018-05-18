@@ -39,7 +39,7 @@ echo '<meta http-equiv="refresh" content="3">';
 <script src="js/particles.min.js"></script>
 <script src="js/app.min.js"></script>
 
-<h1 style="color: ghostwhite">Déconnexion</h1>
+<h1 style="color: ghostwhite">Disconnected</h1>
 <center><p style="color: ghostwhite">Good By<?=$nom;?> and see you soon !</p></center>
 </body>
 </html>

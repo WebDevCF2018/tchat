@@ -219,6 +219,21 @@ a {
     text-decoration: none;
 }
 
+.validate a{
+    margin: 0px;
+    -webkit-transition: all 0.4s;
+    text-decoration: none;
+    color: #cacaca;
+    /* margin-left: 46%; */
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+    margin-top: 3%;
+    font-family: arial;
+    margin-bottom: 3%;
+    color: #808080;
+}
+
 /* ------------------------------------ */
 h1,h2,h3,h4,h5,h6 {
     margin: 0px;
@@ -528,3 +543,36 @@ nav li b {
 .pf-center {
     place-self: center;
 }
+<<<<<<< HEAD
+=======
+
+/* -------- */
+/* ARCHIVES */
+/* -------- */
+#archives{
+    width:70vw;
+    margin: 0 auto;
+}
+#archives .archives-message{
+    background-color: #fff;
+    padding: 5px 5px;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #75a939;
+    width: 100%;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+.back-to-tchat{
+	width:70vw;
+	margin: 0 auto;
+}
+.back-to-tchat p{
+	padding: 5px 5px;
+	text-align:right;
+}
+>>>>>>> da43173bfd41bb943eae1f9eb3f9e31cef9cdce4
