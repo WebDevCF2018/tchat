@@ -3,6 +3,7 @@ require "verifSession.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
 
+$info = infoUser($mysqli,$_SESSION["thelogin"]);
 $nb_par_page = 10;
 if(!isset($_GET['idarticle'])) {
 // pour pagination
@@ -23,7 +24,7 @@ $nb_tot = $requete_assoc['nb'];
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
 
-$sql = "SELECT m.*,u.thelogin,u.thecolor 
+$sql = "SELECT m.*,u.thelogin,u.thecolor,u.theimage 
         FROM themessage m 
         INNER JOIN theuser u 
         ON u.idutil = m.theuser_idutil
@@ -62,7 +63,7 @@ if(!mysqli_num_rows($recup)){
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <img src="img/<?=$info["theimage"]?>"height="50" width="50" >
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
