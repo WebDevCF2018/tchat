@@ -272,16 +272,16 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
                 $sortie .= "$i ";
                 // retour en arrière pour page 2
             } elseif($page_actuelle == 2) {
-                $sortie .= "<a href='./' title='First'>|<<</a> ";
-                $sortie .= "<a href='./'><<</a>&nbsp;&nbsp; ";
+                $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
+                $sortie .= "<a href='?$nom_variable_get=$i'><<</a>&nbsp;&nbsp; ";
                 // pas de variable GET de pagination sur l'accueil
-                $sortie .= "<a href='./'>$i</a> ";
+                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
                 // on est sur une autre page
             }else {
-                $sortie .= "<a href='./' title='First'>|<<</a> ";
+                $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
                 $sortie .= "<a href='?$nom_variable_get=" . ($page_actuelle - 1) . "'><<</a>&nbsp;&nbsp; ";
                 // pas de variable GET de pagination sur l'accueil
-                $sortie .= "<a href='./'>$i</a> ";
+                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
             }
             // sinon si on est au dernier tour
         } elseif ($i == $nb_pg) {
