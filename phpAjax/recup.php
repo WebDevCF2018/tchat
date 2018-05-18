@@ -17,7 +17,7 @@ if (!mysqli_num_rows($recup)) {
     $tous = mysqli_fetch_all($recup, MYSQLI_ASSOC);
     $tous = array_reverse($tous);
     foreach ($tous AS $item) {
-        $item['thecontent'] = traiteChaine($item['thecontent']);
+        $item['thecontent'] = traiteChaine(links($item['thecontent']));
         $choiceLeftRight = $item["thelogin"] == $_SESSION["thelogin"] ? " right" : " left";
         ?>
 
