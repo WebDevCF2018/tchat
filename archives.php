@@ -4,7 +4,7 @@ require_once "mysqliConnect.php";
 require_once "function.php";
 
 $info = infoUser($mysqli,$_SESSION["thelogin"]);
-$nb_par_page = 10;
+$nb_par_page = 50;
 if(!isset($_GET['idarticle'])) {
 // pour pagination
     if (isset($_GET['pg']) && ctype_digit($_GET['pg'])) {
@@ -72,10 +72,11 @@ if(!mysqli_num_rows($recup)){
             </div>
         </nav>
         <h1>Archives : Mini chat</h1>
+        <p><?=$pagination?></p>
 		<div id="archives">	
 		<?php
                 foreach($tous AS $item){
-            $item['thecontent'] = traiteChaine($item['thecontent']);
+            $item['thecontent'] = traiteChaine(links($item['thecontent']));
     		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']}</span><p>{$item['thecontent']}<br><br></p></div>";
 			}
 			?>
