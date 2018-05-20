@@ -227,7 +227,21 @@ function links($text)
 
 function thedate($date){
 
+    // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
     $timeSec = time();
+    $thedate = strtotime($date);
+    $diff = $timeSec - $thedate;
+    
+    // in seconds 
+    $minutes = 60;
+    $hours = $minutes * 60;
+    $days = $hours * 24;
+    $weeks = $days * 7;
+    $month = $days * 30;
+    $years = $month * 12;
+    
+    
+    /*$timeSec = time();
     $date = strtotime($date);
     $diff = $timeSec - $date;
     if ($diff >= 31536000) {
@@ -247,7 +261,7 @@ function thedate($date){
 
     }else{
         return "il y a moin d'une minute";
-    }
+    }*/
 }
 
 /* PAGINATION */
