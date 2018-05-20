@@ -231,22 +231,22 @@ function thedate($date){
     $date = strtotime($date);
     $diff = $timeSec - $date;
     if ($diff >= 31536000) {
-        echo "il y a " .  date('Y', $diff) . " ans";
+        return "il y a " .  date('Y', $diff) . " ans";
 
     } elseif ($diff >= 2629738){
-        echo "il y a " . date('M', $diff) . " mois";
+        return "il y a " . date('M', $diff) . " mois";
 
     } elseif ($diff >= 86400) {
-        echo "il y a " .  date('d', $diff) . " jours";
+        return "il y a " .  date('d', $diff) . " jours";
 
     } elseif ($diff >= 3600) {
-        echo "il y a " . date('H', $diff) . " heures";
+        return "il y a " . date('H', $diff) . " heures";
 
     }elseif ($diff >= 60){
-        echo "il y a " . date('i', $diff) . " minutes";
+        return "il y a " . date('i', $diff) . " minutes";
 
     }else{
-        echo "il y a moin d'une minute";
+        return "il y a moin d'une minute";
     }
 }
 
