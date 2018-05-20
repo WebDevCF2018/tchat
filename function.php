@@ -1,8 +1,10 @@
 <?php
+
 function sha256($lepwd) {
     $lepwd = hash('sha256', $lepwd);
     return $lepwd;
 }
+
 //var_dump(sha256($lepwd));
 function createKey() {
     // longueur chaîne de sortie
@@ -21,6 +23,7 @@ function createKey() {
     }
     return $string;
 }
+
 //var_dump(createKey());
 function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variables php du requete
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
@@ -40,16 +43,18 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
     $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
     $from .= 'From: tchat@webdev-cf2m.be ' . "\r\n" . // l'adresse du site
-        'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
+            'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
     return @mail($to, $subject, $message, $from);
 }
+
 /*
  * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
  *
  * Create
  *
  */
+
 function newuser($db, $lelogin, $lepwd, $themail) {
     // vérification de sécurité de $title et $text
     if (empty($lelogin) || empty($lepwd)) {
@@ -72,6 +77,7 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     }
     return false;
 }
+
 // identification pour administration- connectUser()
 function connectUser($db, $lelogin, $pass) {
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)), ENT_QUOTES);
@@ -81,8 +87,10 @@ function connectUser($db, $lelogin, $pass) {
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
+
 /* Fonctions de Niko */
 /* Fonction de remplacement de strings par smileys */
+
 function traiteChaine($text) {
     $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
     $text = str_replace(':-)', '<img class="emoji" src="img/smile.png" alt="smile" title=\':smile:\'>', $text);
@@ -109,7 +117,9 @@ function traiteChaine($text) {
     $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised" title=":surprised:">', $text);
     return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star" title=":star:">', $text);
 }
+
 /* Fonction d'activation du compte du nouvel utilisateur */
+
 function confirmUser($connexion, $idutil, $thekey) {
     // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
     /*
@@ -142,62 +152,64 @@ function confirmUser($connexion, $idutil, $thekey) {
         }
     }
 }
+
 /* ---------------Fin des fonctions de Niko---------------- */
+
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
-    $colorArray = ['#660000','#FF6600','#CC3300','#FF0000','#990033','#330000','#FF0066','#CC0099','#6600FF','#000033','#00CCFF','#003333','#00CCCC','#330033','#99CCCC','#009999','#33FFCC','#339966','#66FF00','#003300','#CCFF00','#CCCC99','#333300','#999966','#333333','#9966CC','#CCCC00','#FF6699','#3399CC'];;
+    $colorArray = ['#660000', '#FF6600', '#CC3300', '#FF0000', '#990033', '#330000', '#FF0066', '#CC0099', '#6600FF', '#000033', '#00CCFF', '#003333', '#00CCCC', '#330033', '#99CCCC', '#009999', '#33FFCC', '#339966', '#66FF00', '#003300', '#CCFF00', '#CCCC99', '#333300', '#999966', '#333333', '#9966CC', '#CCCC00', '#FF6699', '#3399CC'];
+    ;
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
-function infoUser($db,$lelogin) {
+
+function infoUser($db, $lelogin) {
     $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
-function updateUser($db,$lelogin,$password,$repassword){
 
-    if (isset($_POST["submit"])){
-        if(!empty($_FILES['uploaded_file']) && empty($password)){
+function updateUser($db, $lelogin, $password, $repassword) {
+
+    if (isset($_POST["submit"])) {
+        if (!empty($_FILES['uploaded_file']) && empty($password)) {
             $path = "img/";
-            $path = $path . basename( $_FILES['uploaded_file']['name']);
-            if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+            $path = $path . basename($_FILES['uploaded_file']['name']);
+            if (move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
                 echo "Mise à jour du profil !";
                 $theimage = basename($_FILES['uploaded_file']['name']);
                 $sql = "UPDATE theuser SET theimage = '$theimage' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
-            } else{
+            } else {
                 echo "erreur d'upload !";
             }
-        }
-        else if (!empty($password) && empty($_FILES['uploaded_file'])) {
-            if($password == $repassword){
+        } else if (!empty($password) && empty($_FILES['uploaded_file'])) {
+            if ($password == $repassword) {
                 echo "Mise à jour du profil !";
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
 
                 $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
-
-            }else {
+            } else {
                 echo "les mots de passes ne sont pas identiques !";
             }
-        }
-        else if(!empty($_FILES['uploaded_file']) && !empty($password)){
-            if($password == $repassword){
+        } else if (!empty($_FILES['uploaded_file']) && !empty($password)) {
+            if ($password == $repassword) {
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
 
                 $sql = "UPDATE theuser SET thepwd = '$password', theimage = '$theimage' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
                 $path = "img/";
-                $path = $path . basename( $_FILES['uploaded_file']['name']);
-                if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+                $path = $path . basename($_FILES['uploaded_file']['name']);
+                if (move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
                     echo "Mise à jour du profil";
-                } else{
+                } else {
                     echo "erreur d'upload !";
                 }
-            }else {
+            } else {
                 echo "les mots de passes ne sont pas identiques !";
             }
         }
@@ -208,8 +220,7 @@ function updateUser($db,$lelogin,$password,$repassword){
 
 /*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
 
-function links($text)
-{
+function links($text) {
 
     $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
@@ -217,7 +228,6 @@ function links($text)
 
         // make the urls hyper links
         return preg_replace($reg_exUrl, '<a href="' . $url[0] . '" rel="nofollow" target="_blank">' . $url[0] . '</a>', $text);
-
     } else {
 
         // if no urls in the text just return the text
@@ -225,32 +235,72 @@ function links($text)
     }
 }
 
-function thedate($date){
+function thedate($date) {
 
+    // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
     $timeSec = time();
-    $date = strtotime($date);
-    $diff = $timeSec - $date;
-    if ($diff >= 31536000) {
-        return "il y a " .  date('Y', $diff) . " ans";
+    $thedate = strtotime($date);
+    $diff = $timeSec - $thedate;
 
-    } elseif ($diff >= 2629738){
-        return "il y a " . date('M', $diff) . " mois";
+    // in seconds 
+    $minutes = 60;
+    $hours = $minutes * 60;
+    $days = $hours * 24;
+    $weeks = $days * 7;
+    $month = $days * 30;
+    $years = $month * 12;
 
-    } elseif ($diff >= 86400) {
-        return "il y a " .  date('d', $diff) . " jours";
+    if ($diff > $years):
+        $nbYears = floor($diff / $years);
+        return ($nbYears > 1) ? "$nbYears years ago" : "1 year ago";
+    endif;
+    if ($diff > $month):
+        $nbMonth = floor($diff / $month);
+        return ($nbMonth > 1) ? "$nbMonth months ago" : "1 month ago";
+    endif;
+    if ($diff > $weeks):
+        $nbWeeks = floor($diff / $weeks);
+        return ($nbWeeks > 1) ? "$nbWeeks weeks ago" : "1 week ago";
+    endif;
+    if ($diff > $days):
+        $nbDays = floor($diff / $days);
+        return ($nbDays > 1) ? "$nbDays days ago" : "1 day ago";
+    endif;
+    if ($diff > $hours):
+        $nbHours = floor($diff / $hours);
+        return ($nbHours > 1) ? "$nbHours hours ago" : "1 hour ago";
+    endif;
+    if ($diff > $minutes):
+        $nbMinutes = floor($diff / $minutes);
+        return ($nbMinutes > 1) ? "$nbMinutes minutes ago" : "1 minute ago";
+    endif;
+    return "less than a minute";
 
-    } elseif ($diff >= 3600) {
-        return "il y a " . date('H', $diff) . " heures";
+    /* $timeSec = time();
+      $date = strtotime($date);
+      $diff = $timeSec - $date;
+      if ($diff >= 31536000) {
+      return "il y a " .  date('Y', $diff) . " ans";
 
-    }elseif ($diff >= 60){
-        return "il y a " . date('i', $diff) . " minutes";
+      } elseif ($diff >= 2629738){
+      return "il y a " . date('M', $diff) . " mois";
 
-    }else{
-        return "il y a moin d'une minute";
-    }
+      } elseif ($diff >= 86400) {
+      return "il y a " .  date('d', $diff) . " jours";
+
+      } elseif ($diff >= 3600) {
+      return "il y a " . date('H', $diff) . " heures";
+
+      }elseif ($diff >= 60){
+      return "il y a " . date('i', $diff) . " minutes";
+
+      }else{
+      return "il y a moin d'une minute";
+      } */
 }
 
 /* PAGINATION */
+
 function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get = "pg", $nb_elements_par_pg = 5) {
     // on calcul ne nb de pages en divisant le nb total par le nombre par page en arrondissant à l'entier supérieur (ceil)
     $nb_pg = ceil($nombre_elements_total / $nb_elements_par_pg);
@@ -271,13 +321,13 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
                 $sortie .= "<<&nbsp;&nbsp; ";
                 $sortie .= "$i ";
                 // retour en arrière pour page 2
-            } elseif($page_actuelle == 2) {
+            } elseif ($page_actuelle == 2) {
                 $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
                 $sortie .= "<a href='?$nom_variable_get=$i'><<</a>&nbsp;&nbsp; ";
                 // pas de variable GET de pagination sur l'accueil
                 $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
                 // on est sur une autre page
-            }else {
+            } else {
                 $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
                 $sortie .= "<a href='?$nom_variable_get=" . ($page_actuelle - 1) . "'><<</a>&nbsp;&nbsp; ";
                 // pas de variable GET de pagination sur l'accueil
@@ -308,5 +358,4 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
     }
     $sortie .= "</div>";
     return $sortie;
-
 }
