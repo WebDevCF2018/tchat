@@ -3,7 +3,8 @@ require "verifSession.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
 
-$nb_par_page = 10;
+$info = infoUser($mysqli,$_SESSION["thelogin"]);
+$nb_par_page = 50;
 if(!isset($_GET['idarticle'])) {
 // pour pagination
     if (isset($_GET['pg']) && ctype_digit($_GET['pg'])) {
@@ -23,7 +24,7 @@ $nb_tot = $requete_assoc['nb'];
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
 
-$sql = "SELECT m.*,u.thelogin,u.thecolor 
+$sql = "SELECT m.*,u.thelogin,u.thecolor,u.theimage 
         FROM themessage m 
         INNER JOIN theuser u 
         ON u.idutil = m.theuser_idutil
@@ -62,7 +63,7 @@ if(!mysqli_num_rows($recup)){
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                        <img src="img/<?=$info["theimage"]?>"height="50" width="50" >
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
@@ -71,11 +72,12 @@ if(!mysqli_num_rows($recup)){
             </div>
         </nav>
         <h1>Archives : Mini chat</h1>
+        <p><?=$pagination?></p>
 		<div id="archives">	
 		<?php
                 foreach($tous AS $item){
-            $item['thecontent'] = traiteChaine($item['thecontent']);
-    		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']}</span><p>{$item['thecontent']}<br><br></p></div>";
+            $item['thecontent'] = traiteChaine(links($item['thecontent']));
+    		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']} - ".thedate($item['thedatetime'])."</span><p>{$item['thecontent']}<br><br></p></div>";
 			}
 			?>
     </div>

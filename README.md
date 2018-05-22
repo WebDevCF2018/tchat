@@ -10,6 +10,10 @@ define("DB_LOGIN","root");
 define("DB_PWD","");
 define("DB_CHARSET","utf8");
 
+## 18/05/2018
+
+ALTER TABLE `theuser` ADD `theimage` VARCHAR(128) NOT NULL DEFAULT 'profil.png' AFTER `thevalidate`;
+
 ## 14/05/2018
 
 CREATE TABLE `theonline` (
