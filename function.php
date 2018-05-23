@@ -66,7 +66,7 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
     $ajout = mysqli_query($db, $sql);
     if (mysqli_error($db)) {
-        header("Location: ./?p=inscription&error=1");
+        header("Location: ./?p=inscription&error=$lelogin");
         return false;
     }
     $lastid = mysqli_insert_id($db);
@@ -376,4 +376,15 @@ function Censurer($buffer) {
     return $buffer;
 }
 
+// algorithme pour créer le login si il est occupé
+function createFreeLogin($lelogin,$idcible){
+    $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];    $sortir = "";
+    for($i=0;$i<3;$i++ ){
+        $has = array_rand($vArray);
+        $rand = $vArray[$has];
+        $sortir.="<p onclick='document.getElementById(\"$idcible\").value=\"$rand$lelogin\"'>".$rand.$lelogin."</p>";
+        unset($vArray[$has]);
+    }
+    return $sortir;
+}
 
