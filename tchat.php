@@ -33,7 +33,6 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
                 <a href="deco.php"><li><b>Sign out</b></li></a>
-
             </div>
 
         </nav>

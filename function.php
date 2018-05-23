@@ -225,12 +225,27 @@ function thedate($date){
         echo "il y a " . date('i', $diff) . " minutes";
 
     }else{
-        echo "il y a moin d'une minute";
+        echo "il y a moins d'une minute";
     }
 }
 
 
-function suppGrosMot(){
-    
+/*function suppGrosMot($db){
+    $mots_a_censurer = array(' con ',' merde ',' fils de pute ',' batard ',' asshole ',' salope ',' pétasse ',' connard ',' salaud ', ' pd ',' nique ta mère ',' connasse ',' gounafié ',' négro ',' bitch ',' fuck '); // Les espaces pour éviter de censurer les mots comme "contenir"
+    $message = str_replace($mots_a_censurer, ' *** ', $message); // Les espaces autour des étoiles, essaies d'écrire sans tu verras pourquoi ils y sont
+    $req="SELECT thecontent FROM themessage";
+
+}
+*/
+
+function Censure($texte, $gros = 'list.txt'){
+    $fichier = str_replace($gros, ' *** ', $texte); // Charge le fichier contenant les masques de censure
+    foreach ($fichier as $ligne) {
+        $ligne = trim($ligne) . 'ie';
+        if ($ligne != 'ie') {
+            if (preg_match($ligne, $texte)) return true;
+        }
+    }
+    return false;
 }
 

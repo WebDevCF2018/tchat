@@ -28,3 +28,23 @@ if (!mysqli_num_rows($recup)) {
 
     }
 }
+
+function pourMot($db){
+    $sql = "SELECT m.*,u.thelogin,u.thecolor FROM themessage m 
+        INNER JOIN theuser u 
+          ON u.idutil = m.theuser_idutil
+ORDER BY m.idmessage DESC LIMIT 0,30";
+
+    $recup= mysqli_query($db,$sql) or die (mysqli_error($db));
+    if(mysqli_num_rows($recup)){
+        return mysqli_fetch_assoc($recup);
+
+    }else{
+        return false;
+    }
+
+}
+
+$requete=pourMot($mysqli);
+$mot = Censure($requete['thecontent'],$gros);
+var_dump($mot);
