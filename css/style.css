@@ -570,3 +570,12 @@ nav li b {
 #date {
     color: black;
 }
+
+/* -------- */
+/* PAGINATION */
+/* -------- */
+#pagination{
+    width:60vw;
+    margin: 0 auto;
+    text-align: center;
+}
