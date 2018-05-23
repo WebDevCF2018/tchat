@@ -92,30 +92,30 @@ function connectUser($db, $lelogin, $pass) {
 /* Fonction de remplacement de strings par smileys */
 
 function traiteChaine($text) {
-    $text = str_replace(':)', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
-    $text = str_replace(':-)', '<img class="emoji" src="img/smile.png" alt="smile" title=\':smile:\'>', $text);
-    $text = str_replace(':smile:', '<img class=emoji src="img/smile.png" alt="smile" title=":smile:">', $text);
-    $text = str_replace(":'(", '<img class=emoji src="img/sad.gif" alt="sad" title=":sad:">', $text);
-    $text = str_replace(':-(', '<img class="emoji" src="img/angry.gif" alt="angry" title=\':angry:\'>', $text);
-    $text = str_replace(':sad:', '<img class=emoji src="img/sad.gif" alt="sad" title=":sad:">', $text);
-    $text = str_replace('T_T', '<img class=emoji src="img/sad.gif" alt="sad" title="sad">', $text);
-    $text = str_replace(':nyan:', '<img class=emoji src="img/nyan.gif" alt="nyan" title=":nyan:">', $text);
-    $text = str_replace(':like:', '<img class=emoji src="img/like.gif" alt="like" title=":like:">', $text);
-    $text = str_replace('>:(', '<img class=emoji src="img/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':angry:', '<img class=emoji src="img/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':wow:', '<img class=emoji src="img/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':o', '<img class=emoji src="img/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':laugh:', '<img class=emoji src="img/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':D', '<img class=emoji src="img/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':knuckle:', '<img class=emoji src="img/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
-    $text = str_replace(':troll:', '<img class=emoji src="img/troll.png" alt="troll" title=":troll:">', $text);
-    $text = str_replace(':heart:', '<img class=emoji src="img/heart.gif" alt="heart" title=":heart:">', $text);
-    $text = str_replace('<3', '<img class=emoji src="img/heart.gif" alt="heart" title=":heart:">', $text);
-    $text = str_replace(':confused:', '<img class=emoji src="img/confused.png" alt="confused" title=":confused:">', $text);
-    $text = str_replace('>_<', '<img class=emoji src="img/confused.png" alt="confused" title=":confused:">', $text);
-    $text = str_replace(':happy:', '<img class=emoji src="img/happy.png" alt="happy" title=":happy:">', $text);
-    $text = str_replace(':surprised:', '<img class=emoji src="img/surprised.png" alt="surprised" title=":surprised:">', $text);
-    return $text = str_replace(':star:', '<img class=emoji src="img/star.png" alt="star" title=":star:">', $text);
+    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(':-)', '>', $text);
+    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':-(', '>', $text);
+    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace('T_T', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
+    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title=":nyan:">', $text);
+    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title=":like:">', $text);
+    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
+    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
+    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
+    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
+    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
+    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
+    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
+    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title=":troll:">', $text);
+    $text = str_replace(':heart:', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
+    $text = str_replace('<3', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
+    $text = str_replace(':confused:', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
+    $text = str_replace('>_<', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
+    $text = str_replace(':happy:', '<img class="emoji" src="img/icones/happy.png" alt="happy" title=":happy:">', $text);
+    $text = str_replace(':surprised:', '<img class="emoji" src="img/icones/surprised.png" alt="surprised" title=":surprised:">', $text);
+    return $text = str_replace(':star:', '<img class="emoji" src="img/icones/star.png" alt="star" title=":star:">', $text);
 }
 
 /* Fonction d'activation du compte du nouvel utilisateur */
@@ -236,6 +236,111 @@ function updateUser($db, $lelogin, $password, $repassword) {
             return $text;
         }
     }
+
+/* Fonction de Romain */
+
+/* image de profil, cliquable zoom */
+
+function large($nom,$destination,$source,$largeurMax,$hauteurMax,$qualite){
+    // on récupère les infos sur la source
+    $taille_original = getimagesize($source);
+    $largeurOri = $taille_original[0];
+    $hauteurOri = $taille_original[1];
+
+    // si l'image est plus petite en hauteur comme en largeur que les dimensions maximales, inutile de redimensionner
+    if($hauteurOri<=$hauteurMax && $largeurOri<=$largeurMax){
+        // taille originale
+        $newWidth = $largeurOri;
+        $newHeight = $hauteurOri;
+    }else{
+        // si l'image est en paysage
+        if($largeurOri>$hauteurOri){
+            $ratio = $largeurMax/$largeurOri;
+            // nous sommes en portrait ou l'image est carré
+        }else{
+            $ratio = $hauteurMax/$hauteurOri;
+        }
+        // valeurs arrondies en pixel
+        $newWidth = round($largeurOri*$ratio);
+        $newHeight = round($hauteurOri*$ratio);
+
+    }
+    // on va créer les copies d'images suivant le type MIME de celles-ci (copier)
+    switch($taille_original['mime']){
+        case "image/jpeg":
+        case "image/pjpeg":
+            $nouvelle = imagecreatefromjpeg($source);
+            break;
+        default:
+            die("Format de fichier incorrecte");
+    }
+
+    // on va créer l'image réceptrice de notre copie avec les dimensions souhaitées (create)
+    $newImage = imagecreatetruecolor($newWidth,$newHeight);
+
+    // on va "coller" l'image originale dans la nouvelle image
+    imagecopyresampled($newImage,$nouvelle,0,0,0,0,$newWidth,$newHeight,$largeurOri,$hauteurOri);
+
+    // on crée physiquement l'image
+    switch($taille_original['mime']){
+        case "image/jpeg":
+        case "image/pjpeg":
+            $nouvelle = imagejpeg($newImage,$destination.$nom,$qualite);
+            break;
+        default:
+            die("Format de fichier incorrecte");
+    }
+    return true;
+
+}
+
+function thumbs($nom,$destination,$source,$taille,$qualite){
+    // on récupère les infos sur la source
+    $taille_original = getimagesize($source);
+    $largeurOri = $taille_original[0];
+    $hauteurOri = $taille_original[1];
+    // si l'image est en paysage - on inverse la division ($largeurOri devient $largeurOri) pour que le résultat soit plus grand que la miniature carrée
+    if($largeurOri>$hauteurOri){
+        $ratio = $taille/$hauteurOri;
+        $milieuX = round(($largeurOri*$ratio)/2);
+        $milieuY = 0;
+        // nous sommes en portrait ou l'image est carré
+    }else{
+        $ratio = $taille/$largeurOri;
+        $milieuX = 0;
+        $milieuY = round(($hauteurOri*$ratio)/2);
+    }
+    // valeurs arrondies en pixel
+    $newWidth = round($largeurOri*$ratio);
+    $newHeight = round($hauteurOri*$ratio);
+    // on va créer les copies d'images suivant le type MIME de celles-ci (copier)
+    switch($taille_original['mime']){
+        case "image/jpeg":
+        case "image/pjpeg":
+            $nouvelle = imagecreatefromjpeg($source);
+            break;
+        default:
+            die("Format de fichier incorrecte");
+    }
+    // on va créer l'image réceptrice de notre copie avec les dimensions souhaitées fixes, par exemple 100 sur 100 (create)
+    $newImage = imagecreatetruecolor($taille,$taille);
+
+
+    // on va "coller" l'image originale dans la nouvelle image
+    imagecopyresampled($newImage,$nouvelle,0,0,$milieuX,$milieuY,$newWidth,$newHeight,$largeurOri,$hauteurOri);
+
+    // on crée physiquement l'image
+    switch($taille_original['mime']){
+        case "image/jpeg":
+        case "image/pjpeg":
+            $nouvelle = imagejpeg($newImage,$destination.$nom,$qualite);
+            break;
+        default:
+            die("Format de fichier incorrecte");
+    }
+    return true;
+
+}
 
     function thedate($date)
     {
@@ -371,11 +476,19 @@ function updateUser($db, $lelogin, $password, $repassword) {
 
 //fonction de censure
 function Censurer($buffer) {
+<<<<<<< HEAD
     $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
 
 
+=======
+    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
+    $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', ' pd','nique ta mère','connasse','gounafié','négro','bitch','fuck',' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
+    return $buffer;
+}
+
+>>>>>>> fd014dc90f5f18018af9d58f219d0c2d5ec2bec9
 // algorithme pour créer le login si il est occupé
 function createFreeLogin($lelogin,$idcible){
     $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];    $sortir = "";

@@ -22,7 +22,7 @@ if (!mysqli_num_rows($recup)) {
 
     foreach ($tous AS $item) {
         // On initialise le buffer :
-        $item['thecontent'] = Censurer(traiteChaine(links($item['thecontent'])));
+        $item['thecontent'] = traiteChaine(links(Censurer($item['thecontent'])));
         $choiceLeftRight = $item["thelogin"] == $_SESSION["thelogin"] ? " right" : " left";
         ?>
 
