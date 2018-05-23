@@ -61,7 +61,7 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
     $ajout = mysqli_query($db, $sql);
     if (mysqli_error($db)) {
-        header("Location: ./?p=inscription&error=1");
+        header("Location: ./?p=inscription&error=$lelogin");
         return false;
     }
     $lastid = mysqli_insert_id($db);
@@ -200,7 +200,8 @@ function updateUser($db, $lelogin, $password, $repassword) {
 }
 /* Fonctions de Romain */
 /*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
-function links($text) {
+function links($text)
+{
     $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
     if (preg_match($reg_exUrl, $text, $url)) {
         // make the urls hyper links
@@ -210,7 +211,8 @@ function links($text) {
         return $text;
     }
 }
-function thedate($date) {
+function thedate($date)
+{
     // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
     $timeSec = time();
     $thedate = strtotime($date);
@@ -258,6 +260,8 @@ function thedate($date) {
       return "il y a " .  date('d', $diff) . " jours";
       } elseif ($diff >= 3600) {
       return "il y a " . date('H', $diff) . " heures";
+    }else{
+        echo "il y a moins d'une minute";
       }elseif ($diff >= 60){
       return "il y a " . date('i', $diff) . " minutes";
       }else{
@@ -323,4 +327,23 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
     }
     $sortie .= "</div>";
     return $sortie;
+}
+//fonction de censure
+function Censurer($buffer) {
+    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
+    $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
+    return $buffer;
+}
+// algorithme pour créer le login si il est occupé
+function createFreeLogin($lelogin,$idcible)
+{
+    $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];
+    $sortir = "";
+    for ($i = 0; $i < 3; $i++) {
+        $has = array_rand($vArray);
+        $rand = $vArray[$has];
+        $sortir .= "<p onclick='document.getElementById(\"$idcible\").value=\"$rand$lelogin\"'>" . $rand . $lelogin . "</p>";
+        unset($vArray[$has]);
+    }
+    return $sortir;
 }

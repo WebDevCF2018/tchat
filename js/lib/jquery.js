@@ -1,11 +1,7 @@
 $(document).ready(function () {
-    $('#emoji-bar').click(function () {
+    $("button").click(function () {
 
-        $(this).fadeToggle(1000);
-
-        $(this).mouseout(function () {
-            $(this).css("Display","Hidden");
-        });
-
+        $('#emoji-bar').fadeToggle(500);
     });
+
 });

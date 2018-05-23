@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #a3c55d;
+    background-color: #5fc55d;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
@@ -47,6 +47,7 @@ form h1,.tchat h1 {
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
     overflow: hidden;
+    position: relative;
 }
 
 #envoi {
@@ -80,13 +81,14 @@ label {
     margin: auto;
     width: auto;
     height: 50px;
-    display: flex;
+    display: none;
     background: #d1febe;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
-    border-right: solid 2px #218d24;
-    border-left: solid 2px #218d24;
+    position: absolute;
+    z-index: 18;
+    bottom: 0;
 }
 
 #button,#mySUBMIT {
@@ -263,8 +265,7 @@ textarea {
 /* ------------------------------------ */
 button {
     outline: none !important;
-    border: none;
-    background: transparent;
+    border: groove 2px #21c32199;
 }
 
 .limiter {
