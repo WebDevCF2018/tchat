@@ -12,6 +12,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <meta charset="UTF-8">
         <title>Tchat</title>
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+        <script src="js/lib/jquery.js"></script>
         <script src="js/ajax.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" media="screen" href="css/style.css">
@@ -42,6 +43,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div id="content">
             <div id="headercontent"></div>
         </div>
+
         <div id="emoji-bar">
             <img onclick="emojiBar('smile')" class="emoji" src="img/smile.png">
             <img onclick="emojiBar('happy')" class="emoji" src="img/happy.png">
