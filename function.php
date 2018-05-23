@@ -476,19 +476,12 @@ function thumbs($nom,$destination,$source,$taille,$qualite){
 
 //fonction de censure
 function Censurer($buffer) {
-<<<<<<< HEAD
+
     $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
 
 
-=======
-    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
-    $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', ' pd','nique ta mère','connasse','gounafié','négro','bitch','fuck',' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
-    return $buffer;
-}
-
->>>>>>> fd014dc90f5f18018af9d58f219d0c2d5ec2bec9
 // algorithme pour créer le login si il est occupé
 function createFreeLogin($lelogin,$idcible){
     $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];    $sortir = "";
