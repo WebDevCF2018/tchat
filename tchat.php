@@ -83,7 +83,6 @@ require "verifSession.php";
             function emojiBar(emoji) {
                 document.getElementById('myTXT').value += ":" + emoji + ":";
             }
-
         </script>
 
     </body>
