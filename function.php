@@ -1,10 +1,8 @@
 <?php
-
 function sha256($lepwd) {
     $lepwd = hash('sha256', $lepwd);
     return $lepwd;
 }
-
 //var_dump(sha256($lepwd));
 function createKey() {
     // longueur chaîne de sortie
@@ -23,7 +21,6 @@ function createKey() {
     }
     return $string;
 }
-
 //var_dump(createKey());
 function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variables php du requete
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
@@ -43,18 +40,16 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
     $from = 'MIME-Version: 1.0' . "\r\n";
     $from .= 'Content-type: text/html; charset=utf-8' . "\r\n";
     $from .= 'From: tchat@webdev-cf2m.be ' . "\r\n" . // l'adresse du site
-            'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+        'Reply-To: tchat@webdev-cf2m.be ' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
     return @mail($to, $subject, $message, $from);
 }
-
 /*
  * Permet d'insérer un utilisateur dans la table chat18cf2m, renvoie true si ça a fonctionné, false en cas d'échec
  *
  * Create
  *
  */
-
 function newuser($db, $lelogin, $lepwd, $themail) {
     // vérification de sécurité de $title et $text
     if (empty($lelogin) || empty($lepwd)) {
@@ -77,7 +72,6 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     }
     return false;
 }
-
 // identification pour administration- connectUser()
 function connectUser($db, $lelogin, $pass) {
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)), ENT_QUOTES);
@@ -87,10 +81,8 @@ function connectUser($db, $lelogin, $pass) {
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
-
 /* Fonctions de Niko */
 /* Fonction de remplacement de strings par smileys */
-
 function traiteChaine($text) {
     $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
     $text = str_replace(':-)', '>', $text);
@@ -117,9 +109,7 @@ function traiteChaine($text) {
     $text = str_replace(':surprised:', '<img class="emoji" src="img/icones/surprised.png" alt="surprised" title=":surprised:">', $text);
     return $text = str_replace(':star:', '<img class="emoji" src="img/icones/star.png" alt="star" title=":star:">', $text);
 }
-
 /* Fonction d'activation du compte du nouvel utilisateur */
-
 function confirmUser($connexion, $idutil, $thekey) {
     // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
     /*
@@ -152,9 +142,7 @@ function confirmUser($connexion, $idutil, $thekey) {
         }
     }
 }
-
 /* ---------------Fin des fonctions de Niko---------------- */
-
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
     $colorArray = ['#660000', '#FF6600', '#CC3300', '#FF0000', '#990033', '#330000', '#FF0066', '#CC0099', '#6600FF', '#000033', '#00CCFF', '#003333', '#00CCCC', '#330033', '#99CCCC', '#009999', '#33FFCC', '#339966', '#66FF00', '#003300', '#CCFF00', '#CCCC99', '#333300', '#999966', '#333333', '#9966CC', '#CCCC00', '#FF6699', '#3399CC'];
@@ -163,15 +151,12 @@ function colorMessage($db, $idutil) {
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
-
 function infoUser($db, $lelogin) {
     $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
-
 function updateUser($db, $lelogin, $password, $repassword) {
-
     if (isset($_POST["submit"])) {
         if (!empty($_FILES['uploaded_file'])) {
             // constante pour les thumbs (100 px L comme H)
@@ -227,12 +212,12 @@ function updateUser($db, $lelogin, $password, $repassword) {
                 echo "Mise à jour du profil !";
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
-
                 $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
                 $query = mysqli_query($db, $sql) or die(mysqli_error($db));
             } else {
                 echo "les mots de passes ne sont pas identiques !";
             }
+
         }
     }
 }
@@ -250,22 +235,20 @@ function links($text) {
         // make the urls hyper links
         return preg_replace($reg_exUrl, '<a href="' . $url[0] . '" rel="nofollow" target="_blank">' . $url[0] . '</a>', $text);
     } else {
-
         // if no urls in the text just return the text
         return $text;
     }
 }
 
 /* Fonction de Romain */
-
 /* image de profil, cliquable zoom */
+
 
 function large($nom, $destination, $source, $largeurMax, $hauteurMax, $qualite) {
     // on récupère les infos sur la source
     $taille_original = getimagesize($source);
     $largeurOri = $taille_original[0];
     $hauteurOri = $taille_original[1];
-
     // si l'image est plus petite en hauteur comme en largeur que les dimensions maximales, inutile de redimensionner
     if ($hauteurOri <= $hauteurMax && $largeurOri <= $largeurMax) {
         // taille originale
@@ -292,10 +275,8 @@ function large($nom, $destination, $source, $largeurMax, $hauteurMax, $qualite) 
         default:
             die("Format de fichier incorrecte");
     }
-
     // on va créer l'image réceptrice de notre copie avec les dimensions souhaitées (create)
     $newImage = imagecreatetruecolor($newWidth, $newHeight);
-
     // on va "coller" l'image originale dans la nouvelle image
     imagecopyresampled($newImage, $nouvelle, 0, 0, 0, 0, $newWidth, $newHeight, $largeurOri, $hauteurOri);
 
@@ -312,6 +293,7 @@ function large($nom, $destination, $source, $largeurMax, $hauteurMax, $qualite) 
 }
 
 function thumbs($nom, $destination, $source, $taille, $qualite) {
+
     // on récupère les infos sur la source
     $taille_original = getimagesize($source);
     $largeurOri = $taille_original[0];
@@ -340,12 +322,10 @@ function thumbs($nom, $destination, $source, $taille, $qualite) {
             die("Format de fichier incorrecte");
     }
     // on va créer l'image réceptrice de notre copie avec les dimensions souhaitées fixes, par exemple 100 sur 100 (create)
-    $newImage = imagecreatetruecolor($taille, $taille);
 
-
+    $newImage = imagecreatetruecolor($taille,$taille);
     // on va "coller" l'image originale dans la nouvelle image
-    imagecopyresampled($newImage, $nouvelle, 0, 0, $milieuX, $milieuY, $newWidth, $newHeight, $largeurOri, $hauteurOri);
-
+    imagecopyresampled($newImage,$nouvelle,0,0,$milieuX,$milieuY,$newWidth,$newHeight,$largeurOri,$hauteurOri);
     // on crée physiquement l'image
     switch ($taille_original['mime']) {
         case "image/jpeg":
@@ -359,7 +339,6 @@ function thumbs($nom, $destination, $source, $taille, $qualite) {
 }
 
 function thedate($date) {
-
     // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
     $timeSec = time();
     $thedate = strtotime($date);
@@ -404,6 +383,16 @@ function thedate($date) {
       $diff = $timeSec - $date;
       if ($diff >= 31536000) {
       return "il y a " .  date('Y', $diff) . " ans";
+      } elseif ($diff >= 2629738){
+      return "il y a " . date('M', $diff) . " mois";
+      } elseif ($diff >= 86400) {
+      return "il y a " .  date('d', $diff) . " jours";
+      } elseif ($diff >= 3600) {
+      return "il y a " . date('H', $diff) . " heures";
+    }else{
+        echo "il y a moins d'une minute";
+      }elseif ($diff >= 60){
+      return "il y a " . date('i', $diff) . " minutes";
 
       } elseif ($diff >= 2629738){
       return "il y a " . date('M', $diff) . " mois";
@@ -426,9 +415,11 @@ function thedate($date) {
       } */
 }
 
+
 /* PAGINATION */
 
 function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get = "pg", $nb_elements_par_pg = 5) {
+
     // on calcul ne nb de pages en divisant le nb total par le nombre par page en arrondissant à l'entier supérieur (ceil)
     $nb_pg = ceil($nombre_elements_total / $nb_elements_par_pg);
     // si on a qu'une seule page
@@ -493,7 +484,6 @@ function Censurer($buffer) {
     $buffer = str_replace(array('con ', 'merde', 'fils de pute', 'batard', 'asshole', 'salope', 'pétasse', 'connard', 'salaud', ' pd', 'nique ta mère', 'connasse', 'gounafié', 'négro', 'bitch', 'fuck', ' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
-
 // algorithme pour créer le login si il est occupé
 function createFreeLogin($lelogin, $idcible) {
     $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];
@@ -506,3 +496,4 @@ function createFreeLogin($lelogin, $idcible) {
     }
     return $sortir;
 }
+
