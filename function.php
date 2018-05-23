@@ -361,11 +361,12 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
 }
 
 // algorithme pour créer le login si il est occupé
-function createFreeLogin($lelogin){
-    $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];    $sortir = "Ce login est occupé. Vous pouvez utilisez: ";         for($i=0;$i<3;$i++ ){
+function createFreeLogin($lelogin,$idcible){
+    $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];    $sortir = "";
+    for($i=0;$i<3;$i++ ){
         $has = array_rand($vArray);
         $rand = $vArray[$has];
-        $sortir.=$rand.$lelogin." ";
+        $sortir.="<p onclick='document.getElementById(\"$idcible\").value=\"$rand$lelogin\"'>".$rand.$lelogin."</p>";
         unset($vArray[$has]);
     }
     return $sortir;
