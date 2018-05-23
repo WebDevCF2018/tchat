@@ -30,26 +30,22 @@ if (!mysqli_num_rows($recup)) {
 
     }
 }
-<<<<<<< HEAD
-
-function pourMot($db){
-    $sql = "SELECT m.*,u.thelogin,u.thecolor FROM themessage m 
-        INNER JOIN theuser u 
-          ON u.idutil = m.theuser_idutil
-ORDER BY m.idmessage DESC LIMIT 0,30";
-
-    $recup= mysqli_query($db,$sql) or die (mysqli_error($db));
-    if(mysqli_num_rows($recup)){
-        return mysqli_fetch_assoc($recup);
-
-    }else{
-        return false;
-    }
-
+//fonction de censure
+function Censurer($buffer) {
+    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
+    $buffer = str_replace(array(' con ',' merde ',' fils de pute ',' batard ',' asshole ',' salope ',' pétasse ',' connard ',' salaud ', ' pd ',' nique ta mère ',' connasse ',' gounafié ',' négro ',' bitch ',' fuck '), '<span style="color: red;"> [Censuré] </span>', $buffer);
+    return $buffer;
 }
 
-$requete=pourMot($mysqli);
-$mot = Censure($requete['thecontent'],$gros);
-var_dump($mot);
-=======
->>>>>>> fbf1be9ae8172fb2956dbaf35fe18a1913b67bab
+// On initialise le buffer :
+ob_start('Censurer');
+
+//… le contenu de notre page :
+echo "J'aime bien les nains, surtout ceux qui mangent des patates et qui aiment faire des choses.";
+/*
+   Ici, la fonction ob_end_flush() va être appelée,
+   ce qui provoquera le retour du tampon au navigateur.
+   Mais avant, notre fonction de callback sera
+   automatiquement appelée pour appliquer la censure.
+*/
+ob_end_flush();
