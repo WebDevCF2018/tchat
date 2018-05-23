@@ -7,13 +7,13 @@ require_once "profilConfig.php";
 
 $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
-@updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);
+//@updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);
 
-if (isset($_POST['titre']) && isset($_FILES['fichier'])) {
+if (isset($_POST['thename']) && isset($_FILES['uploaded_file'])) {
+    var_dump($_FILES['uploaded_file']);
+    if (!empty($_FILES['uploaded_file']['name'])) {
 
-    if (!empty($_FILES['fichier']['name'])) {
-
-        $ext = strrchr($_FILES['fichier']['name'], ".");
+        $ext = strrchr($_FILES['uploaded_file']['name'], ".");
         // on met l'extension en minuscule
         $ext = strtolower($ext);
         // on vérifie si l'extension se trouve dans la liste des extensions autorisées
@@ -25,7 +25,7 @@ if (isset($_POST['titre']) && isset($_FILES['fichier'])) {
             // destination finale
             $finalDestination = $oriDest . $finalName;
             // déplacement du fichier temporaire vers la destination finale
-            move_uploaded_file($_FILES['fichier']['tmp_name'], $finalDestination);
+            move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $finalDestination);
 
             // création de l'image de 800 px sur 600 px max avec proportions
             $gd = large($finalName, $galleryDest, $finalDestination, LARGE_WIDTH, LARGE_HEIGHT, QUALITY_JPG_LARGE);
@@ -75,11 +75,11 @@ if (isset($_POST['titre']) && isset($_FILES['fichier'])) {
     		<div class="profil-form">
 	    		<label>
                     Username :
-	    			<input type="text" name="name" value="<?=$info["thelogin"];?>" disabled>
+	    			<input type="text" name="thename" value="<?=$info["thelogin"];?>" disabled>
 	    		</label>
 	    		<label>
 	    			e-Mail:
-	    			<input type="text" name="name" value="<?=$info["themail"];?>" disabled>
+	    			<input type="text" name="themail" value="<?=$info["themail"];?>" disabled>
 	    		</label>
 	    		<label>
                     New Password :
