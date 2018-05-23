@@ -579,3 +579,27 @@ nav li b {
     margin: 0 auto;
     text-align: center;
 }
+
+/* --------------- */
+/* ARCHIVES SEARCH FORM */
+/* -------------- */
+.formulaire {
+    width: 60vw;
+    margin: 2vh auto;
+}
+.formulaire .form-wrapper {
+    width: 20vw;
+    padding: 1vh;
+    float: right;
+    margin-bottom: 1vh;
+}
+/* --------------- */
+/* ARCHIVES SEARCH RESULTS */
+/* -------------- */
+#searchresults {
+    clear: both;
+    width: 60vw;
+    margin: 2vh auto;
+    background-color: rgba(255, 255,255, 0.7);
+    padding:1vh;
+}
