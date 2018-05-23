@@ -15,10 +15,14 @@ $recup = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 if (!mysqli_num_rows($recup)) {
     echo "<h3>No message yet !</h3>";
 } else {
+
     $tous = mysqli_fetch_all($recup, MYSQLI_ASSOC);
     $tous = array_reverse($tous);
+
+
     foreach ($tous AS $item) {
-        $item['thecontent'] = traiteChaine(links($item['thecontent']));
+        // On initialise le buffer :
+        $item['thecontent'] = Censurer(traiteChaine(links($item['thecontent'])));
         $choiceLeftRight = $item["thelogin"] == $_SESSION["thelogin"] ? " right" : " left";
         ?>
 
@@ -27,6 +31,6 @@ if (!mysqli_num_rows($recup)) {
 
             <p><?= $item['thecontent'] ?><br><br><span id='date'><?= thedate($item['thedatetime']) ?></span></p></div>
         <?php
-
     }
 }
+

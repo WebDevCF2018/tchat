@@ -92,30 +92,30 @@ function connectUser($db, $lelogin, $pass) {
 /* Fonction de remplacement de strings par smileys */
 
 function traiteChaine($text) {
-    $text = str_replace(':)', '<img class=emoji src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
     $text = str_replace(':-)', '>', $text);
-    $text = str_replace(':smile:', '<img class=emoji src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
-    $text = str_replace(":'(", '<img class=emoji src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
     $text = str_replace(':-(', '>', $text);
-    $text = str_replace(':sad:', '<img class=emoji src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
-    $text = str_replace('T_T', '<img class=emoji src="img/icones/sad.gif" alt="sad" title="sad">', $text);
-    $text = str_replace(':nyan:', '<img class=emoji src="img/icones/nyan.gif" alt="nyan" title=":nyan:">', $text);
-    $text = str_replace(':like:', '<img class=emoji src="img/icones/like.gif" alt="like" title=":like:">', $text);
-    $text = str_replace('>:(', '<img class=emoji src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':angry:', '<img class=emoji src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':wow:', '<img class=emoji src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':o', '<img class=emoji src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':laugh:', '<img class=emoji src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':D', '<img class=emoji src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':knuckle:', '<img class=emoji src="img/icones/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
-    $text = str_replace(':troll:', '<img class=emoji src="img/icones/troll.png" alt="troll" title=":troll:">', $text);
-    $text = str_replace(':heart:', '<img class=emoji src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
-    $text = str_replace('<3', '<img class=emoji src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
-    $text = str_replace(':confused:', '<img class=emoji src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
-    $text = str_replace('>_<', '<img class=emoji src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
-    $text = str_replace(':happy:', '<img class=emoji src="img/icones/happy.png" alt="happy" title=":happy:">', $text);
-    $text = str_replace(':surprised:', '<img class=emoji src="img/icones/surprised.png" alt="surprised" title=":surprised:">', $text);
-    return $text = str_replace(':star:', '<img class=emoji src="img/icones/star.png" alt="star" title=":star:">', $text);
+    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace('T_T', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
+    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title=":nyan:">', $text);
+    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title=":like:">', $text);
+    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
+    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
+    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
+    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
+    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
+    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
+    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
+    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title=":troll:">', $text);
+    $text = str_replace(':heart:', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
+    $text = str_replace('<3', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
+    $text = str_replace(':confused:', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
+    $text = str_replace('>_<', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
+    $text = str_replace(':happy:', '<img class="emoji" src="img/icones/happy.png" alt="happy" title=":happy:">', $text);
+    $text = str_replace(':surprised:', '<img class="emoji" src="img/icones/surprised.png" alt="surprised" title=":surprised:">', $text);
+    return $text = str_replace(':star:', '<img class="emoji" src="img/icones/star.png" alt="star" title=":star:">', $text);
 }
 
 /* Fonction d'activation du compte du nouvel utilisateur */
@@ -216,25 +216,27 @@ function updateUser($db, $lelogin, $password, $repassword) {
     }
 }
 
-/* Fonctions de Romain */
 
-/*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
+    /* Fonctions de Romain */
 
-function links($text) {
+    /*  liens cliquables qui s'ouvrent dans une nouvelle fenêtre */
 
-    $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+    function links($text)
+    {
 
-    if (preg_match($reg_exUrl, $text, $url)) {
+        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
-        // make the urls hyper links
-        return preg_replace($reg_exUrl, '<a href="' . $url[0] . '" rel="nofollow" target="_blank">' . $url[0] . '</a>', $text);
-    } else {
+        if (preg_match($reg_exUrl, $text, $url)) {
 
-        // if no urls in the text just return the text
-        return $text;
+            // make the urls hyper links
+            return preg_replace($reg_exUrl, '<a href="' . $url[0] . '" rel="nofollow" target="_blank">' . $url[0] . '</a>', $text);
+        } else {
+
+            // if no urls in the text just return the text
+            return $text;
+        }
     }
-}
-<<<<<<< HEAD
+
 /* Fonction de Romain */
 
 /* image de profil, cliquable zoom */
@@ -339,131 +341,144 @@ function thumbs($nom,$destination,$source,$taille,$qualite){
     return true;
 
 }
-=======
 
-function thedate($date) {
+    function thedate($date)
+    {
 
-    // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
-    $timeSec = time();
-    $thedate = strtotime($date);
-    $diff = $timeSec - $thedate;
+        // original => return $diff (int) in seconds ($timeSec NOW() - $thedate (a date)
+        $timeSec = time();
+        $thedate = strtotime($date);
+        $diff = $timeSec - $thedate;
 
-    // in seconds 
-    $minutes = 60;
-    $hours = $minutes * 60;
-    $days = $hours * 24;
-    $weeks = $days * 7;
-    $month = $days * 30;
-    $years = $month * 12;
+        // in seconds
+        $minutes = 60;
+        $hours = $minutes * 60;
+        $days = $hours * 24;
+        $weeks = $days * 7;
+        $month = $days * 30;
+        $years = $month * 12;
 
-    if ($diff > $years):
-        $nbYears = floor($diff / $years);
-        return ($nbYears > 1) ? "$nbYears years ago" : "1 year ago";
-    endif;
-    if ($diff > $month):
-        $nbMonth = floor($diff / $month);
-        return ($nbMonth > 1) ? "$nbMonth months ago" : "1 month ago";
-    endif;
-    if ($diff > $weeks):
-        $nbWeeks = floor($diff / $weeks);
-        return ($nbWeeks > 1) ? "$nbWeeks weeks ago" : "1 week ago";
-    endif;
-    if ($diff > $days):
-        $nbDays = floor($diff / $days);
-        return ($nbDays > 1) ? "$nbDays days ago" : "1 day ago";
-    endif;
-    if ($diff > $hours):
-        $nbHours = floor($diff / $hours);
-        return ($nbHours > 1) ? "$nbHours hours ago" : "1 hour ago";
-    endif;
-    if ($diff > $minutes):
-        $nbMinutes = floor($diff / $minutes);
-        return ($nbMinutes > 1) ? "$nbMinutes minutes ago" : "1 minute ago";
-    endif;
-    return "less than a minute";
+        if ($diff > $years):
+            $nbYears = floor($diff / $years);
+            return ($nbYears > 1) ? "$nbYears years ago" : "1 year ago";
+        endif;
+        if ($diff > $month):
+            $nbMonth = floor($diff / $month);
+            return ($nbMonth > 1) ? "$nbMonth months ago" : "1 month ago";
+        endif;
+        if ($diff > $weeks):
+            $nbWeeks = floor($diff / $weeks);
+            return ($nbWeeks > 1) ? "$nbWeeks weeks ago" : "1 week ago";
+        endif;
+        if ($diff > $days):
+            $nbDays = floor($diff / $days);
+            return ($nbDays > 1) ? "$nbDays days ago" : "1 day ago";
+        endif;
+        if ($diff > $hours):
+            $nbHours = floor($diff / $hours);
+            return ($nbHours > 1) ? "$nbHours hours ago" : "1 hour ago";
+        endif;
+        if ($diff > $minutes):
+            $nbMinutes = floor($diff / $minutes);
+            return ($nbMinutes > 1) ? "$nbMinutes minutes ago" : "1 minute ago";
+        endif;
+        return "less than a minute";
 
-    /* $timeSec = time();
-      $date = strtotime($date);
-      $diff = $timeSec - $date;
-      if ($diff >= 31536000) {
-      return "il y a " .  date('Y', $diff) . " ans";
+        /* $timeSec = time();
+          $date = strtotime($date);
+          $diff = $timeSec - $date;
+          if ($diff >= 31536000) {
+          return "il y a " .  date('Y', $diff) . " ans";
 
-      } elseif ($diff >= 2629738){
-      return "il y a " . date('M', $diff) . " mois";
+          } elseif ($diff >= 2629738){
+          return "il y a " . date('M', $diff) . " mois";
 
-      } elseif ($diff >= 86400) {
-      return "il y a " .  date('d', $diff) . " jours";
+          } elseif ($diff >= 86400) {
+          return "il y a " .  date('d', $diff) . " jours";
 
-      } elseif ($diff >= 3600) {
-      return "il y a " . date('H', $diff) . " heures";
+          } elseif ($diff >= 3600) {
+          return "il y a " . date('H', $diff) . " heures";
 
-      }elseif ($diff >= 60){
-      return "il y a " . date('i', $diff) . " minutes";
 
-      }else{
-      return "il y a moin d'une minute";
-      } */
-}
+        }else{
+            echo "il y a moins d'une minute";
 
-/* PAGINATION */
+          }elseif ($diff >= 60){
+          return "il y a " . date('i', $diff) . " minutes";
 
-function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get = "pg", $nb_elements_par_pg = 5) {
-    // on calcul ne nb de pages en divisant le nb total par le nombre par page en arrondissant à l'entier supérieur (ceil)
-    $nb_pg = ceil($nombre_elements_total / $nb_elements_par_pg);
-    // si on a qu'une seule page
-    if ($nb_pg < 2) {
-        // on renvoie la page 1 non cliquable, ce qui arrête la fonction
-        return "<div id='pagination'>page 1</div>";
+          }else{
+          return "il y a moin d'une minute";
+          } */
     }
-    // ouverture de la variable de sortie (string)
-    $sortie = "<div id='pagination'>";
-    // tant qu'on a des pages
-    for ($i = 1; $i <= $nb_pg; $i++) {
-        // si on est au premier tour de boucle
-        if ($i == 1) {
-            // si c'est la page actuelle
-            if ($page_actuelle == $i) {
-                $sortie .= "|<< ";
-                $sortie .= "<<&nbsp;&nbsp; ";
-                $sortie .= "$i ";
-                // retour en arrière pour page 2
-            } elseif ($page_actuelle == 2) {
-                $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
-                $sortie .= "<a href='?$nom_variable_get=$i'><<</a>&nbsp;&nbsp; ";
-                // pas de variable GET de pagination sur l'accueil
-                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
-                // on est sur une autre page
+
+    /* PAGINATION */
+
+    function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get = "pg", $nb_elements_par_pg = 5)
+    {
+        // on calcul ne nb de pages en divisant le nb total par le nombre par page en arrondissant à l'entier supérieur (ceil)
+        $nb_pg = ceil($nombre_elements_total / $nb_elements_par_pg);
+        // si on a qu'une seule page
+        if ($nb_pg < 2) {
+            // on renvoie la page 1 non cliquable, ce qui arrête la fonction
+            return "<div id='pagination'>page 1</div>";
+        }
+        // ouverture de la variable de sortie (string)
+        $sortie = "<div id='pagination'>";
+        // tant qu'on a des pages
+        for ($i = 1; $i <= $nb_pg; $i++) {
+            // si on est au premier tour de boucle
+            if ($i == 1) {
+                // si c'est la page actuelle
+                if ($page_actuelle == $i) {
+                    $sortie .= "|<< ";
+                    $sortie .= "<<&nbsp;&nbsp; ";
+                    $sortie .= "$i ";
+                    // retour en arrière pour page 2
+                } elseif ($page_actuelle == 2) {
+                    $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
+                    $sortie .= "<a href='?$nom_variable_get=$i'><<</a>&nbsp;&nbsp; ";
+                    // pas de variable GET de pagination sur l'accueil
+                    $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
+                    // on est sur une autre page
+                } else {
+                    $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
+                    $sortie .= "<a href='?$nom_variable_get=" . ($page_actuelle - 1) . "'><<</a>&nbsp;&nbsp; ";
+                    // pas de variable GET de pagination sur l'accueil
+                    $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
+                }
+                // sinon si on est au dernier tour
+            } elseif ($i == $nb_pg) {
+                // si c'est la page actuelle
+                if ($page_actuelle == $i) {
+                    $sortie .= "$i ";
+                    $sortie .= "&nbsp;&nbsp; >> ";
+                    $sortie .= " >>|";
+                    // on est sur une autre page
+                } else {
+                    $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
+                    $sortie .= "&nbsp;&nbsp;<a href='?$nom_variable_get=" . ($page_actuelle + 1) . "'>>></a> ";
+                    $sortie .= " <a href='?$nom_variable_get=$nb_pg' title='Final'>>>|</a>";
+                }
+                // sinon (tous les autres tours)
             } else {
-                $sortie .= "<a href='?$nom_variable_get=$i' title='First'>|<<</a> ";
-                $sortie .= "<a href='?$nom_variable_get=" . ($page_actuelle - 1) . "'><<</a>&nbsp;&nbsp; ";
-                // pas de variable GET de pagination sur l'accueil
-                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
-            }
-            // sinon si on est au dernier tour
-        } elseif ($i == $nb_pg) {
-            // si c'est la page actuelle
-            if ($page_actuelle == $i) {
-                $sortie .= "$i ";
-                $sortie .= "&nbsp;&nbsp; >> ";
-                $sortie .= " >>|";
-                // on est sur une autre page
-            } else {
-                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
-                $sortie .= "&nbsp;&nbsp;<a href='?$nom_variable_get=" . ($page_actuelle + 1) . "'>>></a> ";
-                $sortie .= " <a href='?$nom_variable_get=$nb_pg' title='Final'>>>|</a>";
-            }
-            // sinon (tous les autres tours)
-        } else {
-            if ($page_actuelle == $i) {
-                $sortie .= " $i ";
-            } else {
-                // affichage de la variable GET et de sa valeur en lien
-                $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
+                if ($page_actuelle == $i) {
+                    $sortie .= " $i ";
+                } else {
+                    // affichage de la variable GET et de sa valeur en lien
+                    $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
+                }
             }
         }
+        $sortie .= "</div>";
+        return $sortie;
     }
-    $sortie .= "</div>";
-    return $sortie;
+
+
+//fonction de censure
+function Censurer($buffer) {
+    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
+    $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
+    return $buffer;
 }
 
 // algorithme pour créer le login si il est occupé
@@ -477,5 +492,4 @@ function createFreeLogin($lelogin,$idcible){
     }
     return $sortir;
 }
-//echo createFreeLogin('lulu');
->>>>>>> 838a5c9fdaf35049ef2b4263346bc23471cdb4a9
+
