@@ -30,6 +30,7 @@ if (!mysqli_num_rows($recup)) {
 
     }
 }
+
 //fonction de censure
 function Censurer($buffer) {
     // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
