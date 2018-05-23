@@ -63,7 +63,7 @@ if(!mysqli_num_rows($recup)){
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="img/<?=$info["theimage"]?>"height="50" width="50" >
+                        <img src="img/profil/thumbs/<?=$info["theimage"]?>"height="50" width="50" >
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
