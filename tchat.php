@@ -33,7 +33,6 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
                 <a href="deco.php"><li><b>Sign out</b></li></a>
-
             </div>
 
         </nav>
@@ -61,7 +60,8 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
-            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your message" required>
+            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
+             message" required>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
         <script>
