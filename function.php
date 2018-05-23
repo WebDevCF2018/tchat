@@ -477,7 +477,7 @@ function thumbs($nom,$destination,$source,$taille,$qualite){
 //fonction de censure
 function Censurer($buffer) {
     // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
-    $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
+    $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', ' pd','nique ta mère','connasse','gounafié','négro','bitch','fuck',' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
 
