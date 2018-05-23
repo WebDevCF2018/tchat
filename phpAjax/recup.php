@@ -15,10 +15,14 @@ $recup = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 if (!mysqli_num_rows($recup)) {
     echo "<h3>No message yet !</h3>";
 } else {
+
     $tous = mysqli_fetch_all($recup, MYSQLI_ASSOC);
     $tous = array_reverse($tous);
+
+
     foreach ($tous AS $item) {
-        $item['thecontent'] = traiteChaine(links($item['thecontent']));
+        // On initialise le buffer :
+        $item['thecontent'] = Censurer(traiteChaine(links($item['thecontent'])));
         $choiceLeftRight = $item["thelogin"] == $_SESSION["thelogin"] ? " right" : " left";
         ?>
 
@@ -27,26 +31,6 @@ if (!mysqli_num_rows($recup)) {
 
             <p><?= $item['thecontent'] ?><br><br><span id='date'><?= thedate($item['thedatetime']) ?></span></p></div>
         <?php
-
     }
 }
 
-//fonction de censure
-function Censurer($buffer) {
-    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
-    $buffer = str_replace(array(' con ',' merde ',' fils de pute ',' batard ',' asshole ',' salope ',' pétasse ',' connard ',' salaud ', ' pd ',' nique ta mère ',' connasse ',' gounafié ',' négro ',' bitch ',' fuck '), '<span style="color: red;"> [Censuré] </span>', $buffer);
-    return $buffer;
-}
-
-// On initialise le buffer :
-ob_start('Censurer');
-
-//… le contenu de notre page :
-echo "J'aime bien les nains, surtout ceux qui mangent des patates et qui aiment faire des choses.";
-/*
-   Ici, la fonction ob_end_flush() va être appelée,
-   ce qui provoquera le retour du tampon au navigateur.
-   Mais avant, notre fonction de callback sera
-   automatiquement appelée pour appliquer la censure.
-*/
-ob_end_flush();
