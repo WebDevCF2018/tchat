@@ -29,7 +29,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="img/<?=$info["theimage"];?>">
+                        <img src="img/profil/thumbs/<?=$info["theimage"];?>">
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
