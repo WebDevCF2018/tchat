@@ -78,16 +78,15 @@ label {
 }
 
 #emoji-bar {
-    margin: auto;
-    width: auto;
-    height: 50px;
     display: none;
-    background: #d1febe;
+    height: 84px;
+    background: #dfffbda8;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
     position: absolute;
     z-index: 18;
+    right: 1.5vh;
     bottom: 0;
 }
 
@@ -367,7 +366,7 @@ button {
 
 @media only screen and (min-width: 768px) {
     #emoji-bar {
-        width: 60vw;
+        width: 16vw;
     }
 
     .tchat-submit {
