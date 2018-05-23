@@ -215,11 +215,9 @@ function updateUser($db, $lelogin, $password, $repassword) {
         }
     }
 }
-<<<<<<< HEAD
 
 function thedate($date){
 =======
->>>>>>> fbf1be9ae8172fb2956dbaf35fe18a1913b67bab
 
 /* Fonctions de Romain */
 
@@ -296,10 +294,10 @@ function thedate($date) {
       } elseif ($diff >= 3600) {
       return "il y a " . date('H', $diff) . " heures";
 
-<<<<<<< HEAD
+
     }else{
         echo "il y a moins d'une minute";
-=======
+
       }elseif ($diff >= 60){
       return "il y a " . date('i', $diff) . " minutes";
 
@@ -364,7 +362,6 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
                 $sortie .= "<a href='?$nom_variable_get=$i'>$i</a> ";
             }
         }
->>>>>>> fbf1be9ae8172fb2956dbaf35fe18a1913b67bab
     }
     $sortie .= "</div>";
     return $sortie;
