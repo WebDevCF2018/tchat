@@ -219,7 +219,7 @@ a {
     text-decoration: none;
 }
 
-.validate a{
+.validate a {
     margin: 0px;
     -webkit-transition: all 0.4s;
     text-decoration: none;
@@ -376,6 +376,14 @@ button {
         background: none;
     }
 
+    .message {
+        width: 60%;
+    }
+
+    .message.right {
+        justify-self: end;
+    }
+
     #content {
         width: 60vw;
         margin: auto;
@@ -385,6 +393,12 @@ button {
     #envoi {
         width: 60vw;
         margin: auto;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .message {
+        width: 80%;
     }
 }
 
@@ -410,7 +424,6 @@ nav li:hover {
     color: #FFF;
     border-radius: 5px;
     border: 1px solid #75a939;
-    width: 60%;
     word-break: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -449,7 +462,6 @@ nav li b {
 }
 
 .message.right {
-    justify-self: end;
 }
 
 #user-connected {
@@ -540,19 +552,20 @@ nav li b {
 .profil-form {
     padding: 5px 15px;
 }
+
 .pf-center {
     place-self: center;
 }
 
-
 /* -------- */
 /* ARCHIVES */
 /* -------- */
-#archives{
-    width:60vw;
+#archives {
+    width: 60vw;
     margin: 0 auto;
 }
-#archives .archives-message{
+
+#archives .archives-message {
     background-color: #fff;
     padding: 5px 5px;
     color: #FFF;
@@ -565,8 +578,8 @@ nav li b {
     -ms-hyphens: auto;
     -o-hyphens: auto;
     hyphens: auto;
-
 }
+
 #date {
     color: black;
 }
@@ -574,8 +587,8 @@ nav li b {
 /* -------- */
 /* PAGINATION */
 /* -------- */
-#pagination{
-    width:60vw;
+#pagination {
+    width: 60vw;
     margin: 0 auto;
     text-align: center;
 }
@@ -603,3 +616,4 @@ nav li b {
     background-color: rgba(255, 255,255, 0.7);
     padding:1vh;
 }
+
