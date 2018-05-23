@@ -43,20 +43,20 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div id="content">
             <div id="headercontent"></div>
             <div id="emoji-bar">
-                <img onclick="emojiBar('smile')" class="emoji" src="img/smile.png">
-                <img onclick="emojiBar('happy')" class="emoji" src="img/happy.png">
-                <img onclick="emojiBar('angry')" class="emoji" src="img/angry.gif">
-                <img onclick="emojiBar('sad')" class="emoji" src="img/sad.gif">
-                <img onclick="emojiBar('laugh')" class="emoji" src="img/laugh.gif">
-                <img onclick="emojiBar('wow')" class="emoji" src="img/wow.gif">
-                <img onclick="emojiBar('surprised')" class="emoji" src="img/surprised.png">
-                <img onclick="emojiBar('confused')" class="emoji" src="img/confused.png">
-                <img onclick="emojiBar('like')" class="emoji" src="img/like.gif">
-                <img onclick="emojiBar('heart')" class="emoji" src="img/heart.gif">
-                <img onclick="emojiBar('troll')" class="emoji" src="img/troll.png">
-                <img onclick="emojiBar('star')" class="emoji" src="img/star.png">
-                <img onclick="emojiBar('knuckle')" class="emoji" src="img/knuckle.png">
-                <img onclick="emojiBar('nyan')" class="emoji" src="img/nyan.gif">
+                <img onclick="emojiBar('smile')" class="emoji" src="img/icones/smile.png">
+                <img onclick="emojiBar('happy')" class="emoji" src="img/icones/happy.png">
+                <img onclick="emojiBar('angry')" class="emoji" src="img/icones/angry.gif">
+                <img onclick="emojiBar('sad')" class="emoji" src="img/icones/sad.gif">
+                <img onclick="emojiBar('laugh')" class="emoji" src="img/icones/laugh.gif">
+                <img onclick="emojiBar('wow')" class="emoji" src="img/icones/wow.gif">
+                <img onclick="emojiBar('surprised')" class="emoji" src="img/icones/surprised.png">
+                <img onclick="emojiBar('confused')" class="emoji" src="img/icones/confused.png">
+                <img onclick="emojiBar('like')" class="emoji" src="img/icones/like.gif">
+                <img onclick="emojiBar('heart')" class="emoji" src="img/icones/heart.gif">
+                <img onclick="emojiBar('troll')" class="emoji" src="img/icones/troll.png">
+                <img onclick="emojiBar('star')" class="emoji" src="img/icones/star.png">
+                <img onclick="emojiBar('knuckle')" class="emoji" src="img/icones/knuckle.png">
+                <img onclick="emojiBar('nyan')" class="emoji" src="img/icones/nyan.gif">
             </div>
         </div>
 
@@ -64,9 +64,9 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
-            <button><img src="img/icones/happy2.png" alt=""></button>
             <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
              message" required>
+            <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
         <script>
