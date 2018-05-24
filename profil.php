@@ -10,7 +10,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 //@updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);
 
 if (isset($_POST['thename']) && isset($_FILES['uploaded_file'])) {
-    var_dump($_FILES['uploaded_file']);
+    var_dump($_FILES);
     if (!empty($_FILES['uploaded_file']['name'])) {
 
         $ext = strrchr($_FILES['uploaded_file']['name'], ".");
