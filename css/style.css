@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #a3c55d;
+    background-color: #5fc55d;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
@@ -47,6 +47,7 @@ form h1,.tchat h1 {
     border-top: solid 2px #218d24;
     border-left: solid 2px #218d24;
     overflow: hidden;
+    position: relative;
 }
 
 #envoi {
@@ -77,16 +78,16 @@ label {
 }
 
 #emoji-bar {
-    margin: auto;
-    width: auto;
-    height: 50px;
-    display: flex;
-    background: #d1febe;
+    display: none;
+    height: 84px;
+    background: #dfffbda8;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
-    border-right: solid 2px #218d24;
-    border-left: solid 2px #218d24;
+    position: absolute;
+    z-index: 18;
+    right: 1.5vh;
+    bottom: 0;
 }
 
 #button,#mySUBMIT {
@@ -263,8 +264,7 @@ textarea {
 /* ------------------------------------ */
 button {
     outline: none !important;
-    border: none;
-    background: transparent;
+    border: groove 2px #21c32199;
 }
 
 .limiter {
@@ -366,7 +366,7 @@ button {
 
 @media only screen and (min-width: 768px) {
     #emoji-bar {
-        width: 60vw;
+        width: 16vw;
     }
 
     .tchat-submit {
