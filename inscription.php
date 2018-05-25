@@ -49,9 +49,9 @@
         }
     }
     if(isset($_GET['error'])){
-        if($_GET['error'] == 1){
-            $erreur = "<p style='background-color:#2e9aaf'>Username already used !</p>";
-        }
+            $erreur = "<p style='background-color:#2e9aaf'>Username already used !</p>"."<p>Choose an another one: ".createFreeLogin($_GET['error'],'login')."</p>";
+
+
     }
 ?>
     <meta charset="UTF-8">

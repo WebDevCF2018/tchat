@@ -47,7 +47,7 @@
 							</div>
 						</div>
 					</div>
-					<a href='?p=connect'>Login</a>
+					<a class="validate" href='?p=connect'>Login</a>
 			</div>
 		</div>
 	</div><?php

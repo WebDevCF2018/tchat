@@ -10,12 +10,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #a3c55d;
+    background-color: #47467B;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
 #particles-js {
-    background-color: #8bc34a;
+    background-color: #03A9F4;
     position: fixed;
     z-index: -1;
     overflow: hidden;
@@ -41,20 +41,15 @@ form h1,.tchat h1 {
 
 #content {
     height: 80vh;
-    background-color: #FFF;
+    background-color: #ffffff;
     padding: 5px;
-    border-right: solid 2px #218d24;
-    border-top: solid 2px #218d24;
-    border-left: solid 2px #218d24;
     overflow: hidden;
+    position: relative;
 }
 
 #envoi {
     display: flex;
     text-align: right;
-    border-bottom: solid 2px #218d24;
-    border-right: solid 2px #218d24;
-    border-left: solid 2px #218d24;
 }
 
 label {
@@ -64,33 +59,33 @@ label {
 }
 
 .emoji {
-    position: relative;
-    top: 8px;
     border-radius: 100%;
-    width: 30px;
+    width: 25px;
+    vertical-align: middle;
 }
 
 #emoji-bar img {
     height: 30px;
     margin-left: 0.2vw;
     margin-right: 0.2vw;
+    cursor: pointer;
 }
 
 #emoji-bar {
-    margin: auto;
-    width: auto;
-    height: 50px;
-    display: flex;
-    background: #d1febe;
+    display: none;
+    height: 84px;
+    background: #47486bb5;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
-    border-right: solid 2px #218d24;
-    border-left: solid 2px #218d24;
+    position: absolute;
+    z-index: 18;
+    right: 1.5vh;
+    bottom: 0;
 }
 
 #button,#mySUBMIT {
-    background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
+    background: linear-gradient(to right,#4950ef 32%, #393ecc 70%, #2b2e75 100%);
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -111,7 +106,7 @@ label {
 }
 
 body {
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     font-family: arial;
 }
 
@@ -122,7 +117,6 @@ input {
     font-weight: bold;
     letter-spacing: 1px;
     transition: background 0.15s;
-    border: 1px solid #cce4b0;
 }
 
 input#login {
@@ -263,8 +257,6 @@ textarea {
 /* ------------------------------------ */
 button {
     outline: none !important;
-    border: none;
-    background: transparent;
 }
 
 .limiter {
@@ -366,7 +358,7 @@ button {
 
 @media only screen and (min-width: 768px) {
     #emoji-bar {
-        width: 60vw;
+        width: 16vw;
     }
 
     .tchat-submit {
@@ -377,7 +369,7 @@ button {
     }
 
     .message {
-        width: 60%;
+        /* width: 60%; */
     }
 
     .message.right {
@@ -387,7 +379,6 @@ button {
     #content {
         width: 60vw;
         margin: auto;
-        box-shadow: 1px 1px 32px #c7ff84;
     }
 
     #envoi {
@@ -398,12 +389,12 @@ button {
 
 @media only screen and (min-width: 480px) {
     .message {
-        width: 80%;
+        /* width: 80%; */
     }
 }
 
 nav {
-    background-color: #a4de5f;
+    background-color: #00000054;
 }
 
 nav li {
@@ -415,15 +406,15 @@ nav a {
 }
 
 nav li:hover {
-    background-color: #7fa94e;
+    background-color: #0000003b;
 }
 
 .message {
-    background-color: #8bc34a;
+    background-color: #f3f3f3;
     margin: 10px 10px;
     color: #FFF;
     border-radius: 5px;
-    border: 1px solid #75a939;
+    /* border: 1px solid #0C0C2F; */
     word-break: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -435,15 +426,17 @@ nav li:hover {
 
 .message i {
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 12px;
     text-transform: capitalize;
     font-style: initial;
     text-shadow: 1px 1px 1px #bbbbbb;
     color: #ffffff;
-    background-color: #a4de5f;
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
     word-break: normal;
+    display: grid;
+    text-align: center;
+    background-color: #dcdcdc;
 }
 
 nav li b {
@@ -458,7 +451,7 @@ nav li b {
 }
 
 .message.left {
-    justify-self: normal;
+    justify-self: baseline;
 }
 
 .message.right {
@@ -492,7 +485,8 @@ nav li b {
 }
 
 .message p {
-    margin: 10px;
+    margin: 5px 10px;
+    place-self: center;
 }
 
 .display {
@@ -515,7 +509,7 @@ nav li b {
 }
 
 .user-tchat:hover {
-    background-color: #7fa94e;
+    background-color: #0000003b;
 }
 
 .profil {
@@ -570,7 +564,7 @@ nav li b {
     padding: 5px 5px;
     color: #FFF;
     border-radius: 5px;
-    border: 1px solid #75a939;
+    border: 1px solid #01056c;
     width: 100%;
     word-break: break-word;
     -webkit-hyphens: auto;
@@ -582,6 +576,7 @@ nav li b {
 
 #date {
     color: black;
+    font-size: small;
 }
 
 /* -------- */
@@ -676,9 +671,17 @@ nav .lisearch:hover{
 #demo-2 input::-webkit-input-placeholder {
     color: transparent;
 }
+
 nav .signout{
     margin-right: 5vw;
 }
+.formulaire .form-wrapper {
+    width: 20vw;
+    padding: 1vh;
+    float: right;
+    margin-bottom: 1vh;
+}
+
 /* --------------- */
 /* ARCHIVES SEARCH RESULTS */
 /* -------------- */
@@ -687,6 +690,24 @@ nav .signout{
     width: 60vw;
     margin: 2vh auto;
     background-color: rgba(255, 255,255, 0.7);
-    padding:1vh;
+    padding: 1vh;
 }
 
+.message i img {
+    border-radius: 50px;
+    justify-self: center;
+    margin: 10px 0px;
+}
+
+#envoi button {
+    cursor: pointer;
+}
+
+.message p a {
+    color: #03A9F4;
+    font-weight: bold;
+}
+
+.message p a:hover {
+    text-decoration: underline;
+}

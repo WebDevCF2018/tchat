@@ -12,6 +12,8 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <meta charset="UTF-8">
         <title>Tchat</title>
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+        <script src="js/lib/jquery-3.3.1.js"></script>
+        <script src="js/lib/jquery.js"></script>
         <script src="js/ajax.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" media="screen" href="css/style.css">
@@ -27,13 +29,12 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
             <div class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
-                        <img src="img/<?=$info["theimage"];?>">
+                        <img src="img/profil/thumbs/<?=$info["theimage"];?>">
                         <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
                     </div>
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
                 <a href="deco.php"><li><b>Sign out</b></li></a>
-
             </div>
 
         </nav>
@@ -41,27 +42,31 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connected</p></div>
         <div id="content">
             <div id="headercontent"></div>
+            <div id="emoji-bar">
+                <img onclick="emojiBar('smile')" class="emoji" src="img/icones/smile.png">
+                <img onclick="emojiBar('happy')" class="emoji" src="img/icones/happy.png">
+                <img onclick="emojiBar('angry')" class="emoji" src="img/icones/angry.gif">
+                <img onclick="emojiBar('sad')" class="emoji" src="img/icones/sad.gif">
+                <img onclick="emojiBar('laugh')" class="emoji" src="img/icones/laugh.gif">
+                <img onclick="emojiBar('wow')" class="emoji" src="img/icones/wow.gif">
+                <img onclick="emojiBar('surprised')" class="emoji" src="img/icones/surprised.png">
+                <img onclick="emojiBar('confused')" class="emoji" src="img/icones/confused.png">
+                <img onclick="emojiBar('like')" class="emoji" src="img/icones/like.gif">
+                <img onclick="emojiBar('heart')" class="emoji" src="img/icones/heart.gif">
+                <img onclick="emojiBar('troll')" class="emoji" src="img/icones/troll.png">
+                <img onclick="emojiBar('star')" class="emoji" src="img/icones/star.png">
+                <img onclick="emojiBar('knuckle')" class="emoji" src="img/icones/knuckle.png">
+                <img onclick="emojiBar('nyan')" class="emoji" src="img/icones/nyan.gif">
+            </div>
         </div>
-        <div id="emoji-bar">
-            <img onclick="emojiBar('smile')" class="emoji" src="img/smile.png">
-            <img onclick="emojiBar('happy')" class="emoji" src="img/happy.png">
-            <img onclick="emojiBar('angry')" class="emoji" src="img/angry.gif">
-            <img onclick="emojiBar('sad')" class="emoji" src="img/sad.gif">
-            <img onclick="emojiBar('laugh')" class="emoji" src="img/laugh.gif">
-            <img onclick="emojiBar('wow')" class="emoji" src="img/wow.gif">
-            <img onclick="emojiBar('surprised')" class="emoji" src="img/surprised.png">
-            <img onclick="emojiBar('confused')" class="emoji" src="img/confused.png">
-            <img onclick="emojiBar('like')" class="emoji" src="img/like.gif">
-            <img onclick="emojiBar('heart')" class="emoji" src="img/heart.gif">
-            <img onclick="emojiBar('troll')" class="emoji" src="img/troll.png">
-            <img onclick="emojiBar('star')" class="emoji" src="img/star.png">
-            <img onclick="emojiBar('knuckle')" class="emoji" src="img/knuckle.png">
-            <img onclick="emojiBar('nyan')" class="emoji" src="img/nyan.gif">
-        </div>
+
+
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
-            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your message" required>
+            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
+             message" required>
+            <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
         <script>

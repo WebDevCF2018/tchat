@@ -6,7 +6,10 @@ require_once "function.php";
 
 $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
-@updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);
+if (isset($_POST['submit'])) {
+    updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);  
+
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div class="display">
             <a href="tchat.php">
                 <div class="user-tchat">
-                    <img src="img/<?=$info["theimage"];?>">
+                    <img src="img/profil/thumbs/<?=$info["theimage"];?>">
                     <li>Return</b></li>
                 </div>
             </a>
@@ -36,15 +39,15 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
     </nav>
     <div class="profil display">
     	<h1>Profile Setting</h1>
-    	<form enctype="multipart/form-data" method="post" action="">
+        <form enctype="multipart/form-data" method="post" action="" name="fff">
     		<div class="profil-form">
 	    		<label>
                     Username :
-	    			<input type="text" name="name" value="<?=$info["thelogin"];?>" disabled>
+	    			<input type="text" name="thename" value="<?=$info["thelogin"];?>" disabled>
 	    		</label>
 	    		<label>
 	    			e-Mail:
-	    			<input type="text" name="name" value="<?=$info["themail"];?>" disabled>
+	    			<input type="text" name="themail" value="<?=$info["themail"];?>" disabled>
 	    		</label>
 	    		<label>
                     New Password :
@@ -57,7 +60,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 	    		<input type="submit" name="submit">
 	    	</div>
 	    	<div class="profil-form pf-center">
-	    		<img src="img/<?=$info["theimage"];?>">
+	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
 	    	</div>
     	</form>
