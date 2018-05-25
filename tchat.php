@@ -19,7 +19,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
-    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent');chargeContent('phpAjax/online.php','row-connected');">
+    <body class="tchat" onload="chargeContent('phpAjax/online.php','row-connected');chargeContent('phpAjax/recup.php', 'headercontent');">
         <div id="particles-js"></div>
 
         <!-- scripts -->
@@ -34,7 +34,10 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
                     </div>
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
-                <a href="deco.php"><li><b>Sign out</b></li></a>
+                <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
+                <form action='search.php' id="demo-2" method='POST'>
+                    <input type="search" name='toto' placeholder="Search & enter" required>
+                </form>
             </div>
 
         </nav>
