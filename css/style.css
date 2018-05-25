@@ -43,9 +43,6 @@ form h1,.tchat h1 {
     height: 80vh;
     background-color: #FFF;
     padding: 5px;
-    border-right: solid 2px #218d24;
-    border-top: solid 2px #218d24;
-    border-left: solid 2px #218d24;
     overflow: hidden;
     position: relative;
 }
@@ -65,10 +62,9 @@ label {
 }
 
 .emoji {
-    position: relative;
-    top: 8px;
     border-radius: 100%;
-    width: 30px;
+    width: 25px;
+    vertical-align: middle;
 }
 
 #emoji-bar img {
@@ -435,7 +431,7 @@ nav li:hover {
 
 .message i {
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 12px;
     text-transform: capitalize;
     font-style: initial;
     text-shadow: 1px 1px 1px #bbbbbb;
@@ -444,6 +440,8 @@ nav li:hover {
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
     word-break: normal;
+    display: grid;
+    text-align: center;
 }
 
 nav li b {
@@ -492,7 +490,8 @@ nav li b {
 }
 
 .message p {
-    margin: 10px;
+    margin: 5px 10px;
+    place-self: center;
 }
 
 .display {
@@ -582,6 +581,7 @@ nav li b {
 
 #date {
     color: black;
+    font-size: small;
 }
 
 /* -------- */
@@ -600,12 +600,14 @@ nav li b {
     width: 60vw;
     margin: 2vh auto;
 }
+
 .formulaire .form-wrapper {
     width: 20vw;
     padding: 1vh;
     float: right;
     margin-bottom: 1vh;
 }
+
 /* --------------- */
 /* ARCHIVES SEARCH RESULTS */
 /* -------------- */
@@ -614,6 +616,11 @@ nav li b {
     width: 60vw;
     margin: 2vh auto;
     background-color: rgba(255, 255,255, 0.7);
-    padding:1vh;
+    padding: 1vh;
 }
 
+.message i img {
+    border-radius: 50px;
+    justify-self:  center;
+    margin: 10px 0px;
+}
