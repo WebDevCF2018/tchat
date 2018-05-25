@@ -24,23 +24,13 @@ if (!mysqli_num_rows($recup)) {
 
         $item['thecontent'] = traiteChaine(links(Censurer($item['thecontent'])));
         $choiceLeftRight = $item["thelogin"] == $_SESSION["thelogin"] ? " right" : " left";
+        $choiceOnlineOffline = in_array($item['idutil'],$_SESSION['online']) ? " online" : " offline";
         ?>
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
-            <i><img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" > <?=$item['thelogin']?>
-                <?php
-                if(in_array($item['idutil'],$_SESSION['online'])) {
-                    ?>
-                    <img src="img/green.png " >
-                    <?php
-                }else {
-                    ?>
-                    <img src="img/red.png" >
-                    <?php
-                }
-                    ?>
-                    </i><br>
-
+            <i class='<?= $choiceOnlineOffline ?>'>
+            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" > <?=$item['thelogin']?>                
+            </i>
             <p><?= $item['thecontent'] ?></p><span id='date'><?= thedate($item['thedatetime']) ?></span>
         </div>
         <?php
