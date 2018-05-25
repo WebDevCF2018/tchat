@@ -10,12 +10,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #47467b;
+    background-color: #47467B;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
 #particles-js {
-    background-color: #01056d;
+    background-color: #03A9F4;
     position: fixed;
     z-index: -1;
     overflow: hidden;
@@ -41,14 +41,8 @@ form h1,.tchat h1 {
 
 #content {
     height: 80vh;
-    background-color: #FFF;
+    background-color: #ffffff;
     padding: 5px;
-<<<<<<< HEAD
-    border-right: solid 2px #263326;
-    border-top: solid 2px #1a251a;
-    border-left: solid 2px #304631;
-=======
->>>>>>> f7a454b5a2aae0e9d910622a6b1a6818f103909c
     overflow: hidden;
     position: relative;
 }
@@ -56,9 +50,6 @@ form h1,.tchat h1 {
 #envoi {
     display: flex;
     text-align: right;
-    border-bottom: solid 2px #172918;
-    border-right: solid 2px #223822;
-    border-left: solid 2px #1d311e;
 }
 
 label {
@@ -83,7 +74,7 @@ label {
 #emoji-bar {
     display: none;
     height: 84px;
-    background: #00000066;
+    background: #47486bb5;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
@@ -94,7 +85,7 @@ label {
 }
 
 #button,#mySUBMIT {
-    background: linear-gradient(to right,#022dff 32%, #3948ff 70%, #2448fb 100%);
+    background: linear-gradient(to right,#4950ef 32%, #393ecc 70%, #2b2e75 100%);
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -115,7 +106,7 @@ label {
 }
 
 body {
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     font-family: arial;
 }
 
@@ -126,7 +117,6 @@ input {
     font-weight: bold;
     letter-spacing: 1px;
     transition: background 0.15s;
-    border: 1px solid #cce4b0;
 }
 
 input#login {
@@ -267,7 +257,6 @@ textarea {
 /* ------------------------------------ */
 button {
     outline: none !important;
-    border: groove 2px #0000008f;
 }
 
 .limiter {
@@ -380,7 +369,7 @@ button {
     }
 
     .message {
-        width: 60%;
+        /* width: 60%; */
     }
 
     .message.right {
@@ -390,7 +379,6 @@ button {
     #content {
         width: 60vw;
         margin: auto;
-        box-shadow: 1px 1px 32px #00dcffb3;
     }
 
     #envoi {
@@ -401,12 +389,12 @@ button {
 
 @media only screen and (min-width: 480px) {
     .message {
-        width: 80%;
+        /* width: 80%; */
     }
 }
 
 nav {
-    background-color: #414771;
+    background-color: #00000054;
 }
 
 nav li {
@@ -418,15 +406,15 @@ nav a {
 }
 
 nav li:hover {
-    background-color: #7fa94e;
+    background-color: #0000003b;
 }
 
 .message {
-    background-color: #0b2b735e;
+    background-color: #f3f3f3;
     margin: 10px 10px;
     color: #FFF;
     border-radius: 5px;
-    border: 1px solid #22271d;
+    /* border: 1px solid #0C0C2F; */
     word-break: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -443,12 +431,12 @@ nav li:hover {
     font-style: initial;
     text-shadow: 1px 1px 1px #bbbbbb;
     color: #ffffff;
-    background-color: #0c0c2f;
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
     word-break: normal;
     display: grid;
     text-align: center;
+    background-color: #dcdcdc;
 }
 
 nav li b {
@@ -463,7 +451,7 @@ nav li b {
 }
 
 .message.left {
-    justify-self: normal;
+    justify-self: baseline;
 }
 
 .message.right {
@@ -521,7 +509,7 @@ nav li b {
 }
 
 .user-tchat:hover {
-    background-color: #7fa94e;
+    background-color: #0000003b;
 }
 
 .profil {
@@ -576,7 +564,7 @@ nav li b {
     padding: 5px 5px;
     color: #FFF;
     border-radius: 5px;
-    border: 1px solid #75a939;
+    border: 1px solid #01056c;
     width: 100%;
     word-break: break-word;
     -webkit-hyphens: auto;
@@ -628,6 +616,19 @@ nav li b {
 
 .message i img {
     border-radius: 50px;
-    justify-self:  center;
+    justify-self: center;
     margin: 10px 0px;
+}
+
+#envoi button {
+    cursor: pointer;
+}
+
+.message p a {
+    color: #03A9F4;
+    font-weight: bold;
+}
+
+.message p a:hover {
+    text-decoration: underline;
 }
