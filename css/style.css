@@ -397,6 +397,7 @@ button {
 
 nav {
     background-color: #00000054;
+    max-height: 10vh;
 }
 
 nav li {
