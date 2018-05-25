@@ -92,7 +92,6 @@ if(!mysqli_num_rows($recup)){
             <input type="search" name='toto' placeholder="Search & enter" required>
         </form>
     </div>
-
 </nav>
 <h1>Archives : Mini chat</h1>
 <div class="formulaire">
