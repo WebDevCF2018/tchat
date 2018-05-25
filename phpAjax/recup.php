@@ -41,7 +41,8 @@ if (!mysqli_num_rows($recup)) {
                     ?>
                     </i><br>
 
-            <p><?= $item['thecontent'] ?><br><br><span id='date'><?= thedate($item['thedatetime']) ?></span></p></div>
+            <p><?= $item['thecontent'] ?></p><span id='date'><?= thedate($item['thedatetime']) ?></span>
+        </div>
         <?php
     }
 }
