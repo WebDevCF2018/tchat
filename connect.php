@@ -28,7 +28,7 @@
             }
             else {
             	$_SESSION = $connect;
-                $_SESSION['online']=[];
+                $_SESSION['online']=[$_SESSION['idutil']];
             	$_SESSION["key"] = session_id();
             	header("location: tchat.php");
             	//var_dump($_SESSION);
