@@ -19,7 +19,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
-    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent');chargeContent('phpAjax/online.php','row-connected');">
+    <body class="tchat" onload="chargeContent('phpAjax/online.php','row-connected');chargeContent('phpAjax/recup.php', 'headercontent');">
         <div id="particles-js"></div>
 
         <!-- scripts -->
