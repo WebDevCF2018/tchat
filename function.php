@@ -145,8 +145,10 @@ function confirmUser($connexion, $idutil, $thekey) {
 /* ---------------Fin des fonctions de Niko---------------- */
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
-    $colorArray = ['#660000', '#FF6600', '#CC3300', '#FF0000', '#990033', '#330000', '#FF0066', '#CC0099', '#6600FF', '#000033', '#00CCFF', '#003333', '#00CCCC', '#330033', '#99CCCC', '#009999', '#33FFCC', '#339966', '#66FF00', '#003300', '#CCFF00', '#CCCC99', '#333300', '#999966', '#333333', '#9966CC', '#CCCC00', '#FF6699', '#3399CC'];
-    ;
+
+    $colorArray = ['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#8bc34a','#4caf50','#009688','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722','#795548','#9e9e9e','#607d8b','#1b5571','#c12e00','#908314','#4A76A8','#E7C0D3','#009687','#0E6251','#AF7AC5','#2C3E50'];
+
+
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));

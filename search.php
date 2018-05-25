@@ -88,7 +88,7 @@ if(!mysqli_num_rows($recup)){
         <li><a href="index.php">Return</a></li>
 
         <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
-        <form action='' id="demo-2" method='POST'>
+        <form action='search.php' id="demo-2" method='POST'>
             <input type="search" name='toto' placeholder="Search & enter" required>
         </form>
     </div>
