@@ -22,7 +22,7 @@ $nb_tot = $requete_assoc['nb'];
 // calcul pour le premier argument du LIMIT
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
-
+$resultat_search = [];
 $sql = "SELECT m.*,u.thelogin,u.thecolor 
         FROM themessage m 
         INNER JOIN theuser u 
@@ -40,6 +40,8 @@ if(isset($_POST['toto'])){
     $count = mysqli_num_rows($iquery_count);
     if($count){
         $resultat_search = mysqli_fetch_all($iquery_count, MYSQLI_ASSOC);
+    }else {
+        $resultat_search = false;
     }
 }
 /*if(isset($resultat_search)){
@@ -84,15 +86,15 @@ if(!mysqli_num_rows($recup)){
             </div>
         </a>
         <li><a href="index.php">Return</a></li>
-        <a href="deco.php"><li><b>Sign out</b></li></a>
+
+        <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
+        <form action='search.php' id="demo-2" method='POST'>
+            <input type="search" name='toto' placeholder="Search & enter" required>
+        </form>
     </div>
 </nav>
 <h1>Archives : Mini chat</h1>
 <div class="formulaire">
-    <form action='' class="form-wrapper" method='POST'>
-        <input type="text" name='toto' id="search" placeholder="Recherche de..." required>
-        <input type="submit" value="go" id="submit">
-    </form>
 </div>
 <div id="searchresults">
     <?php
