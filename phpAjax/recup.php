@@ -29,9 +29,15 @@ if (!mysqli_num_rows($recup)) {
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
             <i class='<?= $choiceOnlineOffline ?>'>
-            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" > <?=$item['thelogin']?>                
+            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" >               
             </i>
-            <p><?= $item['thecontent'] ?></p><span id='date'><?= thedate($item['thedatetime']) ?></span>
+            <div>
+            	<span class='<?= $choiceLeftRight ?>'><?=$item['thelogin']?> </span>
+            	<p><?= $item['thecontent'] ?></p>
+        	</div>
+            <span id='date'>
+            	<?= thedate($item['thedatetime']) ?>
+            	</span>
         </div>
         <?php
     }
