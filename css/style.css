@@ -51,7 +51,6 @@ form h1,.tchat h1 {
 #envoi {
     display: flex;
     text-align: right;
-    height: 10vh;
 }
 
 label {
@@ -398,7 +397,6 @@ button {
 
 nav {
     background-color: #00000054;
-    height: 10vh;
 }
 
 nav li {
@@ -425,7 +423,14 @@ nav li:hover {
     border: 2px solid #FFF;
     width: 60px;
     display: grid;
+}
+
+i.online {
     box-shadow: 0px 0px 0px 2px #8BC34A;
+}
+
+i.offline {
+    box-shadow: 0px 0px 0px 2px #F44336;
 }
 
 nav li b {
@@ -587,50 +592,53 @@ nav li b {
 input {
     outline: none;
 }
+
 input[type=search] {
     -webkit-appearance: textfield;
     -webkit-box-sizing: content-box;
     font-family: inherit;
     font-size: 100%;
 }
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
+
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
     display: none;
 }
+
 input[type=search] {
     background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
     border: solid 1px #ccc;
     padding: 9px 10px 9px 32px;
     width: 55px;
-
     -webkit-border-radius: 10em;
     -moz-border-radius: 10em;
     border-radius: 10em;
-
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
     transition: all .5s;
 }
+
 input[type=search]:focus {
     width: 130px;
     background-color: #fff;
     border-color: #66CC75;
-
     -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
     -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
     box-shadow: 0 0 5px rgba(109,207,246,.5);
 }
+
 input:-moz-placeholder {
     color: #999;
 }
+
 input::-webkit-input-placeholder {
     color: #999;
 }
 
 /* Demo 2 */
-nav .lisearch:hover{
+nav .lisearch:hover {
     background-color: none!important;
 }
+
 #demo-2 {
     margin: 0;
     width: 0;
@@ -641,6 +649,7 @@ nav .lisearch:hover{
     right: 24vw;
     top: 7px;
 }
+
 #demo-2 input[type=search] {
     width: 14px;
     height: 15px;
@@ -648,9 +657,11 @@ nav .lisearch:hover{
     color: transparent;
     cursor: pointer;
 }
+
 #demo-2 input[type=search]:hover {
     background-color: #fff;
 }
+
 #demo-2 input[type=search]:focus {
     width: 130px;
     padding-left: 32px;
@@ -658,16 +669,19 @@ nav .lisearch:hover{
     background-color: #fff;
     cursor: auto;
 }
+
 #demo-2 input:-moz-placeholder {
     color: transparent;
 }
+
 #demo-2 input::-webkit-input-placeholder {
     color: transparent;
 }
 
-nav .signout{
+nav .signout {
     margin-right: 5vw;
 }
+
 .formulaire .form-wrapper {
     width: 20vw;
     padding: 1vh;
