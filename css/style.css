@@ -10,12 +10,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #5fc55d;
+    background-color: #47467b;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
 #particles-js {
-    background-color: #8bc34a;
+    background-color: #01056d;
     position: fixed;
     z-index: -1;
     overflow: hidden;
@@ -43,9 +43,9 @@ form h1,.tchat h1 {
     height: 80vh;
     background-color: #FFF;
     padding: 5px;
-    border-right: solid 2px #218d24;
-    border-top: solid 2px #218d24;
-    border-left: solid 2px #218d24;
+    border-right: solid 2px #263326;
+    border-top: solid 2px #1a251a;
+    border-left: solid 2px #304631;
     overflow: hidden;
     position: relative;
 }
@@ -53,9 +53,9 @@ form h1,.tchat h1 {
 #envoi {
     display: flex;
     text-align: right;
-    border-bottom: solid 2px #218d24;
-    border-right: solid 2px #218d24;
-    border-left: solid 2px #218d24;
+    border-bottom: solid 2px #172918;
+    border-right: solid 2px #223822;
+    border-left: solid 2px #1d311e;
 }
 
 label {
@@ -75,12 +75,13 @@ label {
     height: 30px;
     margin-left: 0.2vw;
     margin-right: 0.2vw;
+    cursor: pointer;
 }
 
 #emoji-bar {
     display: none;
     height: 84px;
-    background: #dfffbda8;
+    background: #00000066;
     flex-direction: row;
     justify-content: center;
     overflow: auto;
@@ -91,7 +92,7 @@ label {
 }
 
 #button,#mySUBMIT {
-    background: linear-gradient(to right,#8bc34a 32%, #AAD37B 70%, #abd57c 100%);
+    background: linear-gradient(to right,#022dff 32%, #3948ff 70%, #2448fb 100%);
     margin: 10px 0;
     align-items: flex-start;
     text-align: center;
@@ -264,7 +265,7 @@ textarea {
 /* ------------------------------------ */
 button {
     outline: none !important;
-    border: groove 2px #21c32199;
+    border: groove 2px #0000008f;
 }
 
 .limiter {
@@ -387,7 +388,7 @@ button {
     #content {
         width: 60vw;
         margin: auto;
-        box-shadow: 1px 1px 32px #c7ff84;
+        box-shadow: 1px 1px 32px #00dcffb3;
     }
 
     #envoi {
@@ -403,7 +404,7 @@ button {
 }
 
 nav {
-    background-color: #a4de5f;
+    background-color: #414771;
 }
 
 nav li {
@@ -419,11 +420,11 @@ nav li:hover {
 }
 
 .message {
-    background-color: #8bc34a;
+    background-color: #0b2b735e;
     margin: 10px 10px;
     color: #FFF;
     border-radius: 5px;
-    border: 1px solid #75a939;
+    border: 1px solid #22271d;
     word-break: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -440,7 +441,7 @@ nav li:hover {
     font-style: initial;
     text-shadow: 1px 1px 1px #bbbbbb;
     color: #ffffff;
-    background-color: #a4de5f;
+    background-color: #0c0c2f;
     padding: 5px 10px;
     border-radius: 5px 0 0 5px;
     word-break: normal;
