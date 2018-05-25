@@ -31,11 +31,11 @@ if (!mysqli_num_rows($recup)) {
                 <?php
                 if(in_array($item['idutil'],$_SESSION['online'])) {
                     ?>
-                    <img src="img/online.jpg">
+                    <img src="../img/online.jpg " width="10px" height="10px">
                     <?php
                 }else {
                     ?>
-                    <img src="img/offline.jpg">
+                    <img src="../img/offline.jpg" width="10px" height="10px">
                     <?php
                 }
                     ?>
