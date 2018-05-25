@@ -22,10 +22,11 @@ while($data = mysqli_fetch_array($recup2)){
 	$users .= $data['users']."**";
 	$online[]= $data['online'];
 }
+
 $users = substr($users, 0, -2);
 
 $_SESSION['online'] = $online;
-
+array_push($_SESSION['online'],$_SESSION['idutil']);
 $send = $tous['nb']."+".$users;
 echo $send;
 
