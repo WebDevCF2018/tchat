@@ -646,7 +646,7 @@ nav .lisearch:hover{
     box-shadow: 0;
     position: absolute;
     right: 24vw;
-    top: 1vw;
+    top: 7px;
 }
 #demo-2 input[type=search] {
     width: 14px;
