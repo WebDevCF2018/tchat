@@ -8,6 +8,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
 if (isset($_POST['submit'])) {
     updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);  
+
 }
 ?>
 <!DOCTYPE html>

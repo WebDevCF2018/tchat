@@ -3,3 +3,4 @@ nbproject/
 .idea/
 # config
 config.php
+data/saveDB/
