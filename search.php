@@ -22,7 +22,7 @@ $nb_tot = $requete_assoc['nb'];
 // calcul pour le premier argument du LIMIT
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
-
+$resultat_search = [];
 $sql = "SELECT m.*,u.thelogin,u.thecolor 
         FROM themessage m 
         INNER JOIN theuser u 
@@ -40,6 +40,8 @@ if(isset($_POST['toto'])){
     $count = mysqli_num_rows($iquery_count);
     if($count){
         $resultat_search = mysqli_fetch_all($iquery_count, MYSQLI_ASSOC);
+    }else {
+        $resultat_search = false;
     }
 }
 /*if(isset($resultat_search)){
