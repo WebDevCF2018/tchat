@@ -40,6 +40,7 @@ form h1,.tchat h1 {
 }
 
 #content {
+    max-height: 100%;
     height: 80vh;
     background-color: #ffffff;
     padding: 5px;
@@ -50,6 +51,7 @@ form h1,.tchat h1 {
 #envoi {
     display: flex;
     text-align: right;
+    height: 10vh;
 }
 
 label {
@@ -374,6 +376,7 @@ button {
 
     .message.right {
         justify-self: end;
+        flex-direction: row-reverse;
     }
 
     #content {
@@ -395,6 +398,7 @@ button {
 
 nav {
     background-color: #00000054;
+    height: 10vh;
 }
 
 nav li {
@@ -410,33 +414,18 @@ nav li:hover {
 }
 
 .message {
-    background-color: #f3f3f3;
     margin: 10px 10px;
-    color: #FFF;
-    border-radius: 5px;
-    /* border: 1px solid #0C0C2F; */
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
     display: flex;
 }
 
 .message i {
-    font-weight: bolder;
-    font-size: 12px;
-    text-transform: capitalize;
-    font-style: initial;
-    text-shadow: 1px 1px 1px #bbbbbb;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px 0 0 5px;
-    word-break: normal;
+    background-color: #04a9f4;
+    border-radius: 50px;
+    height: 60px;
+    border: 2px solid #FFF;
+    width: 60px;
     display: grid;
-    text-align: center;
-    background-color: #dcdcdc;
+    box-shadow: 0px 0px 0px 2px #8BC34A;
 }
 
 nav li b {
@@ -487,6 +476,9 @@ nav li b {
 .message p {
     margin: 5px 10px;
     place-self: center;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 0px 5px 5px 5px;
 }
 
 .display {
@@ -575,8 +567,9 @@ nav li b {
 }
 
 #date {
-    color: black;
+    color: #9E9E9E;
     font-size: small;
+    place-self: center;
 }
 
 /* -------- */
@@ -615,9 +608,11 @@ nav li b {
 }
 
 .message i img {
+    height: 56px;
+    width: 56px;
     border-radius: 50px;
+    place-self: center;
     justify-self: center;
-    margin: 10px 0px;
 }
 
 #envoi button {
