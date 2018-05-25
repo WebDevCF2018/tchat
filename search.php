@@ -84,15 +84,16 @@ if(!mysqli_num_rows($recup)){
             </div>
         </a>
         <li><a href="index.php">Return</a></li>
-        <a href="deco.php"><li><b>Sign out</b></li></a>
+
+        <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
+        <form action='' id="demo-2" method='POST'>
+            <input type="search" name='toto' placeholder="Search & enter" required>
+        </form>
     </div>
+
 </nav>
 <h1>Archives : Mini chat</h1>
 <div class="formulaire">
-    <form action='' class="form-wrapper" method='POST'>
-        <input type="text" name='toto' id="search" placeholder="Recherche de..." required>
-        <input type="submit" value="go" id="submit">
-    </form>
 </div>
 <div id="searchresults">
     <?php
