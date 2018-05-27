@@ -356,19 +356,31 @@ function thedate($date) {
 
     if ($diff > $years):
         $nbYears = floor($diff / $years);
-        return ($nbYears > 1) ? "$nbYears years ago" : "1 year ago";
+        $nbMonthY = floor(($diff - ($nbYears*$years)) / $month);
+        $Syears = ($nbYears > 1) ? "$nbYears years " : "1 year ";
+        if($nbMonthY==0) return $Syears." ago";
+        return ($nbMonthY>1) ? "$Syears and $nbMonthY months ago" : "$Syears and $nbMonthY month ago";
     endif;
     if ($diff > $month):
         $nbMonth = floor($diff / $month);
-        return ($nbMonth > 1) ? "$nbMonth months ago" : "1 month ago";
+        $nbWeeksM = floor(($diff - ($nbMonth*$month)) / $weeks);
+        $Smonths = ($nbMonth > 1) ? "$nbMonth months " : "1 month ";
+        if($nbWeeksM==0) return $Smonths." ago";
+        return ($nbWeeksM>1) ? "$Smonths and $nbWeeksM weeks ago" : "$Smonths and $nbWeeksM week ago";
     endif;
     if ($diff > $weeks):
         $nbWeeks = floor($diff / $weeks);
-        return ($nbWeeks > 1) ? "$nbWeeks weeks ago" : "1 week ago";
+        $nbDaysW = floor(($diff - ($nbWeeks*$weeks)) / $days);
+        $Sweeks = ($nbWeeks > 1) ? "$nbWeeks weeks " : "1 week ";
+        if($nbDaysW==0) return $Sweeks." ago";
+        return ($nbDaysW>1) ? "$Sweeks and $nbDaysW days ago" : "$Sweeks and $nbDaysW day ago";
     endif;
     if ($diff > $days):
         $nbDays = floor($diff / $days);
-        return ($nbDays > 1) ? "$nbDays days ago" : "1 day ago";
+        $nbHoursD = floor(($diff - ($nbDays*$days)) / $hours);
+        $Sdays = ($nbDays > 1) ? "$nbDays days " : "1 day ";
+        if($nbHoursD==0) return $Sdays." ago";
+        return ($nbHoursD>1) ? "$Sdays and $nbHoursD hours ago" : "$Sdays and $nbHoursD hour ago";
     endif;
     if ($diff > $hours):
         $nbHours = floor($diff / $hours);

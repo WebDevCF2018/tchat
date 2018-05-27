@@ -9,7 +9,7 @@ require_once "../function.php";
 $sql = "SELECT m.*,u.idutil,u.thelogin,u.thecolor,u.theimage FROM themessage m 
         INNER JOIN theuser u 
           ON u.idutil = m.theuser_idutil
-ORDER BY m.idmessage DESC LIMIT 0,30";
+ORDER BY m.thedatetime DESC LIMIT 0,30";
 $recup = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 // pas de résultats
 if (!mysqli_num_rows($recup)) {
