@@ -23,42 +23,19 @@ $nb_tot = $requete_assoc['nb'];
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
 $resultat_search = [];
-$sql = "SELECT m.*,u.thelogin,u.thecolor 
-        FROM themessage m 
-        INNER JOIN theuser u 
-        ON u.idutil = m.theuser_idutil
-        ORDER BY m.idmessage DESC 
-        LIMIT $limit, $nb_par_page";
-$recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
 $pagination = maPagination($nb_tot, $pg,"pg",$nb_par_page);
 if(isset($_POST['toto'])){
-    $lulu = htmlspecialchars($_POST['toto'],ENT_QUOTES);
+    $lulu = htmlspecialchars(trim($_POST['toto']),ENT_QUOTES);
     $iquery_count = mysqli_query($mysqli, "SELECT m.*,u.thelogin,u.thecolor 
         FROM themessage m 
         INNER JOIN theuser u 
-        ON u.idutil = m.theuser_idutil WHERE `thecontent` LIKE '%$lulu%' ");
+        ON u.idutil = m.theuser_idutil WHERE `thecontent` LIKE '%$lulu%' ORDER BY thedatetime desc");
     $count = mysqli_num_rows($iquery_count);
     if($count){
         $resultat_search = mysqli_fetch_all($iquery_count, MYSQLI_ASSOC);
-    }else {
-        $resultat_search = false;
     }
 }
-/*if(isset($resultat_search)){
-    echo "Nombre de page(s): $count";
-    echo "<pre>";
-    var_dump($resultat_search);
-    echo "</pre>";
-}*/
 
-
-// pas de résultats
-if(!mysqli_num_rows($recup)){
-    echo "<h3>No message yet !</h3>";
-}else{
-    $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -98,17 +75,21 @@ if(!mysqli_num_rows($recup)){
 </div>
 <div id="searchresults">
     <?php
-    foreach ($resultat_search as $ligne){
-        ?>
-        <p><?php echo $ligne['thecontent']?><a href="?idarticle=<?=$ligne['idmessage']?>"></a></p>
-        <h4><?=$ligne['thedatetime']?> -
-            <a href="mailto:<?=$ligne['themail']?>"><?=$ligne['thelogin']?></a></h4>
-        <hr/>
-        <?php
+    if(!$count){
+        echo "<h3>No message yet !</h3>";
+    }else {
+        foreach ($resultat_search as $ligne) {
+            ?>
+            <p><?php echo $ligne['thecontent'] = traiteChaine(links(Censurer($ligne['thecontent']))) ?><a href="?idarticle=<?= $ligne['idmessage'] ?>"></a></p>
+            <h4><?= $ligne['thedatetime'] ?> -
+                <a href="#"><?= $ligne['thelogin'] ?></a></h4>
+            <hr/>
+            <?php
+        }
     }
     ?>
-
 </div>
+
 <!-- Matomo -->
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -123,6 +104,6 @@ if(!mysqli_num_rows($recup)){
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<!-- End Matomo Code -->
+
 </body>
 </html>
