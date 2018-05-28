@@ -23,7 +23,6 @@ $nb_tot = $requete_assoc['nb'];
 // calcul pour le premier argument du LIMIT
 $limit = ($pg-1)*$nb_par_page;
 // requête pour récupérer tous les articles suivant la pagination
-
 $sql = "SELECT m.*,u.thelogin,u.thecolor,u.theimage 
         FROM themessage m 
         INNER JOIN theuser u 
@@ -79,7 +78,7 @@ if(!mysqli_num_rows($recup)){
 		<div id="archives">	
 		<?php
                 foreach($tous AS $item){
-            $item['thecontent'] = traiteChaine(links($item['thecontent']));
+            $item['thecontent'] = Censurer(traiteChaine(links($item['thecontent'])));
     		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']} - ".thedate($item['thedatetime'])."</span><p>{$item['thecontent']}<br><br></p></div>";
 			}
 			?>
