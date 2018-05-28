@@ -9,7 +9,7 @@ require_once "../function.php";
 $sql = "SELECT m.*,u.idutil,u.thelogin,u.thecolor,u.theimage FROM themessage m 
         INNER JOIN theuser u 
           ON u.idutil = m.theuser_idutil
-ORDER BY m.idmessage DESC LIMIT 0,30";
+ORDER BY m.thedatetime DESC LIMIT 0,30";
 $recup = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 // pas de résultats
 if (!mysqli_num_rows($recup)) {
@@ -29,9 +29,15 @@ if (!mysqli_num_rows($recup)) {
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
             <i class='<?= $choiceOnlineOffline ?>'>
-            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" > <?=$item['thelogin']?>                
+            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" >               
             </i>
-            <p><?= $item['thecontent'] ?></p><span id='date'><?= thedate($item['thedatetime']) ?></span>
+            <div>
+            	<span class='<?= $choiceLeftRight ?>'><?=$item['thelogin']?> </span>
+            	<p><?= $item['thecontent'] ?></p>
+        	</div>
+            <span id='date'>
+            	<?= thedate($item['thedatetime']) ?>
+            	</span>
         </div>
         <?php
     }

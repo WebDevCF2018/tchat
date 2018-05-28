@@ -485,6 +485,7 @@ nav li b {
     padding: 10px;
     background-color: #f3f3f3;
     border-radius: 0px 5px 5px 5px;
+    clear: both;
 }
 
 .display {
@@ -720,4 +721,12 @@ nav .signout {
 
 .message p a:hover {
     text-decoration: underline;
+}
+
+.message span {
+    font-size: small;
+}
+
+span.right {
+    float: right;
 }
