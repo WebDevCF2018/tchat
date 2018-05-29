@@ -494,10 +494,13 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
 
 //fonction de censure
 function Censurer($buffer) {
-    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
-    $buffer = str_replace(array('con ', 'merde', 'fils de pute', 'batard', 'asshole', 'salope', 'pétasse', 'connard', 'salaud', ' pd', 'nique ta mère', 'connasse', 'gounafié', 'négro', 'bitch', 'fuck', ' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
+
+
+    $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
+
+
 // algorithme pour créer le login si il est occupé
 function createFreeLogin($lelogin, $idcible) {
     $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];
@@ -510,4 +513,22 @@ function createFreeLogin($lelogin, $idcible) {
     }
     return $sortir;
 }
-
+// function donner le role
+function yourStatus($nm=260){
+    $status=""; //votre status
+    if($nm <= 5){
+        $status="Hello world!";
+    }elseif ($nm <= 10){
+        $status="Newbie";
+    }elseif ($nm <= 50){
+        $status="Qualified User";
+    }elseif ($nm <= 150){
+        $status="Power User";
+    }elseif ($nm <= 250){
+        $status="Advanced User";
+    }elseif ($nm <= 400){
+        $status="Proficient User";
+    }
+  return $status;
+}
+//var_dump(yourStatus(15));
