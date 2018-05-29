@@ -480,19 +480,13 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
 
 //fonction de censure
 function Censurer($buffer) {
-<<<<<<< HEAD
+
 
     $buffer = str_replace(array('con','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
 
 
-=======
-    // Ici c'est notre fonction qui sera appelée avec ob_end_flush().
-    $buffer = str_replace(array('con ', 'merde', 'fils de pute', 'batard', 'asshole', 'salope', 'pétasse', 'connard', 'salaud', ' pd', 'nique ta mère', 'connasse', 'gounafié', 'négro', 'bitch', 'fuck', ' bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
-    return $buffer;
-}
->>>>>>> f05ba7db8db6a0569ea7bc8c4ad5d635fc13e709
 // algorithme pour créer le login si il est occupé
 function createFreeLogin($lelogin, $idcible) {
     $vArray = ['Mr.', 'Ms.', '666.', 'Tchat.', 'CF2M.', '2018.'];

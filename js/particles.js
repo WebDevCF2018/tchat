@@ -402,7 +402,7 @@ var pJS = function(tag_id, params){
     var p = this;
 
     if(p.radius_bubble != undefined){
-      var radius = p.radius_bubble; 
+      var radius = p.radius_bubble;
     }else{
       var radius = p.radius;
     }
