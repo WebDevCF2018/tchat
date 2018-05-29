@@ -79,7 +79,7 @@ if(!mysqli_num_rows($recup)){
 		<?php
                 foreach($tous AS $item){
 
-            $item['thecontent'] = Censurer(traiteChaine(links($item['thecontent'])));
+            $item['thecontent'] = traiteChaine(links(Censurer($item['thecontent'])));
     		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']} - ".thedate($item['thedatetime'])."</span><p>{$item['thecontent']}<br><br></p></div>";
 
         
