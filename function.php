@@ -513,4 +513,3 @@ function createFreeLogin($lelogin, $idcible) {
     }
     return $sortir;
 }
-

@@ -68,7 +68,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
             <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
-             message" required>
+             message" onkeyup="maxL(this,1200)" required>
             <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
@@ -109,6 +109,18 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
+
+
+
+  //Fonction  qui limite le nombre de caractere contenue
+  function maxL(element, max){
+       value = element.value;
+      max = parseInt(max);
+      if(value.length > max){
+          element.value = value.substr(0, max);
+      }
+  }
+
 </script>
 <!-- End Matomo Code -->
     </body>
