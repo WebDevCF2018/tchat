@@ -17,15 +17,16 @@ $recup2 = mysqli_query($mysqli, $sql2) or die(mysqli_error($mysqli));
 
 $tous = mysqli_fetch_array($recup);
 $users = "";
-$online = "";
+$online = [];
 while($data = mysqli_fetch_array($recup2)){
 	$users .= $data['users']."**";
-	$online .= $data['online'].", ";
+	$online[]= $data['online'];
 }
-$users = substr($users, 0, -2);
-$online = substr($online, 0, -1);
-$_SESSION['online'] = $online;
 
+$users = substr($users, 0, -2);
+
+$_SESSION['online'] = $online;
+array_push($_SESSION['online'],$_SESSION['idutil']);
 $send = $tous['nb']."+".$users;
 echo $send;
 

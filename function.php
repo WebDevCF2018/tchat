@@ -145,8 +145,10 @@ function confirmUser($connexion, $idutil, $thekey) {
 /* ---------------Fin des fonctions de Niko---------------- */
 function colorMessage($db, $idutil) {
     $idutil = (int) $idutil;
-    $colorArray = ['#660000', '#FF6600', '#CC3300', '#FF0000', '#990033', '#330000', '#FF0066', '#CC0099', '#6600FF', '#000033', '#00CCFF', '#003333', '#00CCCC', '#330033', '#99CCCC', '#009999', '#33FFCC', '#339966', '#66FF00', '#003300', '#CCFF00', '#CCCC99', '#333300', '#999966', '#333333', '#9966CC', '#CCCC00', '#FF6699', '#3399CC'];
-    ;
+
+    $colorArray = ['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#8bc34a','#4caf50','#009688','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722','#795548','#9e9e9e','#607d8b','#1b5571','#c12e00','#908314','#4A76A8','#E7C0D3','#009687','#0E6251','#AF7AC5','#2C3E50'];
+
+
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
@@ -354,19 +356,31 @@ function thedate($date) {
 
     if ($diff > $years):
         $nbYears = floor($diff / $years);
-        return ($nbYears > 1) ? "$nbYears years ago" : "1 year ago";
+        $nbMonthY = floor(($diff - ($nbYears*$years)) / $month);
+        $Syears = ($nbYears > 1) ? "$nbYears years " : "1 year ";
+        if($nbMonthY==0) return $Syears." ago";
+        return ($nbMonthY>1) ? "$Syears and $nbMonthY months ago" : "$Syears and $nbMonthY month ago";
     endif;
     if ($diff > $month):
         $nbMonth = floor($diff / $month);
-        return ($nbMonth > 1) ? "$nbMonth months ago" : "1 month ago";
+        $nbWeeksM = floor(($diff - ($nbMonth*$month)) / $weeks);
+        $Smonths = ($nbMonth > 1) ? "$nbMonth months " : "1 month ";
+        if($nbWeeksM==0) return $Smonths." ago";
+        return ($nbWeeksM>1) ? "$Smonths and $nbWeeksM weeks ago" : "$Smonths and $nbWeeksM week ago";
     endif;
     if ($diff > $weeks):
         $nbWeeks = floor($diff / $weeks);
-        return ($nbWeeks > 1) ? "$nbWeeks weeks ago" : "1 week ago";
+        $nbDaysW = floor(($diff - ($nbWeeks*$weeks)) / $days);
+        $Sweeks = ($nbWeeks > 1) ? "$nbWeeks weeks " : "1 week ";
+        if($nbDaysW==0) return $Sweeks." ago";
+        return ($nbDaysW>1) ? "$Sweeks and $nbDaysW days ago" : "$Sweeks and $nbDaysW day ago";
     endif;
     if ($diff > $days):
         $nbDays = floor($diff / $days);
-        return ($nbDays > 1) ? "$nbDays days ago" : "1 day ago";
+        $nbHoursD = floor(($diff - ($nbDays*$days)) / $hours);
+        $Sdays = ($nbDays > 1) ? "$nbDays days " : "1 day ";
+        if($nbHoursD==0) return $Sdays." ago";
+        return ($nbHoursD>1) ? "$Sdays and $nbHoursD hours ago" : "$Sdays and $nbHoursD hour ago";
     endif;
     if ($diff > $hours):
         $nbHours = floor($diff / $hours);
