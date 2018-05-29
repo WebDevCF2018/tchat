@@ -10,6 +10,16 @@ define("DB_LOGIN","root");
 define("DB_PWD","");
 define("DB_CHARSET","utf8");
 
+## 27/05/2018
+
+ALTER TABLE `themessage` CHANGE `thecontent` `thecontent` VARCHAR(1200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+passage de 800 à 1200 caractères par message
+
+## 23/05/2018
+
+ALTER TABLE `theuser` CHANGE `theimage` `theimage` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'profil.png';
+
 ## 18/05/2018
 
 ALTER TABLE `theuser` ADD `theimage` VARCHAR(128) NOT NULL DEFAULT 'profil.png' AFTER `thevalidate`;
