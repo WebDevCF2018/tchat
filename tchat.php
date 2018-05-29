@@ -19,7 +19,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
-    <body class="tchat" onload="chargeContent('phpAjax/recup.php', 'headercontent');chargeContent('phpAjax/online.php','row-connected');">
+    <body class="tchat" onload="chargeContent('phpAjax/online.php','row-connected');chargeContent('phpAjax/recup.php', 'headercontent');">
         <div id="particles-js"></div>
 
         <!-- scripts -->
@@ -34,7 +34,10 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
                     </div>
                 </a>
                 <li id="button-archives" onclick="location.href= 'archives.php'"><a href="archives.php">Archives</a></li>
-                <a href="deco.php"><li><b>Sign out</b></li></a>
+                <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
+                <form action='search.php' id="demo-2" method='POST'>
+                    <input type="search" name='toto' placeholder="Search & enter" required>
+                </form>
             </div>
 
         </nav>
@@ -64,7 +67,12 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
         <div id="envoi">
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
+<<<<<<< HEAD
             <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your message" required>
+=======
+            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
+             message" onkeyup="maxL(this,1200)" required>
+>>>>>>> 51c72be373cf97a1072b6a8f052f80fdbcecbe74
             <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
         </div>
@@ -92,5 +100,32 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
                 document.getElementById('myTXT').value += ":" + emoji + ":";
             }
         </script>
+        <!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//statistiques.cf2m.be/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+
+
+  //Fonction  qui limite le nombre de caractere contenue
+  function maxL(element, max){
+       value = element.value;
+      max = parseInt(max);
+      if(value.length > max){
+          element.value = value.substr(0, max);
+      }
+  }
+
+</script>
+<!-- End Matomo Code -->
     </body>
 </html>
