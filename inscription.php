@@ -77,7 +77,7 @@
 <?php if (isset($erreur)) {?>
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
-<form action="?p=inscription" method="post">
+<form id="register-form" action="?p=inscription" method="post">
 	<div class="retour"><a href="index.php">Return</a></div>
     <h1>Registration</h1>
 
