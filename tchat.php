@@ -66,16 +66,16 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
 
         <div id="envoi">
-            <form id="tchat-form" name="theForm" method="post" action="">
+
 
             <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
             <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
-             message" name="myText" onkeyup="textCounter(theForm.myText,theForm.remChars,1200,5,40,maxL(this,1200));" required>
-                <input name="remChars" type="text" value="1200" size="3" maxlength="3" readonly>
+                   message"  name="myText"  onkeyup="textCounter(document.getElementById('myTXT'),document.getElementById('remChars'),1000);" required>
+                <input id="remChars" type="text" value="1000" size="3" maxlength="3" readonly>
             <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
 
-            </form>
+
         </div>
         <script>
             // Affichage des personnes connectés
@@ -100,6 +100,30 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
             function emojiBar(emoji) {
                 document.getElementById('myTXT').value += ":" + emoji + ":";
             }
+            
+            
+
+  function textCounter(theField,theCharCounter,maxChars){
+      var strTemp = "";
+      var strCharCounter = 0;
+      for (var i = 0; i < theField.value.length; i++)
+      {
+          var strChar = theField.value.substring(i, i + 1);
+          if (strChar == '\n') {
+              strTemp += strChar;
+              strCharCounter = 1;
+
+          }else{
+              strTemp += strChar;
+              strCharCounter ++;
+          }
+      }
+      theCharCounter.value = maxChars - strTemp.length;
+      if(maxChars - strTemp.length <=0){
+          alert("Votre texte est trop long, il va être coupé !")
+      }
+  }
+
         </script>
         <!-- Matomo -->
 <script type="text/javascript">
@@ -115,38 +139,6 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 
-
-
-  //Fonction  qui limite le nombre de caractere contenue
-  function maxL(element, max){
-       value = element.value;
-      max = parseInt(max);
-      if(value.length > max){
-          element.value = value.substr(0, max);
-      }
-  }
-
-  function textCounter(theField,theCharCounter,maxChars,maxLines,maxPerLine){
-      var strTemp = "";
-      var strCharCounter = 0;
-      for (var i = 0; i < theField.value.length; i++)
-      {
-          var strChar = theField.value.substring(i, i + 1);
-          if (strChar == '\n') {
-              strTemp += strChar;
-              strCharCounter = 1;
-
-          }else if (strCharCounter == maxPerLine){
-              strTemp += '\n' + strChar;
-              strCharCounter = 1;
-
-          }else{
-              strTemp += strChar;
-              strCharCounter ++;
-          }
-      }
-      theCharCounter.value = maxChars - strTemp.length;
-  }
 
 </script>
 <!-- End Matomo Code -->
