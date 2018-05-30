@@ -63,7 +63,7 @@
 <?php if (isset($erreur)) {?>
 <div class="erreur"><?=$erreur;?></div>
 <?php }?>
-<form action="" method="post">
+<form id="accueil-form" action="" method="post">
 
     <h1>Login</h1>
     <label for="login">Login :</label>

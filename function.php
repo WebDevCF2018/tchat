@@ -513,6 +513,7 @@ function createFreeLogin($lelogin, $idcible) {
     }
     return $sortir;
 }
+
 // création de la fonction counter ( qui compte le nombre de méssages envoyer
 
 function counter ($db,$idutil){
@@ -527,3 +528,24 @@ function counter ($db,$idutil){
     echo $nbmessage;
 
 }
+
+// function donner le role
+function yourStatus($nm=260){
+    $status=""; //votre status
+    if($nm <= 5){
+        $status="Hello world!";
+    }elseif ($nm <= 10){
+        $status="Newbie";
+    }elseif ($nm <= 50){
+        $status="Qualified User";
+    }elseif ($nm <= 150){
+        $status="Power User";
+    }elseif ($nm <= 250){
+        $status="Advanced User";
+    }elseif ($nm <= 400){
+        $status="Proficient User";
+    }
+  return $status;
+}
+//var_dump(yourStatus(15));
+

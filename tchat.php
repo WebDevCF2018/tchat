@@ -66,15 +66,16 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
 
         <div id="envoi">
-            <input type="text" class="tchat-input-30" readonly size="20" id="myNAME" placeholder="<?= $_SESSION["thelogin"]; ?>" required>
+            <form id="tchat-form" name="theForm" method="post" action="">
 
             <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your message" required>
 
-            <input type="text" class="tchat-input-60" size="55" id="myTXT" placeholder="Your
-             message" onkeyup="maxL(this,1200)" required>
+                <input name="remChars" type="text" value="1200" size="3" maxlength="3" readonly>
 
             <button><img src="img/icones/emobar.png" alt=""></button>
             <input type="button" class="tchat-submit" onclick="uploadContent('phpAjax/insert.php', '<?= $_SESSION["idutil"]; ?>', 'myTXT')" id="mySUBMIT" value="Send">
+
+            </form>
         </div>
         <script>
             // Affichage des personnes connectés
@@ -123,6 +124,28 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
       if(value.length > max){
           element.value = value.substr(0, max);
       }
+  }
+
+  function textCounter(theField,theCharCounter,maxChars,maxLines,maxPerLine){
+      var strTemp = "";
+      var strCharCounter = 0;
+      for (var i = 0; i < theField.value.length; i++)
+      {
+          var strChar = theField.value.substring(i, i + 1);
+          if (strChar == '\n') {
+              strTemp += strChar;
+              strCharCounter = 1;
+
+          }else if (strCharCounter == maxPerLine){
+              strTemp += '\n' + strChar;
+              strCharCounter = 1;
+
+          }else{
+              strTemp += strChar;
+              strCharCounter ++;
+          }
+      }
+      theCharCounter.value = maxChars - strTemp.length;
   }
 
 </script>

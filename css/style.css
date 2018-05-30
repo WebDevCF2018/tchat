@@ -23,7 +23,25 @@
     height: 100%;
 }
 
-form {
+#tchat-form  {
+    margin: 0 auto;
+    width: 360px;
+    padding: 1em;
+    background-color: #FFF;
+    box-shadow: 2px 3px 5px #cecece;
+    display: contents;
+}
+
+#accueil-form {
+    margin: 0 auto;
+    width: 360px;
+    padding: 1em;
+    background-color: #FFF;
+    box-shadow: 2px 3px 5px #cecece;
+    display: grid;
+}
+
+#register-form {
     margin: 0 auto;
     width: 360px;
     padding: 1em;
@@ -50,7 +68,7 @@ form h1,.tchat h1 {
 
 #envoi {
     display: flex;
-    text-align: right;
+    text-align: center;
 }
 
 label {
@@ -112,12 +130,12 @@ body {
 }
 
 input {
-    padding: 10px 0px;
+    /* padding: 10px 0px; */
     text-align: center;
     color: #628e2f;
     font-weight: bold;
     letter-spacing: 1px;
-    transition: background 0.15s;
+    /* transition: background 0.15s; */
 }
 
 input#login {
@@ -202,7 +220,7 @@ input:focus {
 }
 
 * {
-    padding: 0px;
+    /* padding: 0px; */
     box-sizing: border-box;
     margin: 0;
 }
@@ -245,7 +263,6 @@ ul, li {
 
 /* ------------------------------------ */
 input {
-    display: block;
     outline: none;
     border: none !important;
 }
@@ -384,8 +401,8 @@ button {
     }
 
     #envoi {
-        width: 60vw;
-        margin: auto;
+        width: 152.6vh;
+        margin: auto 39.4vh;
     }
 }
 
@@ -592,7 +609,7 @@ nav li b {
 /* ARCHIVES SEARCH FORM */
 /* -------------- */
 input {
-    outline: none;
+    /* outline: none; */
 }
 
 input[type=search] {
