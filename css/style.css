@@ -65,6 +65,7 @@
         width: 90vw!important;
         text-align: center;
         padding: 10px;
+        display: block !important;
     }
 
     #demo-2 {
