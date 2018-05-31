@@ -67,6 +67,7 @@ if (isset($_POST['submit'])) {
 	    		<input type="submit" name="submit">
 	    	</div>
 	    	<div class="profil-form pf-center">
+                <h2><?= counter($mysqli,$_SESSION['idutil']) ?></h2>
 	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
 

@@ -519,18 +519,21 @@ function createFreeLogin($lelogin, $idcible) {
 
 // création de la fonction counter ( qui compte le nombre de méssages envoyer
 
-function counter ($db,$idutil){
+/**
+ * @param $db
+ * @param $idutil
+ */
+function counter($db,$idutil){
 
 
-    $sql = "SELECT theuser_idutil, thecontent, FROM themessage WHERE theuser_idutil = $idutil";
+    $sql = "SELECT m.theuser_idutil,COUNT( m.thecontent) FROM themessage AS m WHERE m.theuser_idutil = '$idutil'";
     $recup = mysqli_query($db, $sql) or die(mysqli_error($db));
+    $tabrecup = mysqli_fetch_assoc($recup);
 
-    $message = $sql['thecontent'];
-    $nbmessage = (int) count($message);
-
-    echo $nbmessage;
+    echo $tabrecup['COUNT( m.thecontent)'];
 
 }
+
 
 // function donner le role
 function yourStatus($nm=260){
