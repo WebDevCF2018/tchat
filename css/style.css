@@ -130,12 +130,10 @@ body {
 }
 
 input {
-    /* padding: 10px 0px; */
     text-align: center;
     color: #628e2f;
     font-weight: bold;
     letter-spacing: 1px;
-    /* transition: background 0.15s; */
 }
 
 input#login {
@@ -199,11 +197,11 @@ input:focus {
 }
 
 .tchat-input-60 {
-    width: 60%;
+    width: 50%;
 }
 
 .tchat-input-30 {
-    width: 30%;
+    width: 10%;
 }
 
 .g-recaptcha {
@@ -220,7 +218,6 @@ input:focus {
 }
 
 * {
-    /* padding: 0px; */
     box-sizing: border-box;
     margin: 0;
 }
