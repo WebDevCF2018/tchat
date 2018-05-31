@@ -65,7 +65,6 @@
         width: 90vw!important;
         text-align: center;
         padding: 10px;
-        display: block !important;
     }
 
     #demo-2 {
@@ -271,7 +270,7 @@ input:focus {
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: 50%;
-    color: #fff0!important;
+    color: #fff!important;
 }
 
 .tchat-input-60 {
