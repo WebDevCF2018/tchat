@@ -63,37 +63,37 @@ if (!$recup->rowCount()) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Tchat - Archives</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
-    <script src="js/ajax.min.js"></script>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" media="screen" href="css/style.css">
 
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tchat - Archives</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+        <script src="js/ajax.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <link rel="stylesheet" media="screen" href="css/style.css">
 
-<body class="tchat">
-<div id="particles-js"></div>
-<!-- scripts -->
-<script src="js/particles.min.js"></script>
-<script src="js/app.min.js"></script>
-<nav>
-    <div class="display">
-        <a href="profil.php">
-            <div class="user-tchat">
-                <img src="img/profil/thumbs/<?= $info["theimage"] ?>" height="50" width="50">
-                <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
-            </div>
-        </a>
-        <li><a href="index.php">Return</a></li>
-        <a href="deco.php">
-            <li class="signout"><b>Sign out</b></li>
-        </a>
-        <form action='search.php' id="demo-2" method='POST'>
-            <input type="search" name='toto' placeholder="Search & enter" required>
-        </form>
+    </head>
+
+    <body class="tchat" >
+        <div id="particles-js"></div>
+        <!-- scripts -->
+        <script src="js/particles.min.js"></script>
+        <script src="js/app.min.js"></script>
+        <nav>
+            <div id="menu-mobile" onclick="menu()">☰</div>
+            <div id="menu-mobile2" class="display">
+                <a href="profil.php">
+                    <div class="user-tchat">
+                        <img src="img/profil/thumbs/<?=$info["theimage"]?>"height="50" width="50" >
+                        <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
+                    </div>
+                </a>
+                <li><a href="index.php">Return</a></li>
+                <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
+                <form action='search.php' id="demo-2" method='POST'>
+                    <input type="search" name='toto' placeholder="Search & enter" required>
+                </form>
+
     </div>
 </nav>
 <h1>Archives : Mini chat
@@ -117,21 +117,35 @@ if (!$recup->rowCount()) {
 <p><?= $pagination ?></p>
 <!-- Matomo -->
 <script type="text/javascript">
-    var _paq = _paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function () {
-        var u = "//statistiques.cf2m.be/";
-        _paq.push(['setTrackerUrl', u + 'piwik.php']);
-        _paq.push(['setSiteId', '1']);
-        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-        g.type = 'text/javascript';
-        g.async = true;
-        g.defer = true;
-        g.src = u + 'piwik.js';
-        s.parentNode.insertBefore(g, s);
-    })();
+
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//statistiques.cf2m.be/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+  var c = false;
+
+function menu(){
+  var a = document.getElementById("menu-mobile");
+  var b = document.getElementById("menu-mobile2");
+
+  if(c){
+    b.style.cssText = 'display:none !important';
+    c=false;
+
+  }else{
+    b.style.cssText = 'display:block !important';
+    c = true;
+  }
+}
+
 </script>
 <!-- End Matomo Code -->
 </body>

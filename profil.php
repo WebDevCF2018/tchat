@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 	<title>Tchat: Profil</title>
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
     <script src="js/ajax.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="stylesheet" media="screen" href="css/style.css">
 </head>
 <body>
@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
 	<script src="js/app.min.js"></script>
 	<!-- /Background JS -->
     <nav>
-        <div class="display">
+        <div id="menu-mobile" onclick="menu()">☰</div>
+            <div id="menu-mobile2" class="display">
             <a href="tchat.php">
                 <div class="user-tchat">
                     <img src="img/profil/thumbs/<?=$info["theimage"];?>">
@@ -79,6 +80,22 @@ if (isset($_POST['submit'])) {
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
+
+  var c = false;
+
+function menu(){
+  var a = document.getElementById("menu-mobile");
+  var b = document.getElementById("menu-mobile2");
+
+  if(c){
+    b.style.cssText = 'display:none !important';
+    c=false;
+
+  }else{
+    b.style.cssText = 'display:block !important';
+    c = true;
+  }
+}
 </script>
 <!-- End Matomo Code -->
 </body>

@@ -14,6 +14,81 @@
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
 }
 
+/* RESPONSIVE tablette */
+@media only screen and (min-width: 768px) {
+    #emoji-bar {
+        width: 16vw;
+    }
+
+    .tchat-submit {
+        width: 11%;
+        margin: 0!important;
+        color: #fafafa!important;
+        background: none;
+    }
+
+    .message.right {
+        justify-self: end;
+        flex-direction: row-reverse;
+    }
+
+    #content {
+        width: 60vw;
+        margin: auto;
+    }
+
+    #envoi {
+        width: 60vw;
+        margin: auto;
+    }
+}
+
+/* FIN RESPONSIVE tablette */
+/* RESPONSIVE MOBILE */
+@media (max-width: 480px) {
+    #emoji-bar {
+        margin: auto;
+        height: 50px;
+        background: #d1febe;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow: auto;
+        width: auto;
+        padding-left: 5vw;
+        border-radius: 0;
+    }
+    #menu-mobile2{
+        display: none;
+    }
+    .display {
+        width: 90vw!important;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #demo-2 {
+        display: inline-block;
+        place-self: center;
+    }
+
+    .user-tchat {
+        flex-direction: column;
+    }
+
+    #menu-mobile {
+        color: #FFF;
+        text-align: center;
+        font-size: xx-large;
+        display: block!important;
+    }
+}
+
+/* FIN RESPONSIVE MOBILE */
+#menu-mobile {
+    display: none;
+}
+
 #particles-js {
     background-color: #03A9F4;
     position: fixed;
@@ -23,7 +98,7 @@
     height: 100%;
 }
 
-#tchat-form  {
+#tchat-form {
     margin: 0 auto;
     width: 360px;
     padding: 1em;
@@ -373,47 +448,8 @@ button {
     width: 100% !important;
 }
 
-@media only screen and (min-width: 768px) {
-    #emoji-bar {
-        width: 16vw;
-    }
-
-    .tchat-submit {
-        width: 11%;
-        margin: 0!important;
-        color: #fafafa!important;
-        background: none;
-    }
-
-    .message {
-        /* width: 60%; */
-    }
-
-    .message.right {
-        justify-self: end;
-        flex-direction: row-reverse;
-    }
-
-    #content {
-        width: 60vw;
-        margin: auto;
-    }
-
-    #envoi {
-        width: 60vw;
-        margin: auto;
-    }
-}
-
-@media only screen and (min-width: 480px) {
-    .message {
-        /* width: 80%; */
-    }
-}
-
 nav {
     background-color: #00000054;
-    max-height: 10vh;
 }
 
 nav li {
@@ -478,21 +514,6 @@ nav li b {
     display: inline-block;
     padding: 10px;
     font-size: smaller;
-}
-
-@media (max-width: 480px) {
-    #emoji-bar {
-        margin: auto;
-        height: 50px;
-        background: #d1febe;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        overflow: auto;
-        width: auto;
-        padding-left: 5vw;
-        border-radius: 0;
-    }
 }
 
 .message p {
@@ -657,20 +678,13 @@ nav .lisearch:hover {
 }
 
 #demo-2 {
-    margin: 0;
-    width: 0;
-    padding: 0;
-    background-color: none;
-    box-shadow: 0;
-    position: absolute;
-    right: 24vw;
-    top: 7px;
+    place-self: center;
 }
 
 #demo-2 input[type=search] {
     width: 14px;
     height: 15px;
-    padding-left: 10px;
+    padding-left: 13px;
     color: transparent;
     cursor: pointer;
 }
@@ -696,7 +710,6 @@ nav .lisearch:hover {
 }
 
 nav .signout {
-    margin-right: 5vw;
 }
 
 .formulaire .form-wrapper {
