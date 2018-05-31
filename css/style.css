@@ -104,7 +104,7 @@
     padding: 1em;
     background-color: #FFF;
     box-shadow: 2px 3px 5px #cecece;
-    display: grid;
+    display: contents;
 }
 
 #accueil-form {
@@ -143,7 +143,7 @@ form h1,.tchat h1 {
 
 #envoi {
     display: flex;
-    text-align: right;
+    text-align: center;
 }
 
 label {
@@ -207,12 +207,10 @@ body {
 }
 
 input {
-    padding: 10px 0px;
     text-align: center;
     color: #628e2f;
     font-weight: bold;
     letter-spacing: 1px;
-    transition: background 0.15s;
 }
 
 input#login {
@@ -276,11 +274,11 @@ input:focus {
 }
 
 .tchat-input-60 {
-    width: 60%;
+    width: 71%;
 }
 
 .tchat-input-30 {
-    width: 30%;
+    width: 10%;
 }
 
 .g-recaptcha {
@@ -297,7 +295,6 @@ input:focus {
 }
 
 * {
-    padding: 0px;
     box-sizing: border-box;
     margin: 0;
 }
@@ -340,7 +337,6 @@ ul, li {
 
 /* ------------------------------------ */
 input {
-    display: block;
     outline: none;
     border: none !important;
 }
@@ -598,11 +594,10 @@ nav li b {
     width: 60vw;
     margin: 0 auto;
 }
-
-#archives .archives-message {
+.archives-message {
     background-color: #fff;
     padding: 5px 5px;
-    color: #FFF;
+    color: #000;
     border-radius: 5px;
     border: 1px solid #01056c;
     width: 100%;
@@ -633,7 +628,7 @@ nav li b {
 /* ARCHIVES SEARCH FORM */
 /* -------------- */
 input {
-    outline: none;
+    /* outline: none; */
 }
 
 input[type=search] {
@@ -731,7 +726,6 @@ nav .signout {
     clear: both;
     width: 60vw;
     margin: 2vh auto;
-    background-color: rgba(255, 255,255, 0.7);
     padding: 1vh;
 }
 

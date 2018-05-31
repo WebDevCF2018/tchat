@@ -1,11 +1,15 @@
 <?php
 require "verifSession.php";
 require_once "mysqliConnect.php";
+/*PDO connect*/
+require_once "PDOConnect.php";
 require_once "function.php";
-
 $info = infoUser($mysqli,$_SESSION["thelogin"]);
+
+
+$info = infoUser($mysqli, $_SESSION["thelogin"]);
 $nb_par_page = 60;
-if(!isset($_GET['idarticle'])) {
+if (!isset($_GET['idarticle'])) {
 // pour pagination
     if (isset($_GET['pg']) && ctype_digit($_GET['pg'])) {
         $pg = (int)$_GET['pg'];
@@ -16,33 +20,50 @@ if(!isset($_GET['idarticle'])) {
 /*/*
  *  calcul pour la pagination
  */
-// nombre total d'article
-$requete = mysqli_query($mysqli, "SELECT COUNT(idmessage) AS nb FROM themessage;");
-$requete_assoc = mysqli_fetch_assoc($requete);
-$nb_tot = $requete_assoc['nb'];
+// first update to PDO
+
+$requete = $PDO->query("SELECT COUNT(idmessage) AS nb FROM themessage;");
+$requete_assoc = $requete->fetch(PDO::FETCH_OBJ);
+$nb_tot = $requete_assoc->nb;
+
 // calcul pour le premier argument du LIMIT
-$limit = ($pg-1)*$nb_par_page;
-// requête pour récupérer tous les articles suivant la pagination
+$limit = ($pg - 1) * $nb_par_page;
+
+// requête préparée (même si sécurisée, comme elle a un lien avec une variable get $_GET['pg'] avec les emplacements nommés :mylimit et :mynbpg
+
 $sql = "SELECT m.*,u.thelogin,u.thecolor,u.theimage 
         FROM themessage m 
         INNER JOIN theuser u 
         ON u.idutil = m.theuser_idutil
-        ORDER BY m.thedatetime DESC 
-        LIMIT $limit, $nb_par_page";
-$recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
-$pagination = maPagination($nb_tot, $pg,"pg",$nb_par_page);
+        ORDER BY m.thedatetime DESC         
+        LIMIT :mylimit, :mynbpg";
+
+
+$recup = $PDO->prepare($sql);
+
+$recup->bindValue(":mylimit", $limit, PDO::PARAM_INT);
+$recup->bindValue(":mynbpg", $nb_par_page, PDO::PARAM_INT);
+
+try {
+    $recup->execute();
+} catch (PDOException $e) {
+    echo "Erreur:" . $e->getMessage();
+    die();
+};
+$pagination = maPagination($nb_tot, $pg, "pg", $nb_par_page);
 
 
 // pas de résultats
-if(!mysqli_num_rows($recup)){
-    echo "<h3>No message yet !</h3>";
-}else{
-    $tous = mysqli_fetch_all($recup,MYSQLI_ASSOC);
+if (!$recup->rowCount()) {
+    $tous = [];
+} else {
+    $tous = $recup->fetchAll(PDO::FETCH_ASSOC);
 
 }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
     <head>
         <meta charset="UTF-8">
         <title>Tchat - Archives</title>
@@ -72,24 +93,31 @@ if(!mysqli_num_rows($recup)){
                 <form action='search.php' id="demo-2" method='POST'>
                     <input type="search" name='toto' placeholder="Search & enter" required>
                 </form>
-            </div>
-        </nav>
-        <h1>Archives : Mini chat <small>(<?php if(!empty($nb_tot)) echo ($nb_tot>1)? "$nb_tot messages": "$nb_tot message" ?>)</small></h1>
-        <p><?=$pagination?></p>
-		<div id="archives">	
-		<?php
-                foreach($tous AS $item){
 
-            $item['thecontent'] = traiteChaine(links(Censurer($item['thecontent'])));
-    		echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']} - ".thedate($item['thedatetime'])."</span><p>{$item['thecontent']}<br><br></p></div>";
-
-        
-			}
-			?>
     </div>
-        <p><?=$pagination?></p>
-        <!-- Matomo -->
+</nav>
+<h1>Archives : Mini chat
+    <small>(<?php if (!empty($nb_tot)) echo ($nb_tot > 1) ? "$nb_tot messages" : "$nb_tot message" ?>)</small>
+</h1>
+<p><?= $pagination ?></p>
+<div id="archives">
+    <?php
+    if (empty($tous)) {
+        echo "<h3>No message yet !</h3>";
+    }
+    foreach ($tous AS $item) {
+
+        $item['thecontent'] = traiteChaine(links(Censurer($item['thecontent'])));
+        echo "<div class='archives-message' style='color:{$item["thecolor"]};'><strong>{$item['thelogin']}</strong> <span id='date'>{$item['thedatetime']} - " . thedate($item['thedatetime']) . "</span><p>{$item['thecontent']}<br><br></p></div>";
+
+
+    }
+    ?>
+</div>
+<p><?= $pagination ?></p>
+<!-- Matomo -->
 <script type="text/javascript">
+
   var _paq = _paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
@@ -117,7 +145,8 @@ function menu(){
     c = true;
   }
 }
+
 </script>
 <!-- End Matomo Code -->
-    </body>
+</body>
 </html>
