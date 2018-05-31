@@ -3,6 +3,8 @@ require "verifSession.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
 
+$info = infoUser($mysqli,$_SESSION["thelogin"]);
+
 $nb_par_page = 10;
 if(!isset($_GET['idarticle'])) {
 // pour pagination
@@ -56,14 +58,14 @@ if(isset($_POST['toto'])){
 <script src="js/app.min.js"></script>
 <nav>
     <div class="display">
+
         <a href="profil.php">
             <div class="user-tchat">
-                <img src="https://cdn.icon-icons.com/icons2/877/PNG/512/male-profile-picture_icon-icons.com_68388.png">
+                <img src="img/profil/thumbs/<?=$info["theimage"];?>">
                 <li>Bonjour, <b><?= $_SESSION["thelogin"]; ?></b></li>
             </div>
         </a>
         <li><a href="index.php">Return</a></li>
-
         <a href="deco.php"><li class="signout"><b>Sign out</b></li></a>
         <form action='search.php' id="demo-2" method='POST'>
             <input type="search" name='toto' placeholder="Search & enter" required>
@@ -80,10 +82,9 @@ if(isset($_POST['toto'])){
     }else {
         foreach ($resultat_search as $ligne) {
             ?>
-            <p><?php echo $ligne['thecontent'] = traiteChaine(links(Censurer($ligne['thecontent']))) ?><a href="?idarticle=<?= $ligne['idmessage'] ?>"></a></p>
+            <div class="archives-message"><?php echo $ligne['thecontent'] = traiteChaine(links(Censurer($ligne['thecontent']))) ?><a href="?idarticle=<?= $ligne['idmessage'] ?>"></a>
             <h4><?= $ligne['thedatetime'] ?> -
-                <a href="#"><?= $ligne['thelogin'] ?></a></h4>
-            <hr/>
+                <a href="#"><?= $ligne['thelogin'] ?></a></h4></div>
             <?php
         }
     }

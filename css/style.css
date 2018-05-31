@@ -571,11 +571,10 @@ nav li b {
     width: 60vw;
     margin: 0 auto;
 }
-
-#archives .archives-message {
+.archives-message {
     background-color: #fff;
     padding: 5px 5px;
-    color: #FFF;
+    color: #000;
     border-radius: 5px;
     border: 1px solid #01056c;
     width: 100%;
@@ -712,7 +711,6 @@ nav .signout {
     clear: both;
     width: 60vw;
     margin: 2vh auto;
-    background-color: rgba(255, 255,255, 0.7);
     padding: 1vh;
 }
 
