@@ -29,7 +29,7 @@ if (!mysqli_num_rows($recup)) {
 
         <div class='message<?= $choiceLeftRight ?>' style='color:<?= $item["thecolor"] ?>'>
             <i class='<?= $choiceOnlineOffline ?>'>
-            	<img src="img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" >               
+            	<img src="http://yourtchat.webdev-cf2m.be/img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" >               
             </i>
             <div>
             	<span class='<?= $choiceLeftRight ?>'><?=$item['thelogin']?> </span>

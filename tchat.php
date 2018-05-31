@@ -15,7 +15,7 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <script src="js/lib/jquery-3.3.1.js"></script>
         <script src="js/lib/jquery.js"></script>
         <script src="js/ajax.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
 
@@ -26,7 +26,8 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
         <script src="js/particles.min.js"></script>
         <script src="js/app.min.js"></script>
         <nav>
-            <div class="display">
+          <div id="menu-mobile" onclick="menu()">☰</div>
+            <div id="menu-mobile2" class="display">
                 <a href="profil.php">
                     <div class="user-tchat">
                         <img src="img/profil/thumbs/<?=$info["theimage"];?>">
@@ -41,7 +42,6 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
             </div>
 
         </nav>
-        <h1>Mini chat</h1>
         <div id="user-connected"><p><i>•</i> <b id="row-connected"></b> connected</p></div>
         <div id="content">
             <div id="headercontent"></div>
@@ -139,7 +139,21 @@ $info = infoUser($mysqli,$_SESSION["thelogin"]);
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 
+var c = false;
 
+function menu(){
+  var a = document.getElementById("menu-mobile");
+  var b = document.getElementById("menu-mobile2");
+
+  if(c){
+    b.style.cssText = 'display:none !important';
+    c=false;
+
+  }else{
+    b.style.cssText = 'display:block !important';
+    c = true;
+  }
+}
 </script>
 <!-- End Matomo Code -->
     </body>
