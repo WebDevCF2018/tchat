@@ -513,6 +513,22 @@ function createFreeLogin($lelogin, $idcible) {
     }
     return $sortir;
 }
+
+// création de la fonction counter ( qui compte le nombre de méssages envoyer
+
+function counter ($db,$idutil){
+
+
+    $sql = "SELECT theuser_idutil, thecontent, FROM themessage WHERE theuser_idutil = $idutil";
+    $recup = mysqli_query($db, $sql) or die(mysqli_error($db));
+
+    $message = $sql['thecontent'];
+    $nbmessage = (int) count($message);
+
+    echo $nbmessage;
+
+}
+
 // function donner le role
 function yourStatus($nm=260){
     $status=""; //votre status
@@ -532,3 +548,4 @@ function yourStatus($nm=260){
   return $status;
 }
 //var_dump(yourStatus(15));
+
