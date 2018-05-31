@@ -158,7 +158,7 @@ function infoUser($db, $lelogin) {
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }
-function updateUser($db, $lelogin, $password, $repassword) {
+function updateUser($db, $lelogin, $password, $repassword , $color) {
     if (isset($_POST["submit"])) {
         if (!empty($_FILES['uploaded_file'])) {
             // constante pour les thumbs (100 px L comme H)
@@ -221,6 +221,9 @@ function updateUser($db, $lelogin, $password, $repassword) {
             }
 
         }
+    }if (!empty($color)){
+        $sql = "UPDATE theuser SET thecolor = '$color' WHERE thelogin = '$lelogin'";
+        $query = mysqli_query($db, $sql) or die(mysqli_error($db));
     }
 }
 

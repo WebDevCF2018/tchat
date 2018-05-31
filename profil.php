@@ -7,9 +7,11 @@ require_once "function.php";
 $info = infoUser($mysqli,$_SESSION["thelogin"]);
 
 if (isset($_POST['submit'])) {
-    updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"]);  
+    updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"],$_POST["color"]);
 
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,12 +60,19 @@ if (isset($_POST['submit'])) {
                     Enter the password again :
 	    			<input type="password" name="repassword">
 	    		</label>
+                <label>
+                    Chose the color :
+                <input  type="color" name="color" />
+                </label>
 	    		<input type="submit" name="submit">
 	    	</div>
 	    	<div class="profil-form pf-center">
 	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
+
+
 	    	</div>
+
     	</form>
 
     </div>
