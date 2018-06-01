@@ -154,7 +154,7 @@ function colorMessage($db, $idutil) {
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
 function infoUser($db, $lelogin) {
-    $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
+    $sql = "SELECT thelogin,themail,theimage,thecolor FROM theuser WHERE thelogin= '$lelogin';";
     $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
     return mysqli_fetch_assoc($recupLogin);
 }

@@ -4,12 +4,13 @@ require_once "config.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
 
-$info = infoUser($mysqli,$_SESSION["thelogin"]);
-
 if (isset($_POST['submit'])) {
     updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"],$_POST["color"]);
 
 }
+
+$info = infoUser($mysqli,$_SESSION["thelogin"]);
+
 
 
 ?>
@@ -62,7 +63,7 @@ if (isset($_POST['submit'])) {
 	    		</label>
                 <label>
                     Chose the color :
-                <input  type="color" name="color" />
+                <input  type="color" name="color" value="<?=$info["thecolor"]; ?>"/>
                 </label>
 	    		<input type="submit" name="submit">
 	    	</div>
