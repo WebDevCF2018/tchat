@@ -66,7 +66,7 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
 
 	    	</div>
 	    	<div class="profil-form pf-center">
-                
+
                 <h2>
                     <?php
                     $nbMessage = counter($PDO,$_SESSION['idutil']);

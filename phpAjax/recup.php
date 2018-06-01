@@ -3,7 +3,6 @@
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
-require_once "../mysqliConnect.php";
 require_once "../function.php";
 require_once "../PDOConnect.php";
 
@@ -11,13 +10,13 @@ $sql = "SELECT m.*,u.idutil,u.thelogin,u.thecolor,u.theimage FROM themessage m
         INNER JOIN theuser u 
           ON u.idutil = m.theuser_idutil
 ORDER BY m.thedatetime DESC LIMIT 0,30";
-$recup = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+$recup = $PDO->query( $sql);
 // pas de résultats
-if (!mysqli_num_rows($recup)) {
+if (!$recup->rowCount()) {
     echo "<h3>No message yet !</h3>";
 } else {
 
-    $tous = mysqli_fetch_all($recup, MYSQLI_ASSOC);
+    $tous = $recup->fetchAll(PDO::FETCH_ASSOC);
     $tous = array_reverse($tous);
 
 
@@ -46,5 +45,5 @@ if (!mysqli_num_rows($recup)) {
 
 
 
-//var_dump($_SESSION['online']);
+
 
