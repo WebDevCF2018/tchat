@@ -50,7 +50,7 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
  * Create
  *
  */
-function newuser($db, $lelogin, $lepwd, $themail) {
+function newuser(PDO $db, $lelogin, $lepwd, $themail) {
     // vérification de sécurité de $title et $text
     if (empty($lelogin) || empty($lepwd)) {
         return false;
@@ -58,8 +58,12 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $lepwd = sha256($lepwd);
     $thekey = createKey();
     // req sql
-    $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db, $sql);
+    $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES (?,?,?,'$thekey');";
+    $recup = $db->prepare($sql);
+    $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
+    $recup->bindValue(2,$lepwd,PDO::PARAM_STR);
+    $recup->bindValue(3,$themail,PDO::PARAM_STR);
+    $recup->execute();
     if (mysqli_error($db)) {
         header("Location: ./?p=inscription&error=$lelogin");
         return false;
