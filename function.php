@@ -118,11 +118,11 @@ function confirmUser($connexion, $idutil, $thekey) {
     $idutil = (int) $idutil;
     $thekey = htmlspecialchars(strip_tags($thekey), ENT_QUOTES);
     /* Récupère la clé d'activation */
-    $recup = $connexion->query ("SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil");
+    $recup = $connexion->query("SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil");
     // si on ne récupère pas d'utilisateur on quitte la fonction
     if (!$recup->rowCount())
         return false;
-    $data = $recup->fetchAll(PDO::FETCH_ASSOC);
+    $data = $recup->fetch(PDO::FETCH_ASSOC);
     /* Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur */
     if ($thekey != $data['thekey'] || $data['thevalidate'] == 2) {
         /* Bad Key */
@@ -151,7 +151,7 @@ function colorMessage($db, $idutil) {
 
     $thecolor = $colorArray[mt_rand(0, count($colorArray) - 1)];
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
-    mysqli_query($db, $sql) or die(mysqli_error($db));
+    $db->query($sql);
 }
 
 // PDO
@@ -536,7 +536,6 @@ function counter(PDO $db,int $idutil){
     echo $tabrecup['COUNT( m.thecontent)'];
 
 }
-
 
 // function donner le role
 function yourStatus($nm=260){
