@@ -72,15 +72,25 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     }
     return false;
 }
+
+
+
 // identification pour administration- connectUser()
-function connectUser($db, $lelogin, $pass) {
+function connectUser(PDO $db, $lelogin, $pass) {
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)), ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
     $pwd = sha256($pwd);
-    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin= '$lelogin' AND thepwd= '$pwd' ;";
-    $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
-    return mysqli_fetch_assoc($recupLogin);
+    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin=? AND thepwd= ? ;";
+    $recup = $db->prepare($sql);
+    $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
+    $recup->bindValue(2,$pwd,PDO::PARAM_STR);
+    $recupLogin=$recup->execute();
+
+    return $recupLogin->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+
 /* Fonctions de Niko */
 /* Fonction de remplacement de strings par smileys */
 function traiteChaine($text) {
