@@ -153,11 +153,13 @@ function colorMessage($db, $idutil) {
     $sql = "UPDATE theuser SET thecolor = '$thecolor' WHERE idutil = $idutil";
     mysqli_query($db, $sql) or die(mysqli_error($db));
 }
-function infoUser($db, $lelogin) {
-    $sql = "SELECT thelogin,themail,theimage FROM theuser WHERE thelogin= '$lelogin';";
-    $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
-    return mysqli_fetch_assoc($recupLogin);
+// PDO
+function infoUser(PDO $db, int $id) {
+    $sql = "SELECT thelogin,themail,theimage, thecolor FROM theuser WHERE idutil= $id;";
+    $recupLogin = $db->query($sql);
+    return $recupLogin->fetch(PDO::FETCH_ASSOC);
 }
+
 function updateUser($db, $lelogin, $password, $repassword , $color) {
     if (isset($_POST["submit"])) {
         if (!empty($_FILES['uploaded_file'])) {

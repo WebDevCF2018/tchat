@@ -3,8 +3,9 @@ require "verifSession.php";
 require_once "config.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
+require_once "PDOConnect.php";
 
-$info = infoUser($mysqli,$_SESSION["thelogin"]);
+$info = infoUser($PDO, $_SESSION["idutil"]);
 
 if (isset($_POST['submit'])) {
     updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"],$_POST["color"]);

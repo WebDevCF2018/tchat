@@ -2,8 +2,10 @@
 require "verifSession.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
+/*PDO connect*/
+require_once "PDOConnect.php";
 
-$info = infoUser($mysqli,$_SESSION["thelogin"]);
+$info = infoUser($PDO, $_SESSION["idutil"]);
 
 $nb_par_page = 10;
 if(!isset($_GET['idarticle'])) {
