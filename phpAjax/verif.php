@@ -5,10 +5,10 @@ session_start();
 // on évite la mise en cache
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
-require_once "../mysqliConnect.php";
-$sql = "SELECT COUNT(*) AS nombre FROM themessage";
-$recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
-$result = mysqli_fetch_assoc($recup);
+require_once "../PDOConnect.php";
+
+$recup = $PDO->query("SELECT COUNT(*) AS nombre FROM themessage");
+$result = $recup->fetch(PDO::FETCH_ASSOC);
 $nb = $result['nombre'];
 // si la variable de session n'existe pas encore
 if(!isset($_SESSION['nombre'])){
@@ -27,5 +27,5 @@ if(!isset($_SESSION['nombre'])){
     }
 }
 // pour online
-$sql = "INSERT INTO theonline (idutil) VALUES (".$_SESSION['idutil'].")";
-$recup = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
+
+$recup = $PDO ->query("INSERT INTO theonline (idutil) VALUES (".$_SESSION['idutil'].")");
