@@ -84,23 +84,23 @@ function connectUser($db, $lelogin, $pass) {
 /* Fonctions de Niko */
 /* Fonction de remplacement de strings par smileys */
 function traiteChaine($text) {
-    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title="smile">', $text);
     $text = str_replace(':-)', '>', $text);
-    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
-    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title="smile">', $text);
+    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
     $text = str_replace(':-(', '>', $text);
-    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
     $text = str_replace('T_T', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
-    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title=":nyan:">', $text);
-    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title=":like:">', $text);
-    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
-    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title=":troll:">', $text);
+    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title="nyan">', $text);
+    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title="like">', $text);
+    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title="angry">', $text);
+    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title="angry">', $text);
+    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title="wow">', $text);
+    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title="wow">', $text);
+    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title="laugh">', $text);
+    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title="laugh">', $text);
+    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title="knuckle">', $text);
+    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title="troll">', $text);
     $text = str_replace(':heart:', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
     $text = str_replace('<3', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
     $text = str_replace(':confused:', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
