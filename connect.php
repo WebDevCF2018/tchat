@@ -18,7 +18,7 @@
 	        $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
 	        $pwd = strip_tags(trim($_POST['thepwd']));
 
-            $connect = connectUser($mysqli, $login, $pwd);
+            $connect = connectUser($PDO, $login, $pwd);
 
             if($connect == false){
             	$erreur = "User or password incorrect !";

@@ -84,9 +84,9 @@ function connectUser(PDO $db, $lelogin, $pass) {
     $recup = $db->prepare($sql);
     $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
     $recup->bindValue(2,$pwd,PDO::PARAM_STR);
-    $recupLogin=$recup->execute();
+    $recup->execute();
 
-    return $recupLogin->fetchAll(PDO::FETCH_ASSOC);
+    return $recup->fetch(PDO::FETCH_ASSOC);
 }
 
 
