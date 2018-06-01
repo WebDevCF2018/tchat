@@ -118,11 +118,11 @@ function confirmUser($connexion, $idutil, $thekey) {
     $idutil = (int) $idutil;
     $thekey = htmlspecialchars(strip_tags($thekey), ENT_QUOTES);
     /* Récupère la clé d'activation */
-    $req = mysqli_query($connexion, "SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil") or die(mysqli_error($connexion));
+    $recup = $connexion->query ("SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil");
     // si on ne récupère pas d'utilisateur on quitte la fonction
-    if (!mysqli_num_rows($req))
+    if (!$recup->rowCount())
         return false;
-    $data = mysqli_fetch_assoc($req);
+    $data = $recup->fetchAll(PDO::FETCH_ASSOC);
     /* Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur */
     if ($thekey != $data['thekey'] || $data['thevalidate'] == 2) {
         /* Bad Key */
@@ -136,7 +136,7 @@ function confirmUser($connexion, $idutil, $thekey) {
             /* Sinon */
         } else {
             /* Activation permited */
-            $req = mysqli_query($connexion, "UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil") or die(mysqli_error($connexion));
+            $recup = $connexion->query("UPDATE theuser SET thevalidate = 1 WHERE idutil = $idutil");
             colorMessage($connexion, $idutil);
             return "ok";
         }
