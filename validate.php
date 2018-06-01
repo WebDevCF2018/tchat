@@ -19,7 +19,7 @@
         if (isset($_GET['id']) && isset($_GET['key'])) {
             $clef = $_GET['key'];
             $identifiant = $_GET['id'];
-            $recup = confirmUser($mysqli, $identifiant, $clef);
+            $recup = confirmUser($PDO, $identifiant, $clef);
             if ($recup == "ok") {
                 ?><div class="limiter">
 		<div class="container-table100">
