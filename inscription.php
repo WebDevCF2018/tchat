@@ -38,7 +38,7 @@
             $login = htmlspecialchars(strip_tags(trim($_POST['thelogin'])), ENT_QUOTES);
             $pwd = strip_tags(trim($_POST['thepwd']));
             $email = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
-            $envReq = newuser($mysqli, $login, $pwd, $email);
+            $envReq = newuser($PDO, $login, $pwd, $email);
                 if($envReq){
                     $erreur = "<p style='background-color:#dda93fb3'>You are registered. You will receive a confirmation email before you can log in</p>";
                     }else {

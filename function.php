@@ -63,14 +63,15 @@ function newuser(PDO $db, $lelogin, $lepwd, $themail) {
     $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
     $recup->bindValue(2,$lepwd,PDO::PARAM_STR);
     $recup->bindValue(3,$themail,PDO::PARAM_STR);
-    $recup->execute();
-    if (mysqli_error($db)) {
+    try {
+        $recup->execute();
+    }catch (PDOException $e){
         header("Location: ./?p=inscription&error=$lelogin");
         return false;
     }
-    $lastid = mysqli_insert_id($db);
+    $lastid = $db->lastInsertId();
     // si on a inséré l'article
-    if (mysqli_affected_rows($db)) {
+    if ($recup) {
         EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey);
         return true;
     }
