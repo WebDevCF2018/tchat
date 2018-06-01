@@ -21,7 +21,7 @@ if(!isset($_GET['idarticle'])) {
  */
 // nombre total d'article
 $requete = $PDO->query( "SELECT COUNT(idmessage) AS nb FROM themessage;");
-$requete_assoc = $requete->fetchAll(PDO::FETCH_ASSOC);
+$requete_assoc = $requete->fetch(PDO::FETCH_ASSOC);
 $nb_tot = $requete_assoc['nb'];
 // calcul pour le premier argument du LIMIT
 $limit = ($pg-1)*$nb_par_page;
