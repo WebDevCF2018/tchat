@@ -2,7 +2,6 @@
 require "verifSession.php";
 //var_dump($_SESSION);
 require_once "config.php";
-require_once "mysqliConnect.php";
 require_once "function.php";
 require_once "PDOConnect.php";
 $info = infoUser($PDO, $_SESSION["idutil"]);
@@ -120,6 +119,22 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
             alert("Votre texte est trop long, il va être coupé !")
         }
     }
+
+    var c = false;
+
+    function menu(){
+        var a = document.getElementById("menu-mobile");
+        var b = document.getElementById("menu-mobile2");
+
+        if(c){
+            b.style.cssText = 'display:none !important';
+            c=false;
+
+        }else{
+            b.style.cssText = 'display:block !important';
+            c = true;
+        }
+    }
 </script>
 <!-- Matomo -->
 <script type="text/javascript">
@@ -135,23 +150,6 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
-
-var c = false;
-
-function menu(){
-  var a = document.getElementById("menu-mobile");
-  var b = document.getElementById("menu-mobile2");
-
-  if(c){
-    b.style.cssText = 'display:none !important';
-    c=false;
-
-  }else{
-    b.style.cssText = 'display:block !important';
-    c = true;
-  }
-}
-
 </script>
 <!-- End Matomo Code -->
 </body>

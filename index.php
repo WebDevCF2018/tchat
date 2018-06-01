@@ -2,10 +2,10 @@
 
 /* ouverture de session */
 session_start();
+
 /* Connexion à la base de donnée */
 require_once "config.php";
-/*mysqli connect*/
-require_once "mysqliConnect.php";
+
 /*PDO connect*/
 require_once "PDOConnect.php";
 
