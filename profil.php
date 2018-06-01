@@ -73,6 +73,7 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
                     echo ($nbMessage>1)?" $nbMessage messages":" $nbMessage message";
                     echo "<br>Status: ".yourStatus($nbMessage)  ?></h2>
 
+
 	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
                 <input type="submit" name="submit">
