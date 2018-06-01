@@ -4,6 +4,7 @@ require "verifSession.php";
 require_once "config.php";
 require_once "mysqliConnect.php";
 require_once "function.php";
+require_once "PDOConnect.php";
 $info = infoUser($PDO, $_SESSION["idutil"]);
 ?>
 <!DOCTYPE html>
