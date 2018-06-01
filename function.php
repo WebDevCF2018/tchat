@@ -242,7 +242,7 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
         }
     }if (!empty($color)){
         $sql = "UPDATE theuser SET thecolor = '$color' WHERE thelogin = '$lelogin'";
-        $db = $PDO->exec($sql);
+        $db = $db->exec($sql);
     }
 }
 
