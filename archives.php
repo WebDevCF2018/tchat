@@ -1,7 +1,5 @@
 <?php
 require "verifSession.php";
-require_once "mysqliConnect.php";
-/*PDO connect*/
 require_once "PDOConnect.php";
 require_once "function.php";
 
@@ -65,7 +63,7 @@ if (!$recup->rowCount()) {
 
     <head>
         <meta charset="UTF-8">
-        <title>Tchat - Archives</title>
+        <title>Tchat: Archives</title>
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
         <script src="js/ajax.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">

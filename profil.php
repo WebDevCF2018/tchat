@@ -1,18 +1,15 @@
 <?php
 require "verifSession.php";
 require_once "config.php";
-require_once "mysqliConnect.php";
 require_once "function.php";
 require_once "PDOConnect.php";
 
 if (isset($_POST['submit'])) {
-    updateUser($mysqli,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"],$_POST["color"]);
+    updateUser($PDO,$_SESSION["thelogin"],$_POST["password"],$_POST["repassword"],$_POST["color"]);
 
 }
 
 $info = infoUser($PDO, $_SESSION["idutil"]);
-
-
 
 ?>
 <!DOCTYPE html>
@@ -66,15 +63,20 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
                     Chose the color :
                 <input  type="color" name="color" value="<?=$info["thecolor"]; ?>"/>
                 </label>
-	    		<input type="submit" name="submit">
+
 	    	</div>
 	    	<div class="profil-form pf-center">
+                
+                <h2>
+                    <?php
+                    $nbMessage = counter($PDO,$_SESSION['idutil']);
+                    echo ($nbMessage>1)?" $nbMessage messages":" $nbMessage message";
+                    echo "<br>Status: ".yourStatus($nbMessage)  ?></h2>
 
-                <h2><?= counter($PDO,$_SESSION['idutil'])."<br>".yourStatus(counter($db,$idutil))  ?></h2>
 
 	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
-
+                <input type="submit" name="submit">
 
 	    	</div>
 

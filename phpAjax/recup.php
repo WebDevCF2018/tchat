@@ -5,6 +5,7 @@ header("Cache-Control: no-cache, must-revalidate");
 require "../verifSession.php";
 require_once "../mysqliConnect.php";
 require_once "../function.php";
+require_once "../PDOConnect.php";
 
 $sql = "SELECT m.*,u.idutil,u.thelogin,u.thecolor,u.theimage FROM themessage m 
         INNER JOIN theuser u 
@@ -32,7 +33,7 @@ if (!mysqli_num_rows($recup)) {
             	<img src="http://yourtchat.webdev-cf2m.be/img/profil/thumbs/<?=$item['theimage']?>"height="50" width="50" >               
             </i>
             <div>
-            	<span class='<?= $choiceLeftRight ?>'><?=$item['thelogin']." / ".yourStatus(counter($db,$idutil))?> </span>
+            	<span class='<?= $choiceLeftRight ?>'><?=$item['thelogin']." / ".yourStatus(counter($PDO,$item['idutil']))?> </span>
             	<p><?= $item['thecontent'] ?></p>
         	</div>
             <span id='date'>

@@ -3,10 +3,8 @@ function sha256($lepwd) {
     $lepwd = hash('sha256', $lepwd);
     return $lepwd;
 }
-//var_dump(sha256($lepwd));
-function createKey() {
-    // longueur chaîne de sortie
-    $length = 64;
+
+function createKey($length = 64) {
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
     // création d'un tableau indexé à partir de la chaîne $key (0=>"A"
     $keyArray = str_split($key);
@@ -21,7 +19,7 @@ function createKey() {
     }
     return $string;
 }
-//var_dump(createKey());
+
 function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variables php du requete
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
     $subject = 'Validez votre inscription sur le Tchat Webdev CF2m 2018'; // l'adresse
@@ -50,7 +48,7 @@ function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variabl
  * Create
  *
  */
-function newuser($db, $lelogin, $lepwd, $themail) {
+function newuser(PDO $db, $lelogin, $lepwd, $themail) {
     // vérification de sécurité de $title et $text
     if (empty($lelogin) || empty($lepwd)) {
         return false;
@@ -58,49 +56,64 @@ function newuser($db, $lelogin, $lepwd, $themail) {
     $lepwd = sha256($lepwd);
     $thekey = createKey();
     // req sql
-    $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES ('$lelogin','$lepwd','$themail','$thekey');";
-    $ajout = mysqli_query($db, $sql);
-    if (mysqli_error($db)) {
+    $sql = "INSERT INTO theuser (thelogin,thepwd,themail,thekey) VALUES (?,?,?,'$thekey');";
+    $recup = $db->prepare($sql);
+    $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
+    $recup->bindValue(2,$lepwd,PDO::PARAM_STR);
+    $recup->bindValue(3,$themail,PDO::PARAM_STR);
+    try {
+        $recup->execute();
+    }catch (PDOException $e){
         header("Location: ./?p=inscription&error=$lelogin");
         return false;
     }
-    $lastid = mysqli_insert_id($db);
+    $lastid = $db->lastInsertId();
     // si on a inséré l'article
-    if (mysqli_affected_rows($db)) {
+    if ($recup) {
         EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey);
         return true;
     }
     return false;
 }
+
+
+
 // identification pour administration- connectUser()
-function connectUser($db, $lelogin, $pass) {
+function connectUser(PDO $db, $lelogin, $pass) {
     $lelogin = htmlspecialchars(strip_tags(trim($lelogin)), ENT_QUOTES);
     $pwd = htmlspecialchars(strip_tags(trim($pass)), ENT_QUOTES);
     $pwd = sha256($pwd);
-    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin= '$lelogin' AND thepwd= '$pwd' ;";
-    $recupLogin = mysqli_query($db, $sql) or die(mysqli_error($db));
-    return mysqli_fetch_assoc($recupLogin);
+    $sql = "SELECT idutil, thelogin,thevalidate FROM theuser WHERE thelogin=? AND thepwd= ? ;";
+    $recup = $db->prepare($sql);
+    $recup->bindValue(1,$lelogin,PDO::PARAM_STR);
+    $recup->bindValue(2,$pwd,PDO::PARAM_STR);
+    $recup->execute();
+
+    return $recup->fetch(PDO::FETCH_ASSOC);
 }
+
+
+
 /* Fonctions de Niko */
 /* Fonction de remplacement de strings par smileys */
 function traiteChaine($text) {
-    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
+    $text = str_replace(':)', '<img class="emoji" src="img/icones/smile.png" alt="smile" title="smile">', $text);
     $text = str_replace(':-)', '>', $text);
-    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title=":smile:">', $text);
-    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':smile:', '<img class="emoji" src="img/icones/smile.png" alt="smile" title="smile">', $text);
+    $text = str_replace(":'(", '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
     $text = str_replace(':-(', '>', $text);
-    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title=":sad:">', $text);
+    $text = str_replace(':sad:', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
     $text = str_replace('T_T', '<img class="emoji" src="img/icones/sad.gif" alt="sad" title="sad">', $text);
-    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title=":nyan:">', $text);
-    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title=":like:">', $text);
-    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title=":angry:">', $text);
-    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title=":wow:">', $text);
-    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title=":laugh:">', $text);
-    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title=":knuckle:">', $text);
-    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title=":troll:">', $text);
+    $text = str_replace(':nyan:', '<img class="emoji" src="img/icones/nyan.gif" alt="nyan" title="nyan">', $text);
+    $text = str_replace(':like:', '<img class="emoji" src="img/icones/like.gif" alt="like" title="like">', $text);
+    $text = str_replace('>:(', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title="angry">', $text);
+    $text = str_replace(':angry:', '<img class="emoji" src="img/icones/angry.gif" alt="angry" title="angry">', $text);
+    $text = str_replace(':wow:', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title="wow">', $text);
+    $text = str_replace(':o', '<img class="emoji" src="img/icones/wow.gif" alt="wow" title="wow">', $text);
+    $text = str_replace(':laugh:', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title="laugh">', $text);
+    $text = str_replace(':D', '<img class="emoji" src="img/icones/laugh.gif" alt="laugh" title="laugh">', $text);
+    $text = str_replace(':knuckle:', '<img class="emoji" src="img/icones/knuckle.png" alt="knuckle" title="knuckle">', $text);
+    $text = str_replace(':troll:', '<img class="emoji" src="img/icones/troll.png" alt="troll" title="troll">', $text);
     $text = str_replace(':heart:', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
     $text = str_replace('<3', '<img class="emoji" src="img/icones/heart.gif" alt="heart" title=":heart:">', $text);
     $text = str_replace(':confused:', '<img class="emoji" src="img/icones/confused.png" alt="confused" title=":confused:">', $text);
@@ -111,17 +124,12 @@ function traiteChaine($text) {
 }
 /* Fonction d'activation du compte du nouvel utilisateur */
 function confirmUser($connexion, $idutil, $thekey) {
-    // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
-    /*
-     * Protection des variables car elles peuvent être manipulées par les utilisateurs
-     */
     $idutil = (int) $idutil;
     $thekey = htmlspecialchars(strip_tags($thekey), ENT_QUOTES);
     /* Récupère la clé d'activation */
     $recup = $connexion->query("SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil");
     // si on ne récupère pas d'utilisateur on quitte la fonction
-    if (!$recup->rowCount())
-        return false;
+    if (!$recup->rowCount()) return false;
     $data = $recup->fetch(PDO::FETCH_ASSOC);
     /* Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur */
     if ($thekey != $data['thekey'] || $data['thevalidate'] == 2) {
@@ -154,7 +162,7 @@ function colorMessage($db, $idutil) {
     $db->query($sql);
 }
 
-// PDO
+
 function infoUser(PDO $db, int $id) {
     $sql = "SELECT thelogin,themail,theimage, thecolor FROM theuser WHERE idutil= $id;";
     $recupLogin = $db->query($sql);
@@ -199,9 +207,11 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
                 // destination finale
                 $finalDestination = $oriDest . "$finalName";
                 // déplacement du fichier temporaire vers la destination finale
+
+                $theuser = htmlspecialchars(strip_tags(trim($_POST['theuser'])),ENT_QUOTES);
                 move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $finalDestination);
                 $sql = "UPDATE theuser SET theimage = '$finalName' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                $db->exec($sql);
                 // création de l'image de 800 px sur 600 px max avec proportions
                 $gd = large($finalName, $galleryDest, $finalDestination, LARGE_WIDTH, LARGE_HEIGHT, QUALITY_JPG_LARGE);
                 if ($gd) {
@@ -217,8 +227,7 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
                 echo "Mise à jour du profil !";
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
-                $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                $sql = $db->exec("UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'");
             } else {
                 echo "les mots de passes ne sont pas identiques !";
             }
@@ -226,7 +235,7 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
         }
     }if (!empty($color)){
         $sql = "UPDATE theuser SET thecolor = '$color' WHERE thelogin = '$lelogin'";
-        $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+        $db = $db->exec($sql);
     }
 }
 
@@ -398,41 +407,6 @@ function thedate($date) {
     endif;
     return "less than a minute";
 
-    /* $timeSec = time();
-      $date = strtotime($date);
-      $diff = $timeSec - $date;
-      if ($diff >= 31536000) {
-      return "il y a " .  date('Y', $diff) . " ans";
-      } elseif ($diff >= 2629738){
-      return "il y a " . date('M', $diff) . " mois";
-      } elseif ($diff >= 86400) {
-      return "il y a " .  date('d', $diff) . " jours";
-      } elseif ($diff >= 3600) {
-      return "il y a " . date('H', $diff) . " heures";
-    }else{
-        echo "il y a moins d'une minute";
-      }elseif ($diff >= 60){
-      return "il y a " . date('i', $diff) . " minutes";
-
-      } elseif ($diff >= 2629738){
-      return "il y a " . date('M', $diff) . " mois";
-
-      } elseif ($diff >= 86400) {
-      return "il y a " .  date('d', $diff) . " jours";
-
-      } elseif ($diff >= 3600) {
-      return "il y a " . date('H', $diff) . " heures";
-
-
-      }else{
-      echo "il y a moins d'une minute";
-
-      }elseif ($diff >= 60){
-      return "il y a " . date('i', $diff) . " minutes";
-
-      }else{
-      return "il y a moin d'une minute";
-      } */
 }
 
 
@@ -501,7 +475,6 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
 //fonction de censure
 function Censurer($buffer) {
 
-
     $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
@@ -533,7 +506,7 @@ function counter(PDO $db,int $idutil){
     $recup = $db->query($sql);
     $tabrecup = $recup->fetch(PDO::FETCH_ASSOC);
 
-    echo $tabrecup['COUNT( m.thecontent)'];
+   
   return $tabrecup['COUNT( m.thecontent)'];
 }
 
@@ -556,5 +529,5 @@ function yourStatus($nm=0){
     }
   return $status;
 }
-//var_dump(yourStatus());
+
 
