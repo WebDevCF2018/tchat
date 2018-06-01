@@ -7,7 +7,7 @@ require_once "function.php";
 
 $info = infoUser($PDO, $_SESSION["idutil"]);
 
-$nb_par_page = 60;
+$nb_par_page = 100;
 if (!isset($_GET['idarticle'])) {
 // pour pagination
     if (isset($_GET['pg']) && ctype_digit($_GET['pg'])) {
