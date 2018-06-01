@@ -537,7 +537,6 @@ function counter($db,$idutil){
 
 }
 
-
 // function donner le role
 function yourStatus($nm=260){
     $status=""; //votre status
