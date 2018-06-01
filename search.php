@@ -86,7 +86,7 @@ if(isset($_POST['toto'])){
             ?>
             <div class="archives-message"><?php echo $ligne['thecontent'] = traiteChaine(links(Censurer($ligne['thecontent']))) ?><a href="?idarticle=<?= $ligne['idmessage'] ?>"></a>
             <h4><?= $ligne['thedatetime'] ?> -
-                <a href="#"><?= $ligne['idmessage'] ?></a></h4></div>
+                <a href="#"><?= $ligne['thelogin'] ?></a></h4></div>
             <?php
         }
     }
