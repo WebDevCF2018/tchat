@@ -202,10 +202,8 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
 
                 $theuser = htmlspecialchars(strip_tags(trim($_POST['theuser'])),ENT_QUOTES);
                 move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $finalDestination);
-                $sql = "UPDATE theuser SET theimage = '$finalName' WHERE thelogin = '$lelogin' VALUES (:ttheuser:)";
+                $sql = "UPDATE theuser SET theimage = '$finalName' WHERE thelogin = '$lelogin'";
                 $db = $PDO->exec($sql);
-                $db->blindParam(":ttheuser:",$theuser,PDO::PARAM_STR);
-                $db->execute();
                 // création de l'image de 800 px sur 600 px max avec proportions
                 $gd = large($finalName, $galleryDest, $finalDestination, LARGE_WIDTH, LARGE_HEIGHT, QUALITY_JPG_LARGE);
                 if ($gd) {
