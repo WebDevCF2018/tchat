@@ -66,13 +66,13 @@ $info = infoUser($PDO, $_SESSION["idutil"]);
                     Chose the color :
                 <input  type="color" name="color" value="<?=$info["thecolor"]; ?>"/>
                 </label>
-	    		<input type="submit" name="submit">
+
 	    	</div>
 	    	<div class="profil-form pf-center">
                 <h2><?= counter($PDO,$_SESSION['idutil']) ?></h2>
 	    		<img src="img/profil/large/<?=$info["theimage"];?>">
 	    		<input type="file" name="uploaded_file">
-
+                <input type="submit" name="submit">
 
 	    	</div>
 
