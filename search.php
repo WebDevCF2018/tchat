@@ -20,8 +20,8 @@ if(!isset($_GET['idarticle'])) {
  *  calcul pour la pagination
  */
 // nombre total d'article
-$requete = mysqli_query($mysqli, "SELECT COUNT(idmessage) AS nb FROM themessage;");
-$requete_assoc = mysqli_fetch_assoc($requete);
+$requete = $PDO->query( "SELECT COUNT(idmessage) AS nb FROM themessage;");
+$requete_assoc = $requete->fetch(PDO::FETCH_ASSOC);
 $nb_tot = $requete_assoc['nb'];
 // calcul pour le premier argument du LIMIT
 $limit = ($pg-1)*$nb_par_page;
@@ -30,13 +30,13 @@ $resultat_search = [];
 $pagination = maPagination($nb_tot, $pg,"pg",$nb_par_page);
 if(isset($_POST['toto'])){
     $lulu = htmlspecialchars(trim($_POST['toto']),ENT_QUOTES);
-    $iquery_count = mysqli_query($mysqli, "SELECT m.*,u.thelogin,u.thecolor 
+    $iquery_count = $PDO->query( "SELECT m.*,u.thelogin,u.thecolor 
         FROM themessage m 
         INNER JOIN theuser u 
         ON u.idutil = m.theuser_idutil WHERE `thecontent` LIKE '%$lulu%' ORDER BY thedatetime desc");
-    $count = mysqli_num_rows($iquery_count);
+    $count = $iquery_count->rowCount();
     if($count){
-        $resultat_search = mysqli_fetch_all($iquery_count, MYSQLI_ASSOC);
+        $resultat_search = $iquery_count->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

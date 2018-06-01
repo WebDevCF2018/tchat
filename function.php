@@ -526,12 +526,12 @@ function createFreeLogin($lelogin, $idcible) {
  * @param $db
  * @param $idutil
  */
-function counter($db,$idutil){
+function counter(PDO $db,int $idutil){
 
 
     $sql = "SELECT m.theuser_idutil,COUNT( m.thecontent) FROM themessage AS m WHERE m.theuser_idutil = '$idutil'";
-    $recup = mysqli_query($db, $sql) or die(mysqli_error($db));
-    $tabrecup = mysqli_fetch_assoc($recup);
+    $recup = $db->query($sql);
+    $tabrecup = $recup->fetch(PDO::FETCH_ASSOC);
 
     echo $tabrecup['COUNT( m.thecontent)'];
 
