@@ -3,10 +3,8 @@ function sha256($lepwd) {
     $lepwd = hash('sha256', $lepwd);
     return $lepwd;
 }
-//var_dump(sha256($lepwd));
-function createKey() {
-    // longueur chaîne de sortie
-    $length = 64;
+
+function createKey($length = 64) {
     $key = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
     // création d'un tableau indexé à partir de la chaîne $key (0=>"A"
     $keyArray = str_split($key);
@@ -21,7 +19,7 @@ function createKey() {
     }
     return $string;
 }
-//var_dump(createKey());
+
 function EnvoiConfirmMail($lelogin, $themail, $lastid, $thekey) { // les variables php du requete
     $to = "$themail";  //mail d'utilisateur, qui a fait le registration
     $subject = 'Validez votre inscription sur le Tchat Webdev CF2m 2018'; // l'adresse
@@ -125,18 +123,13 @@ function traiteChaine($text) {
     return $text = str_replace(':star:', '<img class="emoji" src="img/icones/star.png" alt="star" title=":star:">', $text);
 }
 /* Fonction d'activation du compte du nouvel utilisateur */
-function confirmUser( $connexion, $idutil, $thekey) {
-    // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
-    /*
-     * Protection des variables car elles peuvent être manipulées par les utilisateurs
-     */
+function confirmUser($connexion, $idutil, $thekey) {
     $idutil = (int) $idutil;
     $thekey = htmlspecialchars(strip_tags($thekey), ENT_QUOTES);
     /* Récupère la clé d'activation */
     $recup = $connexion->query("SELECT thekey, thevalidate FROM theuser WHERE idutil= $idutil");
     // si on ne récupère pas d'utilisateur on quitte la fonction
-    if (!$recup->rowCount())
-        return false;
+    if (!$recup->rowCount()) return false;
     $data = $recup->fetch(PDO::FETCH_ASSOC);
     /* Si la clé n'est pas identique à celle reçue via l'url OU qu'on a banni l'utilisateur */
     if ($thekey != $data['thekey'] || $data['thevalidate'] == 2) {
@@ -169,7 +162,7 @@ function colorMessage($db, $idutil) {
     $db->query($sql);
 }
 
-// PDO
+
 function infoUser(PDO $db, int $id) {
     $sql = "SELECT thelogin,themail,theimage, thecolor FROM theuser WHERE idutil= $id;";
     $recupLogin = $db->query($sql);
@@ -414,41 +407,6 @@ function thedate($date) {
     endif;
     return "less than a minute";
 
-    /* $timeSec = time();
-      $date = strtotime($date);
-      $diff = $timeSec - $date;
-      if ($diff >= 31536000) {
-      return "il y a " .  date('Y', $diff) . " ans";
-      } elseif ($diff >= 2629738){
-      return "il y a " . date('M', $diff) . " mois";
-      } elseif ($diff >= 86400) {
-      return "il y a " .  date('d', $diff) . " jours";
-      } elseif ($diff >= 3600) {
-      return "il y a " . date('H', $diff) . " heures";
-    }else{
-        echo "il y a moins d'une minute";
-      }elseif ($diff >= 60){
-      return "il y a " . date('i', $diff) . " minutes";
-
-      } elseif ($diff >= 2629738){
-      return "il y a " . date('M', $diff) . " mois";
-
-      } elseif ($diff >= 86400) {
-      return "il y a " .  date('d', $diff) . " jours";
-
-      } elseif ($diff >= 3600) {
-      return "il y a " . date('H', $diff) . " heures";
-
-
-      }else{
-      echo "il y a moins d'une minute";
-
-      }elseif ($diff >= 60){
-      return "il y a " . date('i', $diff) . " minutes";
-
-      }else{
-      return "il y a moin d'une minute";
-      } */
 }
 
 
@@ -517,7 +475,6 @@ function maPagination($nombre_elements_total, $page_actuelle, $nom_variable_get 
 //fonction de censure
 function Censurer($buffer) {
 
-
     $buffer = str_replace(array('con ','merde','fils de pute','batard','asshole','salope','pétasse','connard','salaud', 'pd','nique ta mère','connasse','gounafié','négro','bitch','fuck','bite'), '<span style="color: red;"> [Censuré] </span>', $buffer);
     return $buffer;
 }
@@ -572,5 +529,5 @@ function yourStatus($nm=0){
     }
   return $status;
 }
-//var_dump(yourStatus());
+
 
