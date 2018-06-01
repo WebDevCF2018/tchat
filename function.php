@@ -534,11 +534,12 @@ function counter(PDO $db,int $idutil){
     $tabrecup = $recup->fetch(PDO::FETCH_ASSOC);
 
     echo $tabrecup['COUNT( m.thecontent)'];
-
+  return $tabrecup['COUNT( m.thecontent)'];
 }
 
 // function donner le role
-function yourStatus($nm=260){
+function yourStatus($nm=0){
+
     $status=""; //votre status
     if($nm <= 5){
         $status="Hello world!";
@@ -555,5 +556,5 @@ function yourStatus($nm=260){
     }
   return $status;
 }
-//var_dump(yourStatus(15));
+//var_dump(yourStatus());
 
