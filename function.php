@@ -199,9 +199,13 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
                 // destination finale
                 $finalDestination = $oriDest . "$finalName";
                 // déplacement du fichier temporaire vers la destination finale
+
+                $theuser = htmlspecialchars(strip_tags(trim($_POST['theuser'])),ENT_QUOTES);
                 move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $finalDestination);
-                $sql = "UPDATE theuser SET theimage = '$finalName' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                $sql = "UPDATE theuser SET theimage = '$finalName' WHERE thelogin = '$lelogin' VALUES (:ttheuser:)";
+                $db = $PDO->exec($sql);
+                $db->blindParam(":ttheuser:",$theuser,PDO::PARAM_STR);
+                $db->execute();
                 // création de l'image de 800 px sur 600 px max avec proportions
                 $gd = large($finalName, $galleryDest, $finalDestination, LARGE_WIDTH, LARGE_HEIGHT, QUALITY_JPG_LARGE);
                 if ($gd) {
@@ -217,8 +221,7 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
                 echo "Mise à jour du profil !";
                 $password = htmlspecialchars(strip_tags(trim($password)), ENT_QUOTES);
                 $password = sha256($password);
-                $sql = "UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'";
-                $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+                $sql = $db->exec("UPDATE theuser SET thepwd = '$password' WHERE thelogin = '$lelogin'");
             } else {
                 echo "les mots de passes ne sont pas identiques !";
             }
@@ -226,7 +229,7 @@ function updateUser($db, $lelogin, $password, $repassword , $color) {
         }
     }if (!empty($color)){
         $sql = "UPDATE theuser SET thecolor = '$color' WHERE thelogin = '$lelogin'";
-        $query = mysqli_query($db, $sql) or die(mysqli_error($db));
+        $db = $PDO->exec($sql);
     }
 }
 
