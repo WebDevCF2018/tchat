@@ -533,7 +533,7 @@ function counter(PDO $db,int $idutil){
     $recup = $db->query($sql);
     $tabrecup = $recup->fetch(PDO::FETCH_ASSOC);
 
-    echo $tabrecup['COUNT( m.thecontent)'];
+   
   return $tabrecup['COUNT( m.thecontent)'];
 }
 
