@@ -110,7 +110,7 @@ function traiteChaine($text) {
     return $text = str_replace(':star:', '<img class="emoji" src="img/icones/star.png" alt="star" title=":star:">', $text);
 }
 /* Fonction d'activation du compte du nouvel utilisateur */
-function confirmUser($connexion, $idutil, $thekey) {
+function confirmUser( $connexion, $idutil, $thekey) {
     // permet de rendre une variable globale déjà existante active dans la fonction => global $mysqli;
     /*
      * Protection des variables car elles peuvent être manipulées par les utilisateurs
