@@ -11,8 +11,6 @@ if (isset($_POST['submit'])) {
 
 $info = infoUser($PDO, $_SESSION["idutil"]);
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
